@@ -2,7 +2,7 @@ site_name: documentacao-eltech
 
 #
 # PARA RODAR O SERVIDOR LOCAL python -m mkdocs serve
-#
+# python -m  mkdocs gh-deploy  
 #
 
 
