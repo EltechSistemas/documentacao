@@ -1,5 +1,7 @@
+]# SCF - Extrato Contábil
+
 ## 📖 Descrição
-Relatório de extrato contábil para documentos a receber e a pagar, com opções de visualização por diferentes critérios e exportação para múltiplos formatos.
+Relatório de extrato contábil para documentos a receber e a pagar, com opções de visualização por diferentes critérios, exportação para múltiplos formatos e filtro por PLF (Parametro e Lançamento Fiscal).
 
 ## 🎯 Finalidade
 Fornecer uma visão consolidada da situação financeira da empresa, permitindo análise de contas a receber/pagar por diversos filtros e períodos, com cálculo automático de juros, multas e encargos.
@@ -20,6 +22,8 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 - `AAH01` - Tipos de documento
 - `AAC10` - Empresas
 - `DAB10` - Históricos de documentos
+- `DAA0103` - Itens de documentos financeiros
+- `ABF20` - PLF (Parametro e Lançamento Fiscal).
 
 **Entidades Envolvidas:**
 - `Daa01` - Documentos financeiros
@@ -27,6 +31,7 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 - `Aac10` - Empresa
 - `Abf15` - Portador
 - `Abc10` - Conta contábil
+- `Abf20` - PLF
 
 ## ⚙️ Parâmetros do Relatório
 
@@ -46,6 +51,7 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 | dataPer | LocalDate[] | Sim | Período de análise | Data inicial e final |
 | op | Integer | Sim | Layout do relatório | 0=Padrão, 1=Alternativo |
 | opEnt | Integer | Sim | Nome entidade | 0=Nome reduzido, 1=Nome completo |
+| plf | List<Long> | Não | PLFs a desconsiderar | IDs PLFs |
 
 ## 📋 Campos do Relatório
 
@@ -74,12 +80,12 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 2. **Construção da Consulta**
    - Monta SQL dinâmico com filtros aplicados
    - Define joins específicos por classe
-   - Aplica ordenação conforme parâmetro
+   - Aplica filtro de PLF quando informado
 
 3. **Busca de Dados**
    - Consulta documentos no período
+   - Considera apenas último item por documento
    - Calcula campos financeiros (JME)
-   - Agrupa por entidade e documento
 
 4. **Ajuste de Período**
    - Separa valores realizados e a realizar
@@ -109,6 +115,10 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 - **Classe 1 (Pagar):** Join com `Abe03` e `Abe0301`
 - Conta contábil da primeira sequência
 
+### Filtro PLF
+- Exclui documentos vinculados aos PLFs informados
+- Considera apenas o último item por documento
+
 ## 🎨 Saídas Disponíveis
 
 | Formato | Descrição | Template | Método |
@@ -135,4 +145,5 @@ Fornecer uma visão consolidada da situação financeira da empresa, permitindo 
 - Processamento de campos JSON para valores financeiros
 - Ajuste automático de datas e períodos
 - Suporte a múltiplas empresas no cabeçalho
+- Filtro por PLF com subconsulta para último item
 - Ordenação flexível por código ou nome de entidade
