@@ -97,9 +97,9 @@ Fornecer uma visão detalhada do faturamento diário da empresa, permitindo o ac
 - Considera apenas operações com `resumo_venda = 1`
 
 ### Classificação de Operações
-- **EXPORTACAO:** Códigos 331927255, 285603711
-- **SUCATA:** Códigos 331931980, 331931983
-- **INDUSTRIALIZACAO:** Código 285367776
+- **EXPORTACAO:** Ids 331927255, 285603711
+- **SUCATA:** Ids 331931980, 331931983
+- **INDUSTRIALIZACAO:** Ids 285367776
 - **NORMAL:** Demais operações
 
 ### Classificação de Dias
