@@ -1,158 +1,133 @@
-# SRF - Enviar Emails NFe
+# SRF_ImportarXMLNFeEntrada.md
 
 ## 📖 Descrição
-Fórmula para envio automatizado de e-mails relacionados a Notas Fiscais Eletrônicas, incluindo faturamento, cobrança, cancelamentos e cartas de correção.
+Sistema de importação de XML de Nota Fiscal Eletrônica (NF-e) para documentos de entrada, responsável por extrair e processar todos os dados fiscais, tributários e comerciais do arquivo XML.
 
 ## 🎯 Finalidade
-Automatizar o envio de e-mails para clientes, representantes e transportadoras com documentos fiscais eletrônicos (XML, DANFE, boletos) de acordo com o tipo de operação.
+Automatizar o processo de importação de dados fiscais de NF-e de entrada, garantindo a correta extração e mapeamento de informações tributárias, valores, produtos e dados complementares para o sistema.
 
 ## 👥 Público-Alvo
 - Departamento Fiscal
-- Faturamento
-- Cobrança
-- Representantes Comerciais
+- Compras
+- Almoxarifado/Estoque
+- Contabilidade
+
+## ⚙️ Configuração
+**Recursos Necessários:**
+- Fórmula `SRF_ImportarXMLNFeEntrada` - Processamento de XML NF-e entrada
+
+**Localização:** `eltech/formulas/srf/`
 
 ## 📊 Dados e Fontes
-
 **Tabelas Principais:**
-- `Eaa01` - Documentos fiscais NF-e
-- `Abb01` - Cabeçalho de documentos
-- `Abe01` - Entidades (clientes)
-- `Eaa0102` - Dados complementares do documento
-- `Aaa16` - Processamento da mensageria
-- `Eaa0114` - Cartas de correção
-- `Eaa0101` - E-mails específicos por documento
-- `Abe0101` - Endereços de e-mail das entidades
+- `EAA01` - Documentos fiscais
+- `EAA0103` - Itens do documento
+- `EAA01038` - Controle de lotes/séries
+- `EAA0113` - Duplicatas
+- `EAA01033` - Itens referenciados
 
-## ⚙️ Parâmetros da Fórmula
+**Entidades Envolvidas:**
+- `Eaa01` - Documento fiscal
+- `Eaa0103` - Item do documento
+- `ElementXml` - Parser de XML
+
+## ⚙️ Parâmetros do Processo
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 |-----------|------|-------------|-----------|
-| eaa01id | Long | Sim | ID do documento fiscal (Eaa01) |
-| aaa16id | Long | Sim | ID do processamento da mensageria |
-| eaa0114id | Long | Não | ID da carta de correção (se aplicável) |
+| eaa01 | Eaa01 | Sim | Documento fiscal a ser processado |
+| elementXmlNfe | ElementXml | Sim | Estrutura XML da NF-e a ser importada |
 
 ## 🔄 Fluxo do Processo
 
-### 1. **Configuração Inicial**
-- Obtenção dos parâmetros de entrada
-- Carregamento das entidades principais (Eaa01, Aaa16, Abb01, Abe01)
-- Verificação da existência de e-mail principal no documento
+1. **Validação Inicial**
+   - Verifica estrutura do XML (nfeProc > NFe > infNFe)
+   - Valida nó principal do documento fiscal
 
-### 2. **Composição do Corpo da Mensagem**
-- **Cancelamento**: Inclui motivo do cancelamento
-- **Carta de Correção**: Inclui texto da correção
-- **Faturamento Normal**: Mensagem padrão de envio de NF-e
-- Formatação HTML com dados do cliente e chave de acesso
+2. **Processamento de Itens**
+   - Percorre todos os itens (det) do XML
+   - Busca item correspondente no documento por número de sequência
+   - Processa dados básicos do produto (NCM, unidade tributária)
 
-### 3. **Definição dos Destinatários**
-- **E-mail Principal**: Cliente (faturamento)
-- **E-mail Cobrança**: Endereço específico para cobrança
-- **Representantes**: Até 5 representantes vinculados ao documento
-- **Transportadora**: Empresa de despacho (se informada)
+3. **Extração de Dados Tributários**
+   - **ICMS:** Todos os grupos (00, 10, 20, 30, 40, 51, 60, 70, 90, Part, ST, SN)
+   - **IPI:** Dados de impostos sobre produtos industrializados
+   - **PIS/COFINS:** Tributos federais normal e ST
+   - **II:** Imposto de importação
+   - **ISSQN:** Imposto sobre serviços
 
-### 4. **Configuração dos Anexos**
-- **Faturamento**: XML + DANFE
-- **Cobrança**: Boleto (separado ou junto com faturamento)
-- **Cancelamento/CC-e**: Apenas XML
-- **Representantes**: Apenas DANFE
-- **Transportadora**: Apenas XML
+4. **Controle de Lotes e Séries**
+   - Processa informações de rastreamento (rastro)
+   - Aplica fatores de conversão de unidades
+   - Define status e controles conforme configuração do PCD
+
+5. **Dados Complementares**
+   - Totais da NF-e (valores, impostos consolidados)
+   - Informações de transporte (volumes, pesos)
+   - Observações fiscais e complementares
+   - Duplicatas (quando aplicável)
 
 ## ⚠️ Regras de Negócio
 
-### Tipos de E-mail
-- **Faturamento**: Remetente 2 (Faturamento), com XML e DANFE
-- **Cobrança**: Remetente 1 (Cobrança), apenas boleto
-- **Cancelamento/CC-e**: Remetente 2, apenas XML
-- **Representantes**: Remetente 2, apenas DANFE
-- **Transportadora**: Remetente 2, apenas XML
+### Validações de Estrutura
+- XML deve conter estrutura nfeProc > NFe > infNFe
+- Itens devem corresponder sequencialmente aos itens do documento
+- Campos numéricos são convertidos com casas decimais específicas
 
-### Hierarquia de E-mails de Cobrança
-1. E-mail específico no documento (Eaa0101) marcado como cobrança
-2. E-mail principal da entidade (Abe0101) marcado como cobrança
-3. E-mail principal do documento (Eaa0102)
+### Processamento de Tributos
+- **ICMS:** Suporte a todos os CSTs (00, 10, 20, 30, 40, 51, 60, 70, 90)
+- **IPI:** Tratamento para cálculos por alíquota e por unidade
+- **PIS/COFINS:** Diferenciação entre regime cumulativo e não-cumulativo
+- **Substituição Tributária:** Cálculos de MVA, reduções e bases
 
-### Representantes
-- Considera até 5 representantes vinculados (rep0 a rep4)
-- Apenas e-mails principais das entidades representantes
-- Não envia XML, apenas DANFE para acompanhamento
+### Controle de Estoques
+- Aplicação automática de fatores de conversão
+- Definição de status conforme configuração do PCD
+- Controles específicos para operações com estoque
 
-### Transportadora
-- Apenas se houver empresa de despacho informada
-- Envia apenas XML para fins de logística
+### Referências e Relacionamentos
+- Vinculação automática de NF-e referenciadas
+- Processamento de duplicatas para documentos financeiros
+- Mapeamento de observações fiscais e complementares
 
-## 🔧 Métodos Principais
+## 🎨 Saídas Geradas
 
-### `executar()`
-Método principal que orquestra todo o processo de envio de e-mails.
-
-### `comporCorpoMsg(Aaa16 aaa16, Eaa01 eaa01, Abe01 abe01, Abb01 abb01, Long eaa0114id)`
-Compoi o corpo do e-mail conforme o tipo de operação:
-- **Cancelamento**: Inclui motivo
-- **Carta de Correção**: Inclui texto da correção
-- **Faturamento**: Mensagem padrão
-
-### `obterEmailCobranca(Long eaa01id, Long abe01id, Eaa0102 eaa0102)`
-Busca o e-mail de cobrança seguindo a hierarquia definida.
-
-### `obterEmailsRepresentantes(Eaa01 eaa01)`
-Obtém e-mails dos representantes vinculados ao documento.
-
-### `obterEmailTransportadoraDespacho(Eaa0102 eaa0102)`
-Busca e-mail da transportadora responsável pelo despacho.
-
-## 📊 Estrutura de Saída
-
-**EmailNFeDto:**
-- `assunto` - Assunto do e-mail
-- `corpo` - Corpo em HTML da mensagem
-- `emailsDestinoPara` - Lista de destinatários
-- `enviarXML` - Indica se envia arquivo XML
-- `enviarDanfe` - Indica se envia DANFE
-- `enviarBoleto` - Indica se envia boleto
-- `emailRemetente` - Tipo de remetente (0: Principal, 1: Cobrança, 2: Faturamento)
-
-**Lista de E-mails Gerados:**
-- Retornada no parâmetro `emails` para processamento pela mensageria
+| Saída | Descrição | Tipo |
+|-------|-----------|------|
+| eaa01 | Documento fiscal com dados importados | Eaa01 |
 
 ## 🔧 Dependências
 
 **Bibliotecas:**
-- `multiorm` - Criteria e joins para consultas
-- `sam.dicdados` - Tipos de fórmula
-- `sam.dto.srf` - DTOs específicos do módulo SRF
-- `sam.model` - Entidades do sistema
+- `multiorm` - Persistência e consultas
+- `br.com.multitec.utils.xml` - Processamento de XML
+- `sam.model.entities` - Entidades do sistema
 
-**Entidades:**
-- `EmailNFeDto` - Estrutura de dados para e-mails
-- `FormulaBase` - Classe base para fórmulas
+**Estruturas de Dados:**
+- `ElementXml` - Parser e navegação de XML
+- `TableMap` - Armazenamento de dados JSON
 
 ## 📝 Observações Técnicas
 
-### Formatação HTML
-- Corpo dos e-mails em HTML com tags básicas
-- Links para portal da NF-e
-- Dados do cliente e chave de acesso formatados
-- Assinatura automática do sistema
+- **Processamento:** Síncrono, execução completa do XML
+- **Performance:** Processamento otimizado por lotes de itens
+- **Flexibilidade:** Suporte a múltiplos regimes tributários
+- **Precisão:** Arredondamentos específicos por tipo de campo
 
-### Controle de Remetentes
-- **0 - Principal**: E-mail principal da empresa
-- **1 - Cobrança**: E-mail específico para cobrança
-- **2 - Faturamento**: E-mail específico para faturamento
+### Mapeamento de Campos XML
+- **Produtos:** NCM, unidades, quantidades, valores
+- **Tributos:** Bases de cálculo, alíquotas, valores
+- **Transporte:** Volumes, pesos líquido e bruto
+- **Complementares:** Observações, protocolos, chaves de acesso
 
-### Validações
-- Verifica existência de e-mail principal antes do processamento
-- Tratamento de valores nulos em representantes
-- Controle de duplicidade de destinatários
+### Tratamento de Dados
+- Conversão automática de datas e valores
+- Aplicação de fatores de conversão de unidades
+- Validação de consistência de dados
+- Preservação de dados originais do XML
 
-### Performance
-- Consultas otimizadas com campos específicos
-- Uso de criteria para buscas relacionadas
-- Limite de resultados para evitar sobrecarga
-
----
-
-**Última Alteração:** 27/10/2025 às 10:40  
-**Autor:** Bruno  
-**Tipo:** Fórmula de Envio de E-mails NF-e  
-**Versão:** 1.0
+### Integração com Sistema
+- Atualização em tempo real do documento fiscal
+- Manutenção de relacionamentos entre entidades
+- Suporte a operações de entrada com estoque
+- Compatibilidade com diferentes tipos de PCD
