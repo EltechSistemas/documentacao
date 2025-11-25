@@ -1,131 +1,153 @@
+# SCF_Documentos.md
+
 ## 📖 Descrição
-Relatório abrangente de documentos financeiros (receber/pagar) com múltiplas opções de ordenação, filtros e formatações para análise financeira detalhada.
+Sistema de relatórios para documentos financeiros do SCF (Sistema de Controle Financeiro) da Linhasita, permitindo a geração de relatórios analíticos e sintéticos de documentos a receber, recebidos, a pagar e pagos.
 
 ## 🎯 Finalidade
-Fornecer visão completa da situação de documentos financeiros, permitindo análise por diferentes critérios como vencimento, entidade, portador e representante, com cálculos automáticos de juros, multas e descontos.
+Fornecer relatórios financeiros completos e flexíveis para análise de documentos, com diferentes opções de ordenação, filtros e formatos de saída.
 
 ## 👥 Público-Alvo
 - Departamento Financeiro
 - Controladoria
-- Cobrança
-- Gestão de Contas a Pagar/Receber
+- Crédito e Cobrança
+- Diretoria
+
+## ⚙️ Configuração
+**Recursos Necessários:**
+- Classe `SCF_Documentos` - Relatório de documentos financeiros
+
+**Localização:** `linhasita/relatorios/scf/`
 
 ## 📊 Dados e Fontes
 **Tabelas Principais:**
 - `DAA01` - Documentos financeiros
-- `ABB01` - Cabeçalho de documentos
-- `ABE01` - Entidades (clientes/fornecedores)
+- `ABB01` - Documentos fiscais
+- `ABE01` - Entidades/Clientes
 - `ABF15` - Portadores
 - `ABF16` - Operações
-- `AAH01` - Tipos de documento
 - `ABF20` - PLF (Plano de Livro Fiscal)
+- `AAC10` - Empresas
 
 **Entidades Envolvidas:**
 - `Daa01` - Documentos financeiros
-- `Abe01` - Clientes/Fornecedores/Representantes
-- `Abf15` - Portador
-- `Abf16` - Operação
-- `Aac10` - Empresa
+- `Abb01` - Documentos fiscais
+- `Abe01` - Entidades
+- `Abf15` - Portadores
+- `Abf16` - Operações
+- `Abf20` - PLF
+- `Aac10` - Empresas
 
-## ⚙️ Parâmetros do Relatório
+## ⚙️ Parâmetros do Processo
 
-| Parâmetro | Tipo | Obrigatório | Descrição | Valores Possíveis |
-|-----------|------|-------------|-----------|-------------------|
-| classe | Integer | Sim | Classe de documentos | 0=A Receber, 1=Recebidos, 2=A Pagar, 3=Pagos, 4=A Receber/Recebidos, 5=A Pagar/Pagos |
-| ordem | Integer | Sim | Ordenação | 0=Número, 1=Vencimento, 2=Entidade, 3=Pagamento, 4=Portador, 5=Representante |
-| numeroInicial | Integer | Sim | Número inicial | 000000000 |
-| numeroFinal | Integer | Sim | Número final | 999999999 |
-| tipoData | Integer | Sim | Tipo data pagamento | 0=Pagamento, 1=Recebimento |
-| tipo | Integer | Sim | Tipo documento | 0=Real, 1=Previsão, 2=Todos |
-| impressao | Integer | Sim | Formato saída | 0=PDF, 1=XLSX |
-| vencimento | Integer | Sim | Tipo vencimento | 0=Real, 1=Nominal |
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| ordem | Integer | Sim | Tipo de ordenação (0-Número, 1-Vencimento, 2-Entidade, 3-Pagamento, 4-Portador, 5-Representante) |
+| classe | Integer | Sim | Tipo de documento (0-À Receber, 1-Recebidos, 2-À Pagar, 3-Pagos, 4-À Receber/Recebidos, 5-À Pagar/Pagos) |
+| numeroInicial | Integer | Sim | Número inicial do documento |
+| numeroFinal | Integer | Sim | Número final do documento |
+| empresas | List<Long> | Não | Lista de empresas para filtro |
+| entidade | List<Long> | Não | Lista de entidades para filtro |
+| dataVenc | LocalDate[] | Não | Período de vencimento |
+| dataEmissao | LocalDate[] | Não | Período de emissão |
+| tipoData | Integer | Não | Tipo de data (0-Pagamento, 1-Recebimento) |
+| sintetico | Boolean | Não | Relatório sintético |
+| vencimento | Integer | Não | Tipo de vencimento (0-Real, 1-Nominal) |
 
-## 📋 Campos do Relatório
+## 📋 Saídas do Processo
 
 | Campo | Descrição | Tipo |
 |-------|-----------|------|
-| abb01num | Número documento | Integer |
-| abb01parcela | Parcela | String |
-| ent.abe01nome | Nome entidade | String |
-| aah01codigo | Tipo documento | String |
-| vencimento | Data vencimento | Date |
-| daa01dtPgto | Data pagamento | Date |
-| valor | Valor documento | BigDecimal |
-| dias | Dias em atraso | Long |
-| jm | Juros/Multas | BigDecimal |
-| desconto | Valor desconto | BigDecimal |
-| abf15nome | Portador | String |
-| repNome | Representante | String |
+| PDF/XLSX | Relatório formatado | Arquivo |
+| documentos | Lista de documentos processados | List<TableMap> |
 
 ## 🔄 Fluxo do Processo
 
 1. **Configuração Inicial**
-   - Define título conforme classe e ordenação
-   - Configura período no cabeçalho
-   - Processa parâmetros complexos
+   - Define valores padrão para filtros
+   - Obtém empresas acessíveis ao usuário
+   - Configura título do relatório baseado na classe selecionada
 
-2. **Busca de Documentos**
-   - Aplica múltiplos filtros dinâmicos
-   - Define ordenação flexível
-   - Processa joins com diversas entidades
+2. **Processamento de Filtros**
+   - Aplica filtros de data, entidade, documento, etc.
+   - Define ordenação conforme parâmetro
+   - Configura condições WHERE dinâmicas
 
-3. **Cálculos Financeiros**
+3. **Busca de Documentos**
+   - Executa consulta SQL com filtros aplicados
+   - Processa dados de juros, multa e desconto
    - Calcula dias em atraso
-   - Processa juros, multas e descontos via JSON
-   - Define tipo de documento (Real/Previsão)
 
-4. **Processamento de Dados**
-   - Remove duplicatas por ID
-   - Formata campos específicos
-   - Prepara dados para relatório
-
-5. **Seleção de Template**
-   - Escolhe template conforme ordenação
-   - Define sintético ou analítico
-   - Gera PDF ou XLSX
+4. **Geração do Relatório**
+   - Seleciona template baseado na ordenação
+   - Gera PDF ou XLSX conforme seleção
+   - Retorna arquivo para download
 
 ## ⚠️ Regras de Negócio
 
-### Classificação de Documentos
-- **Classe 0/2:** Apenas documentos em aberto
-- **Classe 1/3:** Apenas documentos quitados
-- **Classe 4/5:** Todos os documentos
+### Filtros e Ordenação
+- Ordenação por número, vencimento, entidade, pagamento, portador ou representante
+- Filtro por período de emissão, vencimento ou pagamento/recebimento
+- Suporte a documentos à receber e a pagar
 
 ### Cálculos Financeiros
-- **Dias:** Diferença entre data atual/pagamento e vencimento
-- **JM:** Soma de juros e multas (calculados ou quitados)
-- **Desconto:** Valor absoluto (sempre positivo)
+- Cálculo automático de juros e multa baseado em JSON do documento
+- Cálculo de dias em atraso
+- Tratamento de descontos
 
-### Filtros de Data
-- **Vencimento:** Data nominal ou real conforme parâmetro
-- **Emissão:** Data do documento
-- **Pagamento/Recebimento:** Conforme tipoData
+### Acesso a Dados
+- Restrição por empresas acessíveis ao usuário
+- Filtro por PLF (Plano de Livro Fiscal)
+- Suporte a documentos transmutados
 
-## 🎨 Saídas Disponíveis
+## 🎨 Tipos de Relatório
 
-| Template | Descrição | Ordem | Formato |
-|----------|-----------|-------|---------|
-| SCF_Documentos | Layout padrão | 0,1,3 | PDF/XLSX |
-| SCF_DocumentosEntidade | Por entidade | 2 | PDF/XLSX |
-| SCF_DocumentosPortador | Por portador | 4 | PDF/XLSX |
-| SCF_DocumentosRepresentante | Por representante | 5 | PDF/XLSX |
-| SCF_DocumentosSintetico2 | Sintético | 0 | PDF/XLSX |
+| Tipo | Descrição | Template |
+|------|-----------|----------|
+| Analítico | Detalhado por documento | SCF_Documentos |
+| Por Entidade | Agrupado por entidade | SCF_DocumentosEntidade |
+| Por Portador | Agrupado por portador | SCF_DocumentosPortador |
+| Por Representante | Agrupado por representante | SCF_DocumentosRepresentante |
+| Sintético | Resumido | SCF_DocumentosSintetico2 |
 
 ## 🔧 Dependências
 
 **Bibliotecas:**
-- `multitec.utils` - Utilitários e datas
-- `jasperreports` - Geração de relatórios
+- `multiorm` - Persistência e consultas
+- `multitec.utils` - Utilitários e coleções
+- `sam.server.samdev.relatorio` - Framework de relatórios
 
-**Configurações:**
-- Múltiplos templates Jasper para diferentes ordenações
-- Parâmetros JSON para campos financeiros
+**Consultas:**
+- Busca de documentos com múltiplos filtros
+- Cálculo de empresas acessíveis
+- Agregação de dados por diferentes critérios
 
 ## 📝 Observações Técnicas
 
-- SQL extremamente dinâmico com múltiplos filtros opcionais
-- Processamento complexo de campos JSON para cálculos
-- Remoção de duplicatas baseada em ID do documento
-- Flexibilidade total de ordenação e agrupamento
-- Suporte a diferentes tipos de vencimento (real/nominal)
-- Cálculo automático de dias em atraso e encargos
+- Suporte a múltiplos formatos de saída (PDF/XLSX)
+- Consulta otimizada com LEFT JOIN e ROW_NUMBER para dados mais recentes
+- Tratamento de dados JSON para cálculos financeiros
+- Flexibilidade total na ordenação e agrupamento
+- Filtros dinâmicos baseados em parâmetros
+- Suporte a documentos prévios (previsão) e reais
+- Controle de acesso por empresa
+
+## 🔄 Métodos Principais
+
+### `executar()`
+Método principal que orquestra todo o processo de geração do relatório.
+
+### `buscaDocumentos()`
+Executa a consulta SQL principal com todos os filtros aplicados.
+
+### `criarValoresIniciais()`
+Configura valores padrão e acessos iniciais.
+
+### `empresasAcessiveis()`
+Retorna lista de empresas que o usuário logado tem acesso.
+
+## 💡 Consulta SQL
+A consulta principal utiliza:
+- `ROW_NUMBER()` para obter o registro mais recente da `daa0103`
+- Múltiplos `LEFT JOIN` para relacionar todas as entidades
+- Cláusulas `WHERE` dinâmicas baseadas nos filtros
+- `ORDER BY` flexível baseado no parâmetro de ordenação
