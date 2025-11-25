@@ -20,7 +20,7 @@
     
     
       
-        <title>SCF Documentos - documentacao-eltech</title>
+        <title>SCF_Documentos.md - documentacao-eltech</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#descricao" class="md-skip">
+        <a href="#scf_documentosmd" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SCF Documentos
+              SCF_Documentos.md
             
           </span>
         </div>
@@ -582,6 +582,52 @@
             Sgt
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGC_LancamentoContabil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGC_LancamentoContabil.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGT_Apuracao_EFD_ICMSDifAliq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_EFD_ICMSDifAliq.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2266,13 +2312,15 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   
   <span class="md-ellipsis">
-    SCF Documentos
+    SCF_Documentos.md
     
   </span>
   
@@ -2285,7 +2333,7 @@
   
   
   <span class="md-ellipsis">
-    SCF Documentos
+    SCF_Documentos.md
     
   </span>
   
@@ -2297,6 +2345,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Índice">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -2333,6 +2383,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dados-e-fontes" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Dados e Fontes
@@ -2342,18 +2401,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parametros-do-relatorio" class="md-nav__link">
+  <a href="#parametros-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Parâmetros do Relatório
+      ⚙️ Parâmetros do Processo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#campos-do-relatorio" class="md-nav__link">
+  <a href="#saidas-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
-      📋 Campos do Relatório
+      📋 Saídas do Processo
     </span>
   </a>
   
@@ -2379,9 +2438,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#classificacao-de-documentos" class="md-nav__link">
+  <a href="#filtros-e-ordenacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Classificação de Documentos
+      Filtros e Ordenação
     </span>
   </a>
   
@@ -2397,9 +2456,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#filtros-de-data" class="md-nav__link">
+  <a href="#acesso-a-dados" class="md-nav__link">
     <span class="md-ellipsis">
-      Filtros de Data
+      Acesso a Dados
     </span>
   </a>
   
@@ -2411,9 +2470,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#saidas-disponiveis" class="md-nav__link">
+  <a href="#tipos-de-relatorio" class="md-nav__link">
     <span class="md-ellipsis">
-      🎨 Saídas Disponíveis
+      🎨 Tipos de Relatório
     </span>
   </a>
   
@@ -2432,6 +2491,66 @@
   <a href="#observacoes-tecnicas" class="md-nav__link">
     <span class="md-ellipsis">
       📝 Observações Técnicas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Métodos Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Métodos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executar" class="md-nav__link">
+    <span class="md-ellipsis">
+      executar()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buscadocumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      buscaDocumentos()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criarvaloresiniciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      criarValoresIniciais()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empresasacessiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      empresasAcessiveis()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Consulta SQL
     </span>
   </a>
   
@@ -2982,7 +3101,7 @@
   
   
   <span class="md-ellipsis">
-    Sce
+    Cas
     
   </span>
   
@@ -2992,6 +3111,77 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/cas/CAS_ImportarFCIEab01011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAS_ImportarFCIEab01011.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_2" id="__nav_8_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_2">
             <span class="md-nav__icon md-icon"></span>
             Sce
           </label>
@@ -3045,10 +3235,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_3" >
         
           
-          <label class="md-nav__link" for="__nav_8_1_2" id="__nav_8_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_1_3" id="__nav_8_1_3_label" tabindex="0">
             
   
   
@@ -3061,8 +3251,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_1_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_3">
             <span class="md-nav__icon md-icon"></span>
             Scf
           </label>
@@ -3116,10 +3306,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_4" >
         
           
-          <label class="md-nav__link" for="__nav_8_1_3" id="__nav_8_1_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_1_4" id="__nav_8_1_4_label" tabindex="0">
             
   
   
@@ -3132,8 +3322,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_1_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_4">
             <span class="md-nav__icon md-icon"></span>
             Scv
           </label>
@@ -3210,10 +3400,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_5" >
         
           
-          <label class="md-nav__link" for="__nav_8_1_4" id="__nav_8_1_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_1_5" id="__nav_8_1_5_label" tabindex="0">
             
   
   
@@ -3226,8 +3416,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_1_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_5">
             <span class="md-nav__icon md-icon"></span>
             Spp
           </label>
@@ -3304,10 +3494,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_6" >
         
           
-          <label class="md-nav__link" for="__nav_8_1_5" id="__nav_8_1_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_1_6" id="__nav_8_1_6_label" tabindex="0">
             
   
   
@@ -3320,8 +3510,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_1_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_6">
             <span class="md-nav__icon md-icon"></span>
             Srf
           </label>
@@ -3546,7 +3736,7 @@
   
   
   <span class="md-ellipsis">
-    Spp
+    Scv
     
   </span>
   
@@ -3556,6 +3746,100 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/scv/SCV_Orcamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_Orcamento.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/scv/SCV_PedidoVenda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_PedidoVenda.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_2" id="__nav_8_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_2">
             <span class="md-nav__icon md-icon"></span>
             Spp
           </label>
@@ -3609,10 +3893,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_8_2_2" id="__nav_8_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8_2_3" id="__nav_8_2_3_label" tabindex="0">
             
   
   
@@ -3625,8 +3909,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_3">
             <span class="md-nav__icon md-icon"></span>
             Srf
           </label>
@@ -3864,6 +4148,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3899,6 +4185,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dados-e-fontes" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Dados e Fontes
@@ -3908,18 +4203,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parametros-do-relatorio" class="md-nav__link">
+  <a href="#parametros-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Parâmetros do Relatório
+      ⚙️ Parâmetros do Processo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#campos-do-relatorio" class="md-nav__link">
+  <a href="#saidas-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
-      📋 Campos do Relatório
+      📋 Saídas do Processo
     </span>
   </a>
   
@@ -3945,9 +4240,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#classificacao-de-documentos" class="md-nav__link">
+  <a href="#filtros-e-ordenacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Classificação de Documentos
+      Filtros e Ordenação
     </span>
   </a>
   
@@ -3963,9 +4258,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#filtros-de-data" class="md-nav__link">
+  <a href="#acesso-a-dados" class="md-nav__link">
     <span class="md-ellipsis">
-      Filtros de Data
+      Acesso a Dados
     </span>
   </a>
   
@@ -3977,9 +4272,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#saidas-disponiveis" class="md-nav__link">
+  <a href="#tipos-de-relatorio" class="md-nav__link">
     <span class="md-ellipsis">
-      🎨 Saídas Disponíveis
+      🎨 Tipos de Relatório
     </span>
   </a>
   
@@ -4003,6 +4298,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#metodos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Métodos Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Métodos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executar" class="md-nav__link">
+    <span class="md-ellipsis">
+      executar()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buscadocumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      buscaDocumentos()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criarvaloresiniciais" class="md-nav__link">
+    <span class="md-ellipsis">
+      criarValoresIniciais()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empresasacessiveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      empresasAcessiveis()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consulta-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Consulta SQL
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4019,35 +4374,40 @@
 
 
 
-  <h1>SCF Documentos</h1>
-
+<h1 id="scf_documentosmd">SCF_Documentos.md<a class="headerlink" href="#scf_documentosmd" title="Permanent link">&para;</a></h1>
 <h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
-<p>Relatório abrangente de documentos financeiros (receber/pagar) com múltiplas opções de ordenação, filtros e formatações para análise financeira detalhada.</p>
+<p>Sistema de relatórios para documentos financeiros do SCF (Sistema de Controle Financeiro) da Linhasita, permitindo a geração de relatórios analíticos e sintéticos de documentos a receber, recebidos, a pagar e pagos.</p>
 <h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
-<p>Fornecer visão completa da situação de documentos financeiros, permitindo análise por diferentes critérios como vencimento, entidade, portador e representante, com cálculos automáticos de juros, multas e descontos.</p>
+<p>Fornecer relatórios financeiros completos e flexíveis para análise de documentos, com diferentes opções de ordenação, filtros e formatos de saída.</p>
 <h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Departamento Financeiro</li>
 <li>Controladoria</li>
-<li>Cobrança</li>
-<li>Gestão de Contas a Pagar/Receber</li>
+<li>Crédito e Cobrança</li>
+<li>Diretoria</li>
 </ul>
+<h2 id="configuracao">⚙️ Configuração<a class="headerlink" href="#configuracao" title="Permanent link">&para;</a></h2>
+<p><strong>Recursos Necessários:</strong>
+- Classe <code>SCF_Documentos</code> - Relatório de documentos financeiros</p>
+<p><strong>Localização:</strong> <code>linhasita/relatorios/scf/</code></p>
 <h2 id="dados-e-fontes">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes" title="Permanent link">&para;</a></h2>
 <p><strong>Tabelas Principais:</strong>
 - <code>DAA01</code> - Documentos financeiros
-- <code>ABB01</code> - Cabeçalho de documentos
-- <code>ABE01</code> - Entidades (clientes/fornecedores)
+- <code>ABB01</code> - Documentos fiscais
+- <code>ABE01</code> - Entidades/Clientes
 - <code>ABF15</code> - Portadores
 - <code>ABF16</code> - Operações
-- <code>AAH01</code> - Tipos de documento
-- <code>ABF20</code> - PLF (Plano de Livro Fiscal)</p>
+- <code>ABF20</code> - PLF (Plano de Livro Fiscal)
+- <code>AAC10</code> - Empresas</p>
 <p><strong>Entidades Envolvidas:</strong>
 - <code>Daa01</code> - Documentos financeiros
-- <code>Abe01</code> - Clientes/Fornecedores/Representantes
-- <code>Abf15</code> - Portador
-- <code>Abf16</code> - Operação
-- <code>Aac10</code> - Empresa</p>
-<h2 id="parametros-do-relatorio">⚙️ Parâmetros do Relatório<a class="headerlink" href="#parametros-do-relatorio" title="Permanent link">&para;</a></h2>
+- <code>Abb01</code> - Documentos fiscais
+- <code>Abe01</code> - Entidades
+- <code>Abf15</code> - Portadores
+- <code>Abf16</code> - Operações
+- <code>Abf20</code> - PLF
+- <code>Aac10</code> - Empresas</p>
+<h2 id="parametros-do-processo">⚙️ Parâmetros do Processo<a class="headerlink" href="#parametros-do-processo" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -4055,69 +4415,78 @@
 <th>Tipo</th>
 <th>Obrigatório</th>
 <th>Descrição</th>
-<th>Valores Possíveis</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>classe</td>
-<td>Integer</td>
-<td>Sim</td>
-<td>Classe de documentos</td>
-<td>0=A Receber, 1=Recebidos, 2=A Pagar, 3=Pagos, 4=A Receber/Recebidos, 5=A Pagar/Pagos</td>
-</tr>
-<tr>
 <td>ordem</td>
 <td>Integer</td>
 <td>Sim</td>
-<td>Ordenação</td>
-<td>0=Número, 1=Vencimento, 2=Entidade, 3=Pagamento, 4=Portador, 5=Representante</td>
+<td>Tipo de ordenação (0-Número, 1-Vencimento, 2-Entidade, 3-Pagamento, 4-Portador, 5-Representante)</td>
+</tr>
+<tr>
+<td>classe</td>
+<td>Integer</td>
+<td>Sim</td>
+<td>Tipo de documento (0-À Receber, 1-Recebidos, 2-À Pagar, 3-Pagos, 4-À Receber/Recebidos, 5-À Pagar/Pagos)</td>
 </tr>
 <tr>
 <td>numeroInicial</td>
 <td>Integer</td>
 <td>Sim</td>
-<td>Número inicial</td>
-<td>000000000</td>
+<td>Número inicial do documento</td>
 </tr>
 <tr>
 <td>numeroFinal</td>
 <td>Integer</td>
 <td>Sim</td>
-<td>Número final</td>
-<td>999999999</td>
+<td>Número final do documento</td>
+</tr>
+<tr>
+<td>empresas</td>
+<td>List<Long></td>
+<td>Não</td>
+<td>Lista de empresas para filtro</td>
+</tr>
+<tr>
+<td>entidade</td>
+<td>List<Long></td>
+<td>Não</td>
+<td>Lista de entidades para filtro</td>
+</tr>
+<tr>
+<td>dataVenc</td>
+<td>LocalDate[]</td>
+<td>Não</td>
+<td>Período de vencimento</td>
+</tr>
+<tr>
+<td>dataEmissao</td>
+<td>LocalDate[]</td>
+<td>Não</td>
+<td>Período de emissão</td>
 </tr>
 <tr>
 <td>tipoData</td>
 <td>Integer</td>
-<td>Sim</td>
-<td>Tipo data pagamento</td>
-<td>0=Pagamento, 1=Recebimento</td>
+<td>Não</td>
+<td>Tipo de data (0-Pagamento, 1-Recebimento)</td>
 </tr>
 <tr>
-<td>tipo</td>
-<td>Integer</td>
-<td>Sim</td>
-<td>Tipo documento</td>
-<td>0=Real, 1=Previsão, 2=Todos</td>
-</tr>
-<tr>
-<td>impressao</td>
-<td>Integer</td>
-<td>Sim</td>
-<td>Formato saída</td>
-<td>0=PDF, 1=XLSX</td>
+<td>sintetico</td>
+<td>Boolean</td>
+<td>Não</td>
+<td>Relatório sintético</td>
 </tr>
 <tr>
 <td>vencimento</td>
 <td>Integer</td>
-<td>Sim</td>
-<td>Tipo vencimento</td>
-<td>0=Real, 1=Nominal</td>
+<td>Não</td>
+<td>Tipo de vencimento (0-Real, 1-Nominal)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="campos-do-relatorio">📋 Campos do Relatório<a class="headerlink" href="#campos-do-relatorio" title="Permanent link">&para;</a></h2>
+<h2 id="saidas-do-processo">📋 Saídas do Processo<a class="headerlink" href="#saidas-do-processo" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -4128,184 +4497,138 @@
 </thead>
 <tbody>
 <tr>
-<td>abb01num</td>
-<td>Número documento</td>
-<td>Integer</td>
+<td>PDF/XLSX</td>
+<td>Relatório formatado</td>
+<td>Arquivo</td>
 </tr>
 <tr>
-<td>abb01parcela</td>
-<td>Parcela</td>
-<td>String</td>
-</tr>
-<tr>
-<td>ent.abe01nome</td>
-<td>Nome entidade</td>
-<td>String</td>
-</tr>
-<tr>
-<td>aah01codigo</td>
-<td>Tipo documento</td>
-<td>String</td>
-</tr>
-<tr>
-<td>vencimento</td>
-<td>Data vencimento</td>
-<td>Date</td>
-</tr>
-<tr>
-<td>daa01dtPgto</td>
-<td>Data pagamento</td>
-<td>Date</td>
-</tr>
-<tr>
-<td>valor</td>
-<td>Valor documento</td>
-<td>BigDecimal</td>
-</tr>
-<tr>
-<td>dias</td>
-<td>Dias em atraso</td>
-<td>Long</td>
-</tr>
-<tr>
-<td>jm</td>
-<td>Juros/Multas</td>
-<td>BigDecimal</td>
-</tr>
-<tr>
-<td>desconto</td>
-<td>Valor desconto</td>
-<td>BigDecimal</td>
-</tr>
-<tr>
-<td>abf15nome</td>
-<td>Portador</td>
-<td>String</td>
-</tr>
-<tr>
-<td>repNome</td>
-<td>Representante</td>
-<td>String</td>
+<td>documentos</td>
+<td>Lista de documentos processados</td>
+<td>List<TableMap></td>
 </tr>
 </tbody>
 </table>
 <h2 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Configuração Inicial</strong></li>
-<li>Define título conforme classe e ordenação</li>
-<li>Configura período no cabeçalho</li>
+<li>Define valores padrão para filtros</li>
+<li>Obtém empresas acessíveis ao usuário</li>
 <li>
-<p>Processa parâmetros complexos</p>
+<p>Configura título do relatório baseado na classe selecionada</p>
+</li>
+<li>
+<p><strong>Processamento de Filtros</strong></p>
+</li>
+<li>Aplica filtros de data, entidade, documento, etc.</li>
+<li>Define ordenação conforme parâmetro</li>
+<li>
+<p>Configura condições WHERE dinâmicas</p>
 </li>
 <li>
 <p><strong>Busca de Documentos</strong></p>
 </li>
-<li>Aplica múltiplos filtros dinâmicos</li>
-<li>Define ordenação flexível</li>
+<li>Executa consulta SQL com filtros aplicados</li>
+<li>Processa dados de juros, multa e desconto</li>
 <li>
-<p>Processa joins com diversas entidades</p>
+<p>Calcula dias em atraso</p>
 </li>
 <li>
-<p><strong>Cálculos Financeiros</strong></p>
+<p><strong>Geração do Relatório</strong></p>
 </li>
-<li>Calcula dias em atraso</li>
-<li>Processa juros, multas e descontos via JSON</li>
-<li>
-<p>Define tipo de documento (Real/Previsão)</p>
-</li>
-<li>
-<p><strong>Processamento de Dados</strong></p>
-</li>
-<li>Remove duplicatas por ID</li>
-<li>Formata campos específicos</li>
-<li>
-<p>Prepara dados para relatório</p>
-</li>
-<li>
-<p><strong>Seleção de Template</strong></p>
-</li>
-<li>Escolhe template conforme ordenação</li>
-<li>Define sintético ou analítico</li>
-<li>Gera PDF ou XLSX</li>
+<li>Seleciona template baseado na ordenação</li>
+<li>Gera PDF ou XLSX conforme seleção</li>
+<li>Retorna arquivo para download</li>
 </ol>
 <h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
-<h3 id="classificacao-de-documentos">Classificação de Documentos<a class="headerlink" href="#classificacao-de-documentos" title="Permanent link">&para;</a></h3>
+<h3 id="filtros-e-ordenacao">Filtros e Ordenação<a class="headerlink" href="#filtros-e-ordenacao" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Classe 0/2:</strong> Apenas documentos em aberto</li>
-<li><strong>Classe 1/3:</strong> Apenas documentos quitados</li>
-<li><strong>Classe 4/5:</strong> Todos os documentos</li>
+<li>Ordenação por número, vencimento, entidade, pagamento, portador ou representante</li>
+<li>Filtro por período de emissão, vencimento ou pagamento/recebimento</li>
+<li>Suporte a documentos à receber e a pagar</li>
 </ul>
 <h3 id="calculos-financeiros">Cálculos Financeiros<a class="headerlink" href="#calculos-financeiros" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Dias:</strong> Diferença entre data atual/pagamento e vencimento</li>
-<li><strong>JM:</strong> Soma de juros e multas (calculados ou quitados)</li>
-<li><strong>Desconto:</strong> Valor absoluto (sempre positivo)</li>
+<li>Cálculo automático de juros e multa baseado em JSON do documento</li>
+<li>Cálculo de dias em atraso</li>
+<li>Tratamento de descontos</li>
 </ul>
-<h3 id="filtros-de-data">Filtros de Data<a class="headerlink" href="#filtros-de-data" title="Permanent link">&para;</a></h3>
+<h3 id="acesso-a-dados">Acesso a Dados<a class="headerlink" href="#acesso-a-dados" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Vencimento:</strong> Data nominal ou real conforme parâmetro</li>
-<li><strong>Emissão:</strong> Data do documento</li>
-<li><strong>Pagamento/Recebimento:</strong> Conforme tipoData</li>
+<li>Restrição por empresas acessíveis ao usuário</li>
+<li>Filtro por PLF (Plano de Livro Fiscal)</li>
+<li>Suporte a documentos transmutados</li>
 </ul>
-<h2 id="saidas-disponiveis">🎨 Saídas Disponíveis<a class="headerlink" href="#saidas-disponiveis" title="Permanent link">&para;</a></h2>
+<h2 id="tipos-de-relatorio">🎨 Tipos de Relatório<a class="headerlink" href="#tipos-de-relatorio" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Template</th>
+<th>Tipo</th>
 <th>Descrição</th>
-<th>Ordem</th>
-<th>Formato</th>
+<th>Template</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>Analítico</td>
+<td>Detalhado por documento</td>
 <td>SCF_Documentos</td>
-<td>Layout padrão</td>
-<td>0,1,3</td>
-<td>PDF/XLSX</td>
 </tr>
 <tr>
+<td>Por Entidade</td>
+<td>Agrupado por entidade</td>
 <td>SCF_DocumentosEntidade</td>
-<td>Por entidade</td>
-<td>2</td>
-<td>PDF/XLSX</td>
 </tr>
 <tr>
+<td>Por Portador</td>
+<td>Agrupado por portador</td>
 <td>SCF_DocumentosPortador</td>
-<td>Por portador</td>
-<td>4</td>
-<td>PDF/XLSX</td>
 </tr>
 <tr>
+<td>Por Representante</td>
+<td>Agrupado por representante</td>
 <td>SCF_DocumentosRepresentante</td>
-<td>Por representante</td>
-<td>5</td>
-<td>PDF/XLSX</td>
 </tr>
 <tr>
-<td>SCF_DocumentosSintetico2</td>
 <td>Sintético</td>
-<td>0</td>
-<td>PDF/XLSX</td>
+<td>Resumido</td>
+<td>SCF_DocumentosSintetico2</td>
 </tr>
 </tbody>
 </table>
 <h2 id="dependencias">🔧 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
 <p><strong>Bibliotecas:</strong>
-- <code>multitec.utils</code> - Utilitários e datas
-- <code>jasperreports</code> - Geração de relatórios</p>
-<p><strong>Configurações:</strong>
-- Múltiplos templates Jasper para diferentes ordenações
-- Parâmetros JSON para campos financeiros</p>
+- <code>multiorm</code> - Persistência e consultas
+- <code>multitec.utils</code> - Utilitários e coleções
+- <code>sam.server.samdev.relatorio</code> - Framework de relatórios</p>
+<p><strong>Consultas:</strong>
+- Busca de documentos com múltiplos filtros
+- Cálculo de empresas acessíveis
+- Agregação de dados por diferentes critérios</p>
 <h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
 <ul>
-<li>SQL extremamente dinâmico com múltiplos filtros opcionais</li>
-<li>Processamento complexo de campos JSON para cálculos</li>
-<li>Remoção de duplicatas baseada em ID do documento</li>
-<li>Flexibilidade total de ordenação e agrupamento</li>
-<li>Suporte a diferentes tipos de vencimento (real/nominal)</li>
-<li>Cálculo automático de dias em atraso e encargos</li>
+<li>Suporte a múltiplos formatos de saída (PDF/XLSX)</li>
+<li>Consulta otimizada com LEFT JOIN e ROW_NUMBER para dados mais recentes</li>
+<li>Tratamento de dados JSON para cálculos financeiros</li>
+<li>Flexibilidade total na ordenação e agrupamento</li>
+<li>Filtros dinâmicos baseados em parâmetros</li>
+<li>Suporte a documentos prévios (previsão) e reais</li>
+<li>Controle de acesso por empresa</li>
 </ul>
+<h2 id="metodos-principais">🔄 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h2>
+<h3 id="executar"><code>executar()</code><a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
+<p>Método principal que orquestra todo o processo de geração do relatório.</p>
+<h3 id="buscadocumentos"><code>buscaDocumentos()</code><a class="headerlink" href="#buscadocumentos" title="Permanent link">&para;</a></h3>
+<p>Executa a consulta SQL principal com todos os filtros aplicados.</p>
+<h3 id="criarvaloresiniciais"><code>criarValoresIniciais()</code><a class="headerlink" href="#criarvaloresiniciais" title="Permanent link">&para;</a></h3>
+<p>Configura valores padrão e acessos iniciais.</p>
+<h3 id="empresasacessiveis"><code>empresasAcessiveis()</code><a class="headerlink" href="#empresasacessiveis" title="Permanent link">&para;</a></h3>
+<p>Retorna lista de empresas que o usuário logado tem acesso.</p>
+<h2 id="consulta-sql">💡 Consulta SQL<a class="headerlink" href="#consulta-sql" title="Permanent link">&para;</a></h2>
+<p>A consulta principal utiliza:
+- <code>ROW_NUMBER()</code> para obter o registro mais recente da <code>daa0103</code>
+- Múltiplos <code>LEFT JOIN</code> para relacionar todas as entidades
+- Cláusulas <code>WHERE</code> dinâmicas baseadas nos filtros
+- <code>ORDER BY</code> flexível baseado no parâmetro de ordenação</p>
 
 
 
