@@ -1,0 +1,6579 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../sce/SCE_SaldoPorLocal/">
+      
+      
+        <link rel="next" href="../../../../LINHASITA/formulas/sce/SCE_InventarioFiscal/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB - documentacao-eltech</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#scf-demonstrativo-de-resultados-do-exercicio-dre-lcb" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../../.." title="documentacao-eltech" class="md-header__button md-logo" aria-label="documentacao-eltech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            documentacao-eltech
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Ativar modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Ativar modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Desativar modo escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Desativar modo escuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="documentacao-eltech" class="md-nav__button md-logo" aria-label="documentacao-eltech" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    documentacao-eltech
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    ELTECH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ELTECH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cgs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cgs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/cgs/CGS_Parcelamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CGS - Parcelamento (Equilibrio)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sce/SCE_ImportarItensLctosXlsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE - Importar Itens de Lançamentos XLSX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sce/SCE_InventarioFiscal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE - Inventário Fiscal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Scf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/scf/SCF_Movimento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF_Movimento.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sgc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sgc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgc/SGC_LancamentoContabil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGC - Lançamento Contábil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_5" id="__nav_2_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sgt
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sgt
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGC_LancamentoContabil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGC_LancamentoContabil.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGT_Apuracao_EFD_ICMSDifAliq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_EFD_ICMSDifAliq.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGT_Apuracao_Receita_PisCofins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Apuração de Receita PIS/COFINS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGT_Leiaute15_2021_Contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Leiaute 15/2021 Contribuições (EFD Contribuições)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/sgt/SGT_Leiaute19_2025_ICMS_IPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Leiaute19_2025_ICMS_IPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_6" id="__nav_2_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/srf/SRF_CalculoFCI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Cálculo da FCI (Equilibrio) - Versão Atualizada
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/srf/SRF_Documento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Documento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_ImportarXMLNFeEntrada.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/srf/SRF_GerarXMLNfe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Gerar XML de NFe (Fiscal)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relatorios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Relatorios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sap
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sap/SAP_FichaPatrimonial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAP - Ficha Patrimonial (Eltech)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sap/SAP_Resumo_Deprecia%C3%A7%C3%A3o_por_Departamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAP Resumo Depreciação por Departamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sce/SCE_RegistroDeInventarioP7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE - Registro de Inventário Modelo P7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Scf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/scf/SCF_CaixaFinanceiro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF - Caixa Financeiro (El Tech)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/scf/SCF_Extrato_Cont%C3%A1bil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF Extrato Contábil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/scf/SCF_Lancamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF - Lançamentos (El Tech)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scv
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/scv/SCV_PedidoEstoqueProducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_PedidoEstoqueProducao.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/scv/SCV_PedidosPorItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV - Pedidos por Item (Eltech)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sgc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sgc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgc/SGC_BalancoPatrimonialDRE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGC_BalancoPatrimonialDRE.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgc/SGC_LivroRazao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGC_LivroRazao.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sgt
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Sgt
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgt/SGT_ApuracaoICMSP9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_ApuracaoICMSP9.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgt/SGT_ApuracaoIPIP8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_ApuracaoIPIP8.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgt/SGT_LivroSaidasP2P2A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_LivroSaidasP2P2A.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/sgt/SGT_Livro_Entradas_P1-P1A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Livro de Entradas P1/P1A
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/srf/SRF_ResumoAnualFaturamentoEntidade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF – Resumo Anual Faturamento por Entidade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/srf/SRF_ResumoAnualFaturamentoItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF – Resumo Anual Faturamento por Item
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/srf/SRF_Resumo_Por_Item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Resumo Por Item
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/relatorios/srf/SRF_Resumo_por_Estado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Resumo Por Estado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    EQUILIBRIO
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            EQUILIBRIO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cgs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cgs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EQUILIBRIO/formulas/cgs/CGS_Parcelamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CGS - Parcelamento (Equilibrio)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EQUILIBRIO/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Enviar Emails NFe (Equilibrio)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relatorios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Relatorios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scv
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../EQUILIBRIO/relatorios/scv/SCV_SeparacaoPedido/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV - Separação de Pedido (Equilibrio)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    FOCO
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            FOCO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fromulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Fromulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FOCO/fromulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Enviar Emails NFe (Foco)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    LCB
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            LCB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_1" id="__nav_5_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Enviar Emails NFe (LCB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relatorios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Relatorios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sce/SCE_SaldoPorLocal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE - Saldo por Local (LCB)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Scf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publico-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dados-e-fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-do-relatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros do Relatório
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-do-processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento-sintetico-detalhamento-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processamento Sintético (detalhamento = 0)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Processamento Sintético (detalhamento = 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coleta-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coleta de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculos-e-consolidacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculos e Consolidação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-sub-relatorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processamento-analitico-detalhamento-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processamento Analítico (detalhamento = 1)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Processamento Analítico (detalhamento = 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-detalhados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dados Detalhados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-sub-relatorios_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-geracao-de-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Geração de Saída
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorias-financeiras-ids-fixos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categorias Financeiras (IDs Fixos)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Categorias Financeiras (IDs Fixos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vendas-abf10-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendas (Abf10 IDs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custos-abf10-ids-correspondentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custos (Abf10 IDs Correspondentes)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agrupamentos-de-despesas-abf11-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agrupamentos de Despesas (Abf11 IDs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacoes-adicionais-bcc01-ple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informações Adicionais (Bcc01 PLE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Valores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consolidacao-de-fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consolidação de Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordenação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Métodos Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Métodos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executar" class="md-nav__link">
+    <span class="md-ellipsis">
+      executar()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-busca-sintetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Busca Sintética
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-busca-analitica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Busca Analítica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-calculo-de-totais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Cálculo de Totais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-dre" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Estrutura do DRE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Estrutura do DRE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secao-1-receitas-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 1: Receitas Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-2-custos-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 2: Custos Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-3-margem-bruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 3: Margem Bruta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-4-outras-receitas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 4: Outras Receitas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-5-despesas-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 5: Despesas Operacionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seção 5: Despesas Operacionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-custo-fixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Custo Fixo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-departamento-pessoal" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Departamento Pessoal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-despesas-bancarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Despesas Bancárias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Impostos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-ars-itatiba" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 ARS Itatiba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-6-ativo-imobilizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 6: Ativo Imobilizado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-7-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 7: Resultados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-8-informacoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 8: Informações Adicionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Dependências
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacoes-tecnicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Observações Técnicas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-de-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance de Consultas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-de-sub-relatorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexibilidade-do-relatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flexibilidade do Relatório
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-e-tratamento-de-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações e Tratamento de Erros
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    LINHASITA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            LINHASITA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1_1" id="__nav_6_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sce/SCE_InventarioFiscal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE_InventarioFiscal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1_2" id="__nav_6_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sgt
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sgt
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/Apuracao_EFD_ICMS_ST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apuração EFD ICMS ST - SGT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/EFD_ICMS_IPI_Simplificado_v310/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EFD ICMS IPI - Simplificado v3.10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/EFD_Leiaute15_2021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EFD_Leiaute15_2021 - Geração de EFD Contribuições (PIS/COFINS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_EFD_ICMS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_EFD_ICMS - Apuração de ICMS para EFD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_EFD_ICMSDifAliq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_EFD_ICMSDifAliq - Apuração de Diferencial de Alíquota do ICMS e FCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_EFD_IPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT Apuracao EFD IPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_EFD_IPI_G5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_EFD_IPI_G5 - Apuração de IPI (Grupo 5) para EFD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_LF_ICMS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_LF_ICMS - Apuração de ICMS para Livro Fiscal (LF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_LF_IPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_LF_IPI - Apuração de IPI para Livro Fiscal (LF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_LF_ManipulacaoCampos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_Apuracao_LF_ManipulacaoCampos - Manipulação de Campos da Apuração do Livro Fiscal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Apuracao_Receita_PisCofins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Apuração de Receita PIS/COFINS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Leiaute15_2021_Contribuicoes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Leiaute 15/2021 para PIS/COFINS (EFD Contribuições)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_Leiaute19_2025_ICMS_IPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT - Leiaute 19/2025 (EFD ICMS/IPI)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/formulas/sgt/SGT_PER_DCOMP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SGT_PER_DCOMP – Exportação de Dados de Apuração de IPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relatorio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Relatorio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_1" id="__nav_6_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Scc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scc/SCC_Documentos_de_Comiss%C3%B5es/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCC Documentos de Comissões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_2" id="__nav_6_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Scf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scf/SCF_BoletoBancoBrasil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF_BoletoBancoBrasil - Geração e Envio de Boletos Banco do Brasil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scf/SCF_Boleto_Banco_do_Brasil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF - Boleto Banco do Brasil (Linhasita)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scf/SCF_Documentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF_Documentos.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_3" id="__nav_6_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scv
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scv/SCV_FaturamentoDiarioDetalhado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_FaturamentoDiarioDetalhado.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/scv/SCV_Pedido_de_Compra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV Pedido de Compra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_4" id="__nav_6_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Spp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/spp/SPP_OrdensProducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPP - Ordens de Produção - Linhasita
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2_5" id="__nav_6_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/relatorio/srf/SRF_FaturamentoXPrecoMedio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_FaturamentoXPrecoMedio - Relatório de Faturamento x Preço Médio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Script
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Script
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINHASITA/script/SRF%20-%201002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF   1002
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    MITRA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            MITRA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_1" id="__nav_7_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MITRA/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Enviar Emails NFe (Mitra)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    STREMA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            STREMA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_1" id="__nav_8_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/cas/CAS_ImportarFCIEab01011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAS_ImportarFCIEab01011.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_2" id="__nav_8_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sce
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/sce/SCE_ImportarItensLctosXlsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE_ImportarItensLctosXlsx.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_3" id="__nav_8_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Scf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/scf/SCF_LayoutBancoItauRetorno_CNAB_400/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCF_LayoutBancoItauRetorno_CNAB_400 - Processamento de Retorno Bancário Itaú
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_4" id="__nav_8_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scv
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/scv/SCV_OrcamentoItem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_OrcamentoItem - Cálculo de Itens de Orçamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/scv/SCV_Pre_Gravacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_Pre_Gravacao.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_5" id="__nav_8_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Spp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/spp/CAS_ImportarFCIEab01011/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAS_ImportarFCIEab01011 - Importação de Ficha de Conteúdo de Importação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/spp/SPP_F8_SPP1001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPP_F8_SPP1001
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1_6" id="__nav_8_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_CalculoFCI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Cálculo da FCI (Equilibrio)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_CalculoItemEntradaImportacaoDrawback/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_CalculoItem_Entrada_ImportacaoDrawback.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_CalculoItem_Entrada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_CalculoItem_Entrada.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_CalculoItem_Entrada_Cte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_CalculoItem_Entrada_Cte.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_CalculoItem_Entrada_Importacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Cálculo de Item de Entrada por Importação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_Documento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_Documento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_EnviarEmailsNFe.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_ImportaXmlCTe_Entrada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_ImportaXmlCTe_Entrada.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/formulas/srf/SRF_Pre_Gravacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Pré-Gravação (Strema)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Relatorio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Relatorio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_1" id="__nav_8_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Scv
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Scv
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/scv/SCV_Orcamento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_Orcamento.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/scv/SCV_PedidoVenda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCV_PedidoVenda.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_2" id="__nav_8_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spp
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/spp/SPP_OrdemProducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPP_OrdemProducao - Relatório de Ordem de Produção
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_3" id="__nav_8_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../STREMA/relatorio/srf/SRF_Danfe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_Danfe.md
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    VETRO
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            VETRO
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1_1" id="__nav_9_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VETRO/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Enviar Emails NFe (Vetro)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VETRO/formulas/srf/SRF_GerarXMLNfe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF - Gerar XML de NFe (Fiscal) - Mitra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publico-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dados-e-fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-do-relatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros do Relatório
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-do-processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento-sintetico-detalhamento-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processamento Sintético (detalhamento = 0)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Processamento Sintético (detalhamento = 0)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coleta-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coleta de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculos-e-consolidacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculos e Consolidação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-sub-relatorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processamento-analitico-detalhamento-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processamento Analítico (detalhamento = 1)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Processamento Analítico (detalhamento = 1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dados-detalhados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dados Detalhados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrutura-de-sub-relatorios_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estrutura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-geracao-de-saida" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Geração de Saída
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorias-financeiras-ids-fixos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Categorias Financeiras (IDs Fixos)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Categorias Financeiras (IDs Fixos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vendas-abf10-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendas (Abf10 IDs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custos-abf10-ids-correspondentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custos (Abf10 IDs Correspondentes)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agrupamentos-de-despesas-abf11-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agrupamentos de Despesas (Abf11 IDs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informacoes-adicionais-bcc01-ple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Informações Adicionais (Bcc01 PLE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-valores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Valores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consolidacao-de-fontes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consolidação de Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordenação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Métodos Principais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Métodos Principais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executar" class="md-nav__link">
+    <span class="md-ellipsis">
+      executar()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-busca-sintetica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Busca Sintética
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-busca-analitica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Busca Analítica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos-de-calculo-de-totais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos de Cálculo de Totais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-dre" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Estrutura do DRE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Estrutura do DRE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secao-1-receitas-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 1: Receitas Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-2-custos-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 2: Custos Operacionais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-3-margem-bruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 3: Margem Bruta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-4-outras-receitas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 4: Outras Receitas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-5-despesas-operacionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 5: Despesas Operacionais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Seção 5: Despesas Operacionais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-custo-fixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Custo Fixo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-departamento-pessoal" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Departamento Pessoal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-despesas-bancarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Despesas Bancárias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Impostos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-ars-itatiba" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 ARS Itatiba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-6-ativo-imobilizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 6: Ativo Imobilizado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-7-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 7: Resultados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secao-8-informacoes-adicionais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seção 8: Informações Adicionais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Dependências
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacoes-tecnicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Observações Técnicas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-de-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance de Consultas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-de-sub-relatorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitetura de Sub-relatórios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexibilidade-do-relatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flexibilidade do Relatório
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-e-tratamento-de-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações e Tratamento de Erros
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="scf-demonstrativo-de-resultados-do-exercicio-dre-lcb">SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB<a class="headerlink" href="#scf-demonstrativo-de-resultados-do-exercicio-dre-lcb" title="Permanent link">&para;</a></h1>
+<h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
+<p>Relatório financeiro que gera o Demonstrativo de Resultados do Exercício (DRE) para a empresa LCB, com duas modalidades: sintético (resumido por grupos) e analítico (detalhado por documento). O relatório consolida receitas, custos, despesas e resultados do período.</p>
+<h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
+<p>Fornecer uma visão completa do desempenho financeiro da empresa, permitindo análise de margens, rentabilidade e composição de resultados. Atende tanto a necessidades gerenciais (visão sintética) quanto contábeis (visão analítica).</p>
+<h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Diretoria/Administração</li>
+<li>Controladoria</li>
+<li>Contabilidade</li>
+<li>Gerência Financeira</li>
+<li>Analistas de Custos</li>
+</ul>
+<h2 id="dados-e-fontes">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes" title="Permanent link">&para;</a></h2>
+<p><strong>Tabelas Principais:</strong>
+- <code>Daa01</code> - Documentos financeiros
+- <code>Daa0101</code> - Departamentos do documento
+- <code>Daa01011</code> - Naturezas financeiras do departamento
+- <code>Abf10</code> - Naturezas financeiras
+- <code>Abf11</code> - Agrupamentos de natureza financeira
+- <code>Abf1101</code> - Relacionamento natureza-agrupamento
+- <code>Dab10</code> - Lançamentos contábeis
+- <code>Dab1001</code> - Departamentos do lançamento
+- <code>Dab10011</code> - Naturezas do lançamento
+- <code>Abb01</code> - Central de documento
+- <code>Abe01</code> - Entidades (clientes/fornecedores)
+- <code>Aac10</code> - Empresa
+- <code>Bcc01</code> - Movimentações de estoque (informações adicionais)
+- <code>Abm01</code> - Produtos
+- <code>Aam01</code> - Classes de produtos</p>
+<h2 id="parametros-do-relatorio">⚙️ Parâmetros do Relatório<a class="headerlink" href="#parametros-do-relatorio" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Obrigatório</th>
+<th>Descrição</th>
+<th>Valor Padrão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>emissao</td>
+<td>LocalDate[]</td>
+<td>Sim</td>
+<td>Período de emissão/lançamento</td>
+<td>Mês atual</td>
+</tr>
+<tr>
+<td>detalhamento</td>
+<td>Integer</td>
+<td>Sim</td>
+<td>Tipo de detalhamento (0=Sintético, 1=Analítico)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>impressao</td>
+<td>Integer</td>
+<td>Sim</td>
+<td>Formato de saída (0=PDF, 1=XLSX)</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h2>
+<h3 id="1-configuracao-inicial">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Definição dos valores padrão dos filtros (mês atual)</li>
+<li>Carregamento dos parâmetros fornecidos pelo usuário</li>
+<li>Obtenção dos dados da empresa ativa</li>
+<li>Formatação do período para exibição no relatório</li>
+</ul>
+<h3 id="2-processamento-sintetico-detalhamento-0">2. <strong>Processamento Sintético (detalhamento = 0)</strong><a class="headerlink" href="#2-processamento-sintetico-detalhamento-0" title="Permanent link">&para;</a></h3>
+<h4 id="coleta-de-dados"><strong>Coleta de Dados</strong><a class="headerlink" href="#coleta-de-dados" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Vendas</strong>: Busca receitas por linha de produto (IDs específicos)</li>
+<li><strong>Custos</strong>: Busca custos diretos por linha de produto (IDs correspondentes)</li>
+<li><strong>Margem</strong>: Obtém estrutura para cálculo de margem bruta</li>
+<li><strong>Outras Entradas</strong>: Receitas não operacionais</li>
+<li><strong>Despesas Operacionais</strong>: Divididas em:</li>
+<li>Custo Fixo (infraestrutura, manutenção)</li>
+<li>Departamento Pessoal (salários, encargos)</li>
+<li>Despesas Bancárias (tarifas, juros)</li>
+<li>Impostos (tributos diretos)</li>
+<li>ARS Itatiba (despesas específicas)</li>
+<li><strong>Informações Adicionais</strong>: Dados de estoque por classe de produto</li>
+<li><strong>Ativo Imobilizado</strong>: Depreciações e amortizações</li>
+<li><strong>Distribuição de Lucros</strong>: Provisões e distribuições</li>
+</ul>
+<h4 id="calculos-e-consolidacao"><strong>Cálculos e Consolidação</strong><a class="headerlink" href="#calculos-e-consolidacao" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Totais por Grupo</strong>: Soma de valores por agrupamento</li>
+<li><strong>Percentuais</strong>: Cálculo de participação sobre vendas ou margem</li>
+<li><strong>Margem Bruta</strong>: Vendas - Custos Diretos</li>
+<li><strong>Resultados Intermediários</strong>:</li>
+<li>Lucro Líquido Operacional: Margem Bruta - Despesas Operacionais</li>
+<li>Lucro Líquido: Lucro Operacional + Outras Entradas + Ativo Imobilizado</li>
+<li><strong>Consolidação de Fontes</strong>: Unificação de dados de <code>Dab10</code> (lançados) e <code>Daa01</code> (não pagos)</li>
+</ul>
+<h4 id="estrutura-de-sub-relatorios"><strong>Estrutura de Sub-relatórios</strong><a class="headerlink" href="#estrutura-de-sub-relatorios" title="Permanent link">&para;</a></h4>
+<ul>
+<li>13 sub-relatórios interligados via TableMapDataSource</li>
+<li>Cada seção do DRE como sub-relatório independente</li>
+<li>Chave de relacionamento (<code>key</code>) para vínculo principal</li>
+</ul>
+<h3 id="3-processamento-analitico-detalhamento-1">3. <strong>Processamento Analítico (detalhamento = 1)</strong><a class="headerlink" href="#3-processamento-analitico-detalhamento-1" title="Permanent link">&para;</a></h3>
+<h4 id="dados-detalhados"><strong>Dados Detalhados</strong><a class="headerlink" href="#dados-detalhados" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Mesmas categorias do sintético, mas com detalhamento por documento</li>
+<li>Inclusão de: número documento, data, situação (quitado), entidade</li>
+<li>Consolidação de múltiplas fontes em listas únicas</li>
+<li>Ordenação por agrupamento → número documento → entidade</li>
+</ul>
+<h4 id="estrutura-de-sub-relatorios_1"><strong>Estrutura de Sub-relatórios</strong><a class="headerlink" href="#estrutura-de-sub-relatorios_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>7 sub-relatórios analíticos</li>
+<li>Layout otimizado para visualização detalhada</li>
+<li>Manutenção da estrutura hierárquica</li>
+</ul>
+<h3 id="4-geracao-de-saida">4. <strong>Geração de Saída</strong><a class="headerlink" href="#4-geracao-de-saida" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PDF</strong>: Relatório formatado para impressão/visualização</li>
+<li><strong>XLSX</strong>: Planilha Excel para análise e manipulação</li>
+<li>Mesma estrutura de dados para ambos os formatos</li>
+</ul>
+<h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
+<h3 id="categorias-financeiras-ids-fixos">Categorias Financeiras (IDs Fixos)<a class="headerlink" href="#categorias-financeiras-ids-fixos" title="Permanent link">&para;</a></h3>
+<h4 id="vendas-abf10-ids"><strong>Vendas (Abf10 IDs)</strong><a class="headerlink" href="#vendas-abf10-ids" title="Permanent link">&para;</a></h4>
+<ul>
+<li>45118536, 45118558, 48621447, 45118556, 45118571, 45118538,</li>
+<li>45118540, 48312987, 45118567, 45118565, 45118575, 45118560,</li>
+<li>45118569, 45118542, 45118550, 45118563, 50242950, 56159621,</li>
+<li>63491575, 67170852, 73575997</li>
+</ul>
+<h4 id="custos-abf10-ids-correspondentes"><strong>Custos (Abf10 IDs Correspondentes)</strong><a class="headerlink" href="#custos-abf10-ids-correspondentes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>45118606, 45118631, 48621476, 45118629, 45118643,</li>
+<li>45118611, 45118613, 48313032, 45118639, 45118637, 45118647,</li>
+<li>45118633, 45118641, 45118616, 45118623, 45118636, 50242996, 56159623,</li>
+<li>63491577, 67170690, 73575999</li>
+</ul>
+<h4 id="agrupamentos-de-despesas-abf11-ids"><strong>Agrupamentos de Despesas (Abf11 IDs)</strong><a class="headerlink" href="#agrupamentos-de-despesas-abf11-ids" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Outras Entradas</strong>: 45724656</li>
+<li><strong>Custo Fixo</strong>: 45671519, 45671525, 45671528, 45714999, 45671530, 45671542, 45671532, 45671534, 45671536, 45671538, 45671540, 53634052, 53633915, 79473971</li>
+<li><strong>Depto Pessoal</strong>: 45671546, 45671548, 45671550, 45671552, 45671554, 68684602, 73779171, 75611157</li>
+<li><strong>Despesas Bancárias</strong>: 45671560, 45671558</li>
+<li><strong>Impostos</strong>: 45671571</li>
+<li><strong>ARS Itatiba</strong>: 47514382</li>
+<li><strong>Ativo Imobilizado</strong>: 45671568</li>
+<li><strong>Distribuição Lucros</strong>: 45805292</li>
+</ul>
+<h4 id="informacoes-adicionais-bcc01-ple"><strong>Informações Adicionais (Bcc01 PLE)</strong><a class="headerlink" href="#informacoes-adicionais-bcc01-ple" title="Permanent link">&para;</a></h4>
+<ul>
+<li>44322655, 44322656, 44514002</li>
+</ul>
+<h3 id="tratamento-de-valores">Tratamento de Valores<a class="headerlink" href="#tratamento-de-valores" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Movimentação de Entrada (dab10mov = 1)</strong>: Valores multiplicados por -1</li>
+<li><strong>Documentos RP (daa01rp = 1)</strong>: Valores multiplicados por -1</li>
+<li><strong>Arredondamentos</strong>: 2 casas decimais para valores monetários</li>
+<li><strong>Percentuais</strong>: Calculados sobre total de vendas ou margem, conforme categoria</li>
+</ul>
+<h3 id="consolidacao-de-fontes">Consolidação de Fontes<a class="headerlink" href="#consolidacao-de-fontes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dab10</strong>: Documentos já lançados contabilmente</li>
+<li><strong>Daa01</strong>: Documentos financeiros não pagos (em aberto)</li>
+<li><strong>Lógica de Junção</strong>: Quando existe <code>daa01dtLcto</code>, usa essa data; senão, usa <code>abb01data</code></li>
+<li><strong>Validação de IDs</strong>: Garantia de que todos os registros da segunda fonte sejam incluídos</li>
+</ul>
+<h3 id="ordenacao">Ordenação<a class="headerlink" href="#ordenacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sintético</strong>: Por nome do agrupamento/natureza</li>
+<li><strong>Analítico</strong>: Por nome do agrupamento → número do documento → nome da entidade</li>
+<li><strong>Custom Comparators</strong>: Implementação específica para ordenação múltipla</li>
+</ul>
+<h2 id="metodos-principais">🔧 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h2>
+<h3 id="executar"><code>executar()</code><a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
+<p>Método principal que direciona para processamento sintético ou analítico.</p>
+<h3 id="metodos-de-busca-sintetica">Métodos de Busca Sintética<a class="headerlink" href="#metodos-de-busca-sintetica" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>buscarDadosVendas()</code>, <code>buscarDadosCustos()</code>, <code>buscarDadosMargem()</code></li>
+<li><code>buscarDadosOutrasEntradas()</code>, <code>buscarDadosCustoFixo()</code>, <code>buscarDadosDeptoPessoal()</code></li>
+<li><code>buscarDadosDespeBancarias()</code>, <code>buscarDadosImpostos()</code>, <code>buscarDadosArsItatiba()</code></li>
+<li><code>buscarDadosInfoAdd()</code>, <code>buscarDadosAtivoImob()</code>, <code>buscarDistribLucro()</code></li>
+</ul>
+<h3 id="metodos-de-busca-analitica">Métodos de Busca Analítica<a class="headerlink" href="#metodos-de-busca-analitica" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>buscarDados...Analitico()</code>: Versões detalhadas de cada categoria</li>
+<li>Incluem dados documentais: número, data, situação, entidade</li>
+</ul>
+<h3 id="metodos-de-calculo-de-totais">Métodos de Cálculo de Totais<a class="headerlink" href="#metodos-de-calculo-de-totais" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>buscarTotalVendas()</code>, <code>buscarTotalCustos()</code>, <code>buscarTotalInfoAdd()</code></li>
+<li>Retornam somatórios para cálculo de percentuais</li>
+</ul>
+<h2 id="estrutura-do-dre">📊 Estrutura do DRE<a class="headerlink" href="#estrutura-do-dre" title="Permanent link">&para;</a></h2>
+<h3 id="secao-1-receitas-operacionais"><strong>Seção 1: Receitas Operacionais</strong><a class="headerlink" href="#secao-1-receitas-operacionais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Vendas por linha de produto (com % sobre total)</li>
+<li>Subtotal: Total de Vendas</li>
+</ul>
+<h3 id="secao-2-custos-operacionais"><strong>Seção 2: Custos Operacionais</strong><a class="headerlink" href="#secao-2-custos-operacionais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Custos diretos por linha de produto (com % sobre total)</li>
+<li>Subtotal: Total de Custos</li>
+</ul>
+<h3 id="secao-3-margem-bruta"><strong>Seção 3: Margem Bruta</strong><a class="headerlink" href="#secao-3-margem-bruta" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Margem por linha de produto (Vendas - Custos)</li>
+<li>Percentual sobre margem total</li>
+<li>Subtotal: Margem Bruta Total</li>
+</ul>
+<h3 id="secao-4-outras-receitas"><strong>Seção 4: Outras Receitas</strong><a class="headerlink" href="#secao-4-outras-receitas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Receitas não operacionais</li>
+<li>Subtotal: Total Outras Entradas</li>
+</ul>
+<h3 id="secao-5-despesas-operacionais"><strong>Seção 5: Despesas Operacionais</strong><a class="headerlink" href="#secao-5-despesas-operacionais" title="Permanent link">&para;</a></h3>
+<h4 id="51-custo-fixo">5.1 Custo Fixo<a class="headerlink" href="#51-custo-fixo" title="Permanent link">&para;</a></h4>
+<h4 id="52-departamento-pessoal">5.2 Departamento Pessoal<a class="headerlink" href="#52-departamento-pessoal" title="Permanent link">&para;</a></h4>
+<h4 id="53-despesas-bancarias">5.3 Despesas Bancárias<a class="headerlink" href="#53-despesas-bancarias" title="Permanent link">&para;</a></h4>
+<h4 id="54-impostos">5.4 Impostos<a class="headerlink" href="#54-impostos" title="Permanent link">&para;</a></h4>
+<h4 id="55-ars-itatiba">5.5 ARS Itatiba<a class="headerlink" href="#55-ars-itatiba" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Subtotal: Total Despesas Operacionais</li>
+</ul>
+<h3 id="secao-6-ativo-imobilizado"><strong>Seção 6: Ativo Imobilizado</strong><a class="headerlink" href="#secao-6-ativo-imobilizado" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Depreciações e amortizações</li>
+</ul>
+<h3 id="secao-7-resultados"><strong>Seção 7: Resultados</strong><a class="headerlink" href="#secao-7-resultados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Lucro Líquido Operacional (Margem - Despesas)</li>
+<li>Distribuição de Lucros</li>
+<li>Lucro Líquido do Exercício</li>
+</ul>
+<h3 id="secao-8-informacoes-adicionais"><strong>Seção 8: Informações Adicionais</strong><a class="headerlink" href="#secao-8-informacoes-adicionais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Movimentações de estoque por classe de produto</li>
+</ul>
+<h2 id="dependencias">🔧 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
+<p><strong>Bibliotecas:</strong>
+- <code>br.com.multitec.utils</code> - Utilitários de data e coleções
+- <code>br.com.multitec.utils.collections.TableMap</code> - Estrutura de dados
+- <code>sam.server.samdev.relatorio</code> - Classes base para relatórios
+- <code>sam.core.variaveis.MDate</code> - Manipulação de datas
+- <code>java.time</code> - API de datas moderna
+- <code>java.util</code> - Coleções e comparators</p>
+<p><strong>Módulo:</strong> SCF (Sistema Contábil Financeiro)</p>
+<h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
+<h3 id="performance-de-consultas">Performance de Consultas<a class="headerlink" href="#performance-de-consultas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Consultas otimizadas com filtros por período</li>
+<li>Uso de subqueries para consolidação</li>
+<li>Agrupamentos (GROUP BY) no banco para reduzir processamento</li>
+<li>Índices sugeridos em: <code>daa01dtLcto</code>, <code>abb01data</code>, <code>abf10id</code>, <code>abf11id</code></li>
+</ul>
+<h3 id="tratamento-de-dados">Tratamento de Dados<a class="headerlink" href="#tratamento-de-dados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conversão segura de tipos (getBigDecimal_Zero)</li>
+<li>Validação de nulls antes de cálculos</li>
+<li>Arredondamento consistente em 2 casas decimais</li>
+<li>Formatação de datas no padrão brasileiro (dd/MM/yyyy)</li>
+</ul>
+<h3 id="arquitetura-de-sub-relatorios">Arquitetura de Sub-relatórios<a class="headerlink" href="#arquitetura-de-sub-relatorios" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>TableMapDataSource</strong>: Estrutura hierárquica de dados</li>
+<li><strong>Chaves de Relacionamento</strong>: Campo <code>key</code> para vínculo entre níveis</li>
+<li><strong>SubDataSources Múltiplos</strong>: Até 13 sub-relatórios no modo sintético</li>
+<li><strong>Templates Independentes</strong>: Cada seção com layout específico</li>
+</ul>
+<h3 id="flexibilidade-do-relatorio">Flexibilidade do Relatório<a class="headerlink" href="#flexibilidade-do-relatorio" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Duas Modalidades</strong>: Sintético (gerencial) e Analítico (contábil)</li>
+<li><strong>Dois Formatos</strong>: PDF (visualização) e XLSX (análise)</li>
+<li><strong>Período Customizável</strong>: Qualquer intervalo de datas</li>
+<li><strong>Empresa Ativa</strong>: Dados específicos da empresa do usuário logado</li>
+</ul>
+<h3 id="validacoes-e-tratamento-de-erros">Validações e Tratamento de Erros<a class="headerlink" href="#validacoes-e-tratamento-de-erros" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Verificação de dados vazios/nulos</li>
+<li>Cálculos de percentuais com proteção contra divisão por zero</li>
+<li>Consolidação segura de múltiplas fontes de dados</li>
+<li>Ordenação robusta com comparators customizados</li>
+</ul>
+<hr />
+<p><strong>Última Alteração:</strong> 28/11/2025 às 08:50<br />
+<strong>Autor:</strong> Bruno<br />
+<strong>Tipo:</strong> Relatório Financeiro (DRE)<br />
+<strong>Versão:</strong> 1.0</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Eltech Sistemas
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.sections", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
