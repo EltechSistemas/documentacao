@@ -1,151 +1,205 @@
-# SRF_GerarXMLNfe - Geração de XML para Nota Fiscal Eletrônica
+# SRF - Gerar XML de NFe (Fiscal)
 
 ## 📖 Descrição
-Classe responsável pela geração do arquivo XML da Nota Fiscal Eletrônica (NFe) seguindo o layout oficial da SEFAZ, com suporte para diferentes modelos (55, 65), regimes tributários e operações específicas.
+Fórmula para geração do arquivo XML da Nota Fiscal Eletrônica (NFe) conforme layout 4.00, incluindo dados do emitente, destinatário, produtos, impostos, transportes, pagamentos e informações complementares.
 
 ## 🎯 Finalidade
-Gerar XML válido para NFe contendo todas as informações fiscais, tributárias e comerciais necessárias para transmissão à SEFAZ, incluindo dados do emitente, destinatário, produtos, impostos e informações adicionais.
+Gerar automaticamente o XML da NFe a partir dos dados do documento fiscal, aplicando validações, formatações e regras fiscais conforme a legislação vigente.
 
 ## 👥 Público-Alvo
 - Departamento Fiscal
-- Desenvolvedores do sistema
-- Integradores de sistemas fiscais
-- Administradores do SAM
+- Faturamento
+- Contabilidade
 
-## ⚙️ Parâmetros do Processo
+## 📊 Dados e Fontes
+
+**Tabelas Principais:**
+- `Eaa01` - Documentos fiscais
+- `Eaa0101` - Endereços do documento
+- `Eaa0102` - Dados gerais do documento
+- `Eaa0103` - Itens do documento
+- `Eaa01033` - Itens vinculados (devolução)
+- `Eaa01034` - Declaração de importação
+- `Eaa010341` - Adições da DI
+- `Eaa01038` - Rastreabilidade
+- `Eaa0104` - Declaração de exportação
+- `Eaa0113` - Financeiro do documento
+- `Eaa01131` - Formas de pagamento
+- `Aac10` - Empresa emitente
+- `Aac1002` - Inscrições estaduais da empresa
+- `Abe01` - Entidades (clientes/fornecedores)
+- `Abe0101` - Endereços das entidades
+- `Abb01` - Central de documentos
+- `Abm01` - Itens cadastrais
+- `Abm0101` - Configuração de itens por empresa
+- `Abg01` - NCM
+- `Abg0101` - NVE
+- `Aaj03` - Situação do documento
+- `Aaj04` - Código ANP
+- `Aaj10` - CST ICMS
+- `Aaj11` - CST IPI
+- `Aaj12` - CST PIS
+- `Aaj13` - CST COFINS
+- `Aaj14` - CSOSN
+- `Aaj15` - CFOP
+- `Aam06` - Unidades de medida
+- `Aah20` - Veículos/transportes
+- `Aag01` - Países
+- `Aag02` - Estados/UF
+
+## ⚙️ Parâmetros da Fórmula
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 |-----------|------|-------------|-----------|
 | eaa01 | Eaa01 | Sim | Documento fiscal a ser processado |
-| formaEmis | Integer | Sim | Forma de emissão (1=Normal, 2=Contingência) |
-| contDt | LocalDate | Não | Data de contingência |
-| contHr | LocalTime | Não | Hora de contingência |
+| formaEmis | Integer | Não | Forma de emissão (1=Normal, 2=Contingência) |
+| contDt | LocalDate | Não | Data da contingência |
+| contHr | LocalTime | Não | Hora da contingência |
 | contJust | String | Não | Justificativa da contingência |
-| empresa | Aac10 | Sim | Empresa emitente |
-
-## 📋 Estrutura de Dados Principais
-
-### Entidades Envolvidas:
-- **Eaa01** - Documento fiscal
-- **Abb01** - Cabeçalho do documento
-- **Eaa0102** - Dados gerais do documento
-- **Eaa0103** - Itens do documento
-- **Eaa0101** - Endereços do documento
-- **Aac10** - Empresa emitente
-- **Abe01** - Entidades (clientes/fornecedores)
-
-### Campos XML Gerados:
-- Identificação (ide)
-- Emitente (emit)
-- Destinatário (dest)
-- Produtos/Serviços (det)
-- Impostos (ICMS, IPI, PIS, COFINS, ISSQN)
-- Transporte (transp)
-- Cobrança (cobr)
-- Informações adicionais (infAdic)
 
 ## 🔄 Fluxo do Processo
 
-### 1. **Inicialização e Validação**
-- Carrega dados do documento e empresa
-- Valida dados obrigatórios
-- Seleciona alinhamento conforme regime tributário
+### 1. **Configuração Inicial**
+- Validação dos parâmetros obrigatórios
+- Carregamento da empresa emitente
+- Seleção do alinhamento fiscal (Simples Nacional ou Outros)
+- Composição dos dados do documento (central, dados gerais, endereços)
 
-### 2. **Geração da Chave de Acesso**
-- Calcula código numérico (cNF)
-- Gera chave de acesso única
-- Define ambiente (produção/homologação)
+### 2. **Validações de Dados**
+- Validação de dados obrigatórios do emitente
+- Validação de dados do documento fiscal
+- Validação de itens, impostos e formas de pagamento
+- Validação de documentos referenciados e transportes
 
-### 3. **Construção da Estrutura XML**
-- Cria elemento raiz NFe
-- Monta estrutura hierárquica do XML
-- Aplica formatação e caracteres especiais
+### 3. **Geração da Estrutura XML**
+- Criação do elemento raiz `NFe`
+- Definição das informações básicas (`infNFe`)
+- Montagem da identificação (`ide`)
+- Inclusão de documentos referenciados (`NFref`)
 
-### 4. **Preenchimento das Seções**
-- **Identificação**: dados básicos da NF
-- **Emitente**: dados da empresa
-- **Destinatário**: dados do cliente
-- **Produtos**: itens com impostos
-- **Totais**: valores consolidados
-- **Transporte**: dados de frete
-- **Pagamento**: formas de pagamento
+### 4. **Montagem das Seções da NFe**
+- Emitente (`emit`)
+- Destinatário (`dest`)
+- Itens (`det`) com produtos, impostos e informações específicas
+- Totais (`total`) com valores de ICMS, ISS, retenções
+- Transporte (`transp`) com veículos e volumes
+- Cobrança (`cobr`) com faturas e duplicatas
+- Pagamento (`pag`) com formas de pagamento
+- Informações adicionais (`infAdic`)
+- Exportação (`exporta`)
+- Responsável técnico (`infRespTec`)
 
-### 5. **Validação Final e Saída**
-- Valida consistência dos dados
-- Gera XML final
-- Retorna chave e dados para assinatura
+### 5. **Finalização**
+- Geração do XML final
+- Retorno da chave de acesso e dados do XML
 
 ## ⚠️ Regras de Negócio
 
-### Validações Obrigatórias:
-- Dados completos da empresa emitente
-- Informações fiscais do destinatário
-- CFOP válido para cada item
-- CST/CSOSN conforme regime tributário
-- Dados de transporte quando aplicável
+### Validações Obrigatórias
+- Empresa emitente deve ter município, IE, endereço e CNPJ/CPF válidos
+- Documento deve ter tipo, modelo, situação e dados gerais
+- Itens devem ter unidade de medida, descrição, CFOP e CST/CSOSN conforme classificação tributária
+- Para Simples Nacional: CSOSN obrigatório
+- Para outras classificações: CST ICMS obrigatório (exceto para itens com ISS)
 
-### Regimes Tributários:
-- **Simples Nacional**: Usa CSOSN e alinhamento 0009
-- **Outros Regimes**: Usa CST e alinhamento 0010
+### Regras Fiscais
+- Identificação do destino (1=Interna, 2=Interestadual, 3=Exterior)
+- Tratamento diferenciado para operações com e sem ISS
+- Cálculo de impostos (ICMS, IPI, PIS, COFINS, ISS) conforme CST/CSOSN
+- Informações de ST, FCP e retenções conforme configuração
+- Tratamento especial para combustíveis (ANP, CIDE)
 
-### Tipos de Operação:
-- Operações internas (CFOP 1xxx, 5xxx)
-- Operações interestaduais (CFOP 2xxx, 6xxx)
-- Operações com exterior (CFOP 3xxx)
+### Formatação e Estrutura
+- Formatação de valores monetários com 2 decimais
+- Formatação de quantidades com 4 decimais
+- Ajuste de caracteres especiais no XML
+- Geração de chave de acesso com dígito verificador
+- Versão do layout: 4.00
 
-### Cálculos Automáticos:
-- Valores de impostos (ICMS, IPI, PIS, COFINS)
-- Base de cálculo e aliquotas
-- Totais da nota fiscal
+## 🔧 Métodos Principais
 
-## 🎨 Saídas Geradas
+### `executar()`
+Método principal que orquestra todo o processo de geração do XML.
 
-| Formato | Descrição | Estrutura |
-|---------|-----------|-----------|
-| XML | Arquivo XML da NFe | Layout 4.00 da SEFAZ |
-| Chave | Chave de acesso | 44 dígitos |
-| Dados | XML pronto | Para assinatura digital |
+### `validarDadosDaNFe()`
+Realiza validações abrangentes dos dados necessários para a geração da NFe.
+
+### `comporFilhosDocumento()`
+Carrega e associa os dados relacionados ao documento (central, dados gerais, endereços).
+
+### `emitente()`
+Monta a seção do emitente com dados da empresa.
+
+### `destinatario()`
+Monta a seção do destinatário com dados da entidade.
+
+### `item()`
+Processa todos os itens do documento, incluindo produtos, impostos e informações específicas.
+
+### Métodos de Busca
+- `buscarInscricaoEstadualPorEstado()`: Busca IE da empresa por UF
+- `buscarDocumentosReferenciados()`: Busca notas referenciadas
+- `buscarItensDoDocumento()`: Busca itens do documento
+- `buscarNVEsPorNCM()`: Busca NVE relacionados ao NCM
+- `buscarDeclaracaoDeImportacaoPorItem()`: Busca DI dos itens
+- `buscarAdicoesPorDI()`: Busca adições da DI
+- `buscarDeclaracoesDeExportacao()`: Busca declarações de exportação
+- `buscarRastreabilidadeDoItem()`: Busca dados de rastreabilidade
+- `buscarLancamentosDoItem()`: Busca lançamentos de estoque
+- `buscarFinanceiroPorDocumento()`: Busca parcelas financeiras
+- `buscarFormasDePagamentoPorDocumento()`: Busca formas de pagamento
+- `buscarFormasPgtp()`: Busca formas de pagamento alternativas
+
+## 📊 Estrutura de Saída
+
+**XML da NFe:** String formatada conforme layout 4.00
+
+**Parâmetros de Retorno:**
+- `chaveNfe`: Chave de acesso da NFe (44 dígitos)
+- `dados`: XML completo da NFe
 
 ## 🔧 Dependências
 
-### Bibliotecas:
-- `multitec.utils` - Utilitários e datas
+**Bibliotecas:**
+- `multiorm` - Criteria e consultas ao banco
+- `multitec.utils` - Utilitários (DateUtils, StringUtils, ValidacaoException)
+- `sam.dicdados` - Tipos de fórmula
+- `sam.model` - Entidades do sistema
+- `sam.server.samdev.utils` - Utilitários do SAM (NFeUtils, Parametro)
 - `java.time` - Manipulação de datas
-- `br.com.multiorm` - Acesso a dados
+- `java.math` - Cálculos com BigDecimal
 
-### Configurações:
-- Templates de alinhamento (0009, 0010)
-- Parâmetros do sistema (NFeDataProducao)
-- Certificado digital (para assinatura)
+**Módulo:** Fiscal
 
 ## 📝 Observações Técnicas
 
-### Estrutura XML:
-- Segue padrão oficial da SEFAZ
-- Namespace: http://www.portalfiscal.inf.br/nfe
-- Versão do layout: 4.00
-- Codificação UTF-8
+### Versão do Layout
+- Layout 4.00 da NFe
+- Suporte a NFC-e (modelo 65) e NFe normal (modelo 55)
 
-### Tratamento de Dados:
-- Substituição de caracteres especiais
-- Formatação de valores decimais
-- Validação de tamanhos de campos
-- Ajuste de timezone para datas
+### Ambiente
+- Produção: `tpAmb = 1`
+- Homologação: `tpAmb = 2`
+- CNPJ de homologação: 99999999000191
 
-### Performance:
-- Uso de TableMap para dados JSON
-- Consultas otimizadas ao banco
-- Processamento em lote para itens
+### Contingência
+- Forma de emissão normal: `tpEmis = 1`
+- Contingência: `tpEmis = 2` com data/hora e justificativa
 
-### Validações:
-- MultiValidationException para erros
-- Verificação de consistência fiscal
-- Validação de documentos referenciados
+### Tratamento de Dados
+- Formatação de IE (remoção de caracteres não numéricos)
+- Ajuste de fone (DDD + número)
+- Substituição de caracteres especiais no XML (&, <, >, ", ')
+- Formatação de datas no padrão UTC
 
-### Suporte a Cenários Especiais:
-- Contingência offline
-- Exportação
-- Importação com DI
-- Combustíveis (ANP)
-- Rastreabilidade
-- Devolução
+### Campos Livres (JSON)
+Os dados fiscais detalhados são armazenados em campos livres (JSON) nas tabelas:
+- `eaa01json` para totais do documento
+- `eaa0103json` para valores por item
+
+---
+
+**Última Alteração:** 09/12/2025 às 16:28  
+**Autor:** NAGYLA  
+**Tipo:** Fórmula de Geração de Arquivos de NFe  
+**Versão:** 1.0

@@ -1,135 +1,167 @@
-# SCF_CaixaFinanceiro.md
+# SCF - Caixa Financeiro (El Tech)
 
 ## 📖 Descrição
-Sistema de relatório de Caixa Financeiro que apresenta o fluxo de movimentações financeiras por conta corrente, com cálculo de saldos e suporte a diferentes formas de visualização.
+Relatório de caixa financeiro que apresenta o fluxo de entradas e saídas por conta corrente, com cálculo de saldo acumulado e suporte a diferentes formas de agrupamento (por natureza ou por conta).
 
 ## 🎯 Finalidade
-Gerar relatório consolidado das movimentações financeiras, permitindo acompanhamento do saldo por conta corrente, com opções de visualização por natureza financeira e exportação em diferentes formatos.
+Controlar e analisar o movimento financeiro por conta corrente, permitindo acompanhar saldos, entradas, saídas e o fluxo de caixa em períodos específicos.
 
 ## 👥 Público-Alvo
 - Departamento Financeiro
 - Contabilidade
-- Controladoria
-- Gestores
-
-## ⚙️ Configuração
-**Recursos Necessários:**
-- Relatório `SCF_CaixaFinanceiro` - Versão PDF
-- Relatório `SCF_LancamentosXLS` - Versão Excel
-
-**Localização:** `eltech/relatorios/scf/`
+- Tesouraria
+- Gerência Financeira
 
 ## 📊 Dados e Fontes
+
 **Tabelas Principais:**
-- `DAB10` - Lançamentos financeiros
-- `DAB01` - Contas correntes
-- `DAB1002` - Rateio por conta corrente
-- `DAB1001` - Departamentos
-- `DAB10011` - Naturezas financeiras
-- `DAB0101` - Saldos mensais
-- `ABF10` - Naturezas
+- `Dab10` - Lançamentos financeiros
+- `Dab1002` - Vinculação de lançamentos com contas correntes
+- `Dab01` - Contas correntes
+- `Dab0101` - Saldos mensais das contas correntes
+- `Dab1001` - Departamentos do lançamento
+- `Dab10011` - Naturezas por departamento
+- `Abf10` - Naturezas financeiras
+- `Aac10` - Empresas
+- `Aac01` - Grupos de empresas
+- `Abb01` - Central de documentos
 
-**Entidades Envolvidas:**
-- `Dab10` - Lançamento financeiro
-- `Dab01` - Conta corrente
-- `Dab1002` - Rateio financeiro
-- `Abf10` - Natureza financeira
-
-## ⚙️ Parâmetros do Processo
+## ⚙️ Parâmetros do Relatório
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 |-----------|------|-------------|-----------|
-| contaCorrente | List<Long> | Não | Filtro por contas correntes específicas |
-| periodo | LocalDate[] | Sim | Período de análise (data inicial e final) |
+| contaCorrente | List<Long> | Não | Filtro por IDs das contas correntes |
+| periodo | LocalDate[] | Sim | Período do relatório [início, fim] |
 | imprimir | Integer | Sim | Formato de saída (0=XLSX, 1=PDF) |
-| isSaltarPagina | Boolean | Não | Controla quebra de página por conta no PDF |
-| isNatureza | Boolean | Não | Agrupa por natureza financeira quando true |
+| isSaltarPagina | Boolean | Sim | Controla quebra de página por conta no PDF |
+| isNatureza | Boolean | Sim | Agrupa por natureza (true) ou por conta (false) |
 
 ## 🔄 Fluxo do Processo
 
-1. **Configuração Inicial**
-   - Define parâmetros padrão (mês corrente)
-   - Configura título e informações da empresa
-   - Prepara formatação do período
+### 1. **Configuração Inicial**
+- Carregamento dos filtros padrão (mês atual)
+- Configuração da empresa ativa
+- Definição dos parâmetros do relatório
 
-2. **Busca de Dados**
-   - Consulta lançamentos financeiros no período
-   - Aplica filtros por conta corrente
-   - Opção de agrupamento por natureza
+### 2. **Processamento dos Filtros**
+- Validação do período informado
+- Aplicação de filtros de contas correntes
+- Configuração do tipo de agrupamento (natureza ou conta)
 
-3. **Cálculo de Saldos**
-   - Busca saldo inicial do período
-   - Calcula entradas e saídas acumuladas
-   - Atualiza saldo a cada movimentação
+### 3. **Busca e Processamento de Dados**
+- Busca dos lançamentos financeiros no período
+- Cálculo do saldo inicial para cada conta
+- Processamento sequencial para cálculo de saldo acumulado
+- Agrupamento conforme opção selecionada
 
-4. **Processamento por Conta**
-   - Agrupa movimentações por conta corrente
-   - Calcula saldo individual por conta
-   - Mantém sequência por código de conta
+### 4. **Cálculo de Saldos**
+- **Saldo inicial**: Busca saldo do mês anterior ou último disponível
+- **Saldo acumulado**: Calculado linha a linha considerando entradas e saídas
+- **Saldo final**: Resultado após processamento de todos os lançamentos
 
-5. **Geração de Saída**
-   - **PDF:** Relatório formatado com quebras de página
-   - **XLSX:** Planilha exportável para análise
+### 5. **Geração do Relatório**
+- Formato XLSX ou PDF conforme seleção
+- Quebra de página por conta (quando habilitado)
+- Inclusão de cabeçalho com empresa e período
 
 ## ⚠️ Regras de Negócio
 
-### Cálculo de Saldos
-- **Saldo Inicial:** Último saldo conhecido antes do período
-- **Entradas:** Movimentações com dab10mov = 0
-- **Saídas:** Movimentações com dab10mov = 1
-- **Saldo Atual:** Saldo anterior + entradas - saídas
+### Cálculo de Saldo Inicial
+1. Busca saldo do mês anterior na tabela `Dab0101`
+2. Se não encontrado, retrocede meses/anos até encontrar saldo
+3. Adiciona entradas e subtrai saídas ocorridas antes do período
+4. Resultado é o saldo inicial para o período informado
 
-### Agrupamento de Dados
-- **Por Natureza:** Quando isNatureza = true, usa valores de Dab10011
-- **Sem Natureza:** Quando isNatureza = false, usa valores de Dab1002
-- **Ordenação:** Por código da conta e data do lançamento
+### Processamento de Lançamentos
+- **Entradas** (`dab10mov = 0`): Aumentam o saldo
+- **Saídas** (`dab10mov = 1`): Diminuem o saldo
+- **Ordenação**: Por código da conta e data do lançamento
+- **Agrupamento**: Controlado por `isNatureza` (true=natureza, false=conta)
 
-### Validações de Período
-- Período é obrigatório
-- Data final não pode ser anterior à data inicial
-- Suporte a períodos que cruzam anos diferentes
+### Formato de Saída
+- **PDF**: Ideal para impressão e visualização
+- **XLSX**: Ideal para análise e manipulação dos dados
+- **Quebra de página**: Aplicada apenas no PDF quando habilitada
 
-### Formatação de Saída
-- **PDF:** Layout otimizado para impressão, com quebras opcionais
-- **XLSX:** Estrutura tabular para análise em planilhas
-- Ambos incluem cabeçalho com empresa e período
+## 🔧 Métodos Principais
 
-## 🎨 Saídas Geradas
+### `executar()`
+Método principal que orquestra a geração do relatório.
 
-| Saída | Descrição | Tipo |
-|-------|-----------|------|
-| Relatório PDF | Caixa Financeiro formatado | DadosParaDownload |
-| Planilha XLSX | Dados em formato Excel | DadosParaDownload |
+### `buscarSaldoInicial()`
+Calcula o saldo inicial para uma conta em uma data específica.
+
+### `somarValorEntrada()`
+Soma as entradas de uma conta antes da data informada.
+
+### `somarValorSaida()`
+Soma as saídas de uma conta antes da data informada.
+
+### `buscarValorInicialDoMes()`
+Busca o saldo inicial registrado em meses anteriores.
+
+### `obterDadosRelatorio()`
+Busca dados agrupados por natureza.
+
+### `obterDadosRelatorioPorNatureza()`
+Busca dados agrupados por conta.
+
+## 📊 Estrutura de Saída
+
+**Campos do Relatório:**
+- `codigoConta` - Código da conta corrente
+- `dab01nome` - Nome da conta corrente
+- `dab10data` - Data do lançamento
+- `dab10historico` - Histórico do lançamento
+- `abf10nome` - Nome da natureza (quando agrupado por natureza)
+- `entrada` - Valor de entrada
+- `saida` - Valor de saída
+- `SALDOINICIAL` - Saldo inicial da conta
+- `SALDO` - Saldo acumulado após o lançamento
+
+**Parâmetros do Relatório:**
+- `TITULO_RELATORIO`: "Caixa Financeiro"
+- `EMPRESA`: Nome da empresa ativa
+- `PERIODO`: Período formatado do relatório
+- `NATUREZA`: Indica se agrupado por natureza
 
 ## 🔧 Dependências
 
 **Bibliotecas:**
-- `JasperReports` - Geração de relatórios PDF
-- `Apache POI` - Exportação para Excel
-- `multiorm` - Persistência e consultas
+- `multiorm` - Criteria e consultas ao banco
+- `multitec.utils` - Utilitários (DateUtils, Utils, TableMap)
+- `sam.server.samdev.relatorio` - Base para relatórios
+- `sam.server.samdev.utils` - Utilitários do SAM (Parametro)
+- `java.time` - Manipulação de datas
+- `sam.core.variaveis` - Variáveis do sistema (MDate)
 
-**Serviços:**
-- `DateUtils` - Manipulação de datas e períodos
+**Módulo:** SCF (Sistema Contábil Financeiro)
 
 ## 📝 Observações Técnicas
 
-- **Performance:** Consultas SQL otimizadas com joins
-- **Escalabilidade:** Suporte a grandes volumes de lançamentos
-- **Flexibilidade:** Múltiplas formas de agrupamento e filtro
+### Performance
+- Consultas otimizadas com filtros aplicados no banco
+- Cálculo de saldo inicial com busca progressiva
+- Processamento em lote para grandes volumes
+
+### Tratamento de Períodos
+- Período padrão: mês atual
+- Suporte a qualquer intervalo de datas
+- Formatação específica para exibição
 
 ### Cálculo de Saldo Inicial
-- Busca recursiva por saldos anteriores quando necessário
-- Considera movimentações do início do mês até o dia anterior
-- Suporte a contas sem histórico prévio
+- Busca recursiva por saldos anteriores
+- Tratamento de mudança de ano (janeiro busca dezembro do ano anterior)
+- Soma de movimentações parciais antes do período
 
-### Tratamento de Dados
-- Normalização de valores nulos para zero
-- Formatação de datas no padrão brasileiro
-- Ordenação consistente por conta e data
-- Cálculo incremental de saldos
+### Segurança
+- Aplicação de where padrão do sistema para controle de acesso
+- Validação de parâmetros de entrada
+- Tratamento de valores nulos e vazios
 
-### Personalização de Relatório
-- Título dinâmico com nome da empresa
-- Período formatado no cabeçalho
-- Opção de quebra de página por conta
-- Suporte a diferentes níveis de detalhe
+---
+
+**Última Alteração:** 04/12/2025 às 08:30  
+**Autor:** Bruno  
+**Tipo:** Relatório de Caixa Financeiro  
+**Versão:** 1.0 (Customizado para El Tech)
