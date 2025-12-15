@@ -20,7 +20,7 @@
     
     
       
-        <title>CGS - Parcelamento (Equilibrio) - documentacao-eltech</title>
+        <title>CGS - Parcelamento (Eltech) - documentacao-eltech</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cgs-parcelamento-equilibrio" class="md-skip">
+        <a href="#cgs-parcelamento-eltech" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CGS - Parcelamento (Equilibrio)
+              CGS - Parcelamento (Eltech)
             
           </span>
         </div>
@@ -397,7 +397,7 @@
   
   
   <span class="md-ellipsis">
-    CGS - Parcelamento (Equilibrio)
+    CGS - Parcelamento (Eltech)
     
   </span>
   
@@ -410,7 +410,7 @@
   
   
   <span class="md-ellipsis">
-    CGS - Parcelamento (Equilibrio)
+    CGS - Parcelamento (Eltech)
     
   </span>
   
@@ -716,6 +716,15 @@
   <a href="#json-da-abe3002-ajustes-complementares" class="md-nav__link">
     <span class="md-ellipsis">
       JSON da Abe3002 (Ajustes Complementares)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-agrupamento-em-parcela-unica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lógica de Agrupamento em Parcela Única
     </span>
   </a>
   
@@ -5778,6 +5787,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#logica-de-agrupamento-em-parcela-unica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lógica de Agrupamento em Parcela Única
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5799,9 +5817,9 @@
 
 
 
-<h1 id="cgs-parcelamento-equilibrio">CGS - Parcelamento (Equilibrio)<a class="headerlink" href="#cgs-parcelamento-equilibrio" title="Permanent link">&para;</a></h1>
+<h1 id="cgs-parcelamento-eltech">CGS - Parcelamento (Eltech)<a class="headerlink" href="#cgs-parcelamento-eltech" title="Permanent link">&para;</a></h1>
 <h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
-<p>Fórmula para cálculo e geração de parcelas de condições de pagamento, considerando datas de vencimento, ajustes por dias da semana, feriados, valores mínimos por parcela e configurações específicas do módulo Equilibrio.</p>
+<p>Fórmula para cálculo e geração de parcelas de condições de pagamento, considerando datas de vencimento, ajustes por dias da semana, feriados, valores mínimos por parcela e configurações específicas do módulo CGS.</p>
 <h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
 <p>Calcular automaticamente as parcelas de uma condição de pagamento, aplicando regras de vencimento, descontos, juros, multas e validações de valores mínimos por parcela.</p>
 <h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
@@ -5902,8 +5920,12 @@
 <h3 id="validacoes-de-parcelas">Validações de Parcelas<a class="headerlink" href="#validacoes-de-parcelas" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Valor mínimo</strong>: Configurável por condição de pagamento (abe30vmpValor)</li>
-<li><strong>Opções</strong>: 0 - Agrupar em uma parcela, 1 - Validar valor mínimo</li>
-<li><strong>Documentos financeiros</strong>: Tipo 1 - Gera na data de vencimento, Tipo 2 - Gera na data de emissão</li>
+<li><strong>Opções</strong>: </li>
+<li>0 - Agrupar em uma parcela quando valor mínimo não for atingido</li>
+<li>1 - Validar valor mínimo e interromper se não atingido</li>
+<li><strong>Documentos financeiros</strong>: </li>
+<li>Tipo 1 - Gera na data de vencimento</li>
+<li>Tipo 2 - Gera na data de emissão</li>
 </ul>
 <h2 id="metodos-principais">🔧 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h2>
 <h3 id="executar"><code>executar()</code><a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
@@ -5940,7 +5962,7 @@
 - <code>sam.dto.cgs</code> - DTOs do módulo CGS
 - <code>sam.model</code> - Entidades do sistema
 - <code>java.time</code> - Manipulação de datas</p>
-<p><strong>Módulo:</strong> Equilibrio</p>
+<p><strong>Módulo:</strong> CGS (Condições Gerais do Sistema)</p>
 <h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
 <h3 id="tratamento-de-datas">Tratamento de Datas<a class="headerlink" href="#tratamento-de-datas" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5960,7 +5982,7 @@
 </ul>
 <h3 id="validacoes-de-negocio">Validações de Negócio<a class="headerlink" href="#validacoes-de-negocio" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Interrupção se valor mínimo não for atingido</li>
+<li>Interrupção se valor mínimo não for atingido (opção 1)</li>
 <li>Cálculo preciso de saldos para evitar diferenças</li>
 <li>Suporte a condições complexas de pagamento</li>
 <li>Opção de agrupamento em parcela única quando valor mínimo não é atingido</li>
@@ -5992,6 +6014,14 @@
 <li><code>dia_final</code> - Dia final para ajuste</li>
 <li><code>dia_data</code> - Dia de ajuste</li>
 <li><code>mes_data</code> - Mês de ajuste (0=corrente, 1=seguinte)</li>
+</ul>
+<h3 id="logica-de-agrupamento-em-parcela-unica">Lógica de Agrupamento em Parcela Única<a class="headerlink" href="#logica-de-agrupamento-em-parcela-unica" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Quando <code>abe30vmpOpcao = 0</code> e valor da parcela &lt; valor mínimo</li>
+<li>Soma todas as parcelas em uma única</li>
+<li>Usa data da primeira parcela (ou emissão se docFinan = 2)</li>
+<li>Mantém campos livres da primeira parcela</li>
+<li>Aplica validação de valor mínimo ao total agrupado</li>
 </ul>
 <hr />
 <p><strong>Última Alteração:</strong> 01/12/2025 às 15:20<br />
