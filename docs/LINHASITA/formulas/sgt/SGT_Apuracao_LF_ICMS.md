@@ -1,4 +1,4 @@
-# SGT_Apuracao_LF_ICMS - Apuração de ICMS para Livro Fiscal (LF)
+# SGT_Apuracao_LF_ICMS
 
 ## 📖 Descrição
 Fórmula para cálculo e apuração do Imposto sobre Circulação de Mercadorias e Serviços (ICMS) para geração do Livro Fiscal (LF), realizando a consolidação de débitos, créditos, ajustes e saldos do período com foco nas obrigações do Livro Fiscal.

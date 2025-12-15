@@ -1,4 +1,4 @@
-# SGT_Apuracao_EFD_ICMSDifAliq - Apuração de Diferencial de Alíquota do ICMS e FCP
+# SGT_Apuracao_EFD_ICMSDifAliq
 
 ## 📖 Descrição
 Fórmula para cálculo e apuração do Diferencial de Alíquota do ICMS (DIFAL) e do Fundo de Combate à Pobreza (FCP) para geração da Escrituração Fiscal Digital (EFD), contemplando operações interestaduais com diferentes alíquotas entre estados.

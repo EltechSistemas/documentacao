@@ -1,4 +1,4 @@
-# SGT_Apuracao_EFD_ICMS - Apuração de ICMS para EFD
+# SGT_Apuracao_EFD_ICMS
 
 ## 📖 Descrição
 Fórmula para cálculo e apuração do Imposto sobre Circulação de Mercadorias e Serviços (ICMS) para geração da Escrituração Fiscal Digital (EFD), realizando a consolidação de débitos, créditos, ajustes e saldos do período.

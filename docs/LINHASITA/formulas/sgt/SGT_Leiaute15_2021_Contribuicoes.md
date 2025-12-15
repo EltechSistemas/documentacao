@@ -1,4 +1,4 @@
-# SGT - Leiaute 15/2021 para PIS/COFINS (EFD Contribuições)
+# SGT - EFD_Leiaute15_2021
 
 ## 📖 Descrição
 Fórmula para geração do arquivo digital da Escrituração Fiscal Digital (EFD) das Contribuições (PIS/COFINS), conforme Leiaute 15/2021, com suporte a múltiplos blocos e registros exigidos pela legislação fiscal.

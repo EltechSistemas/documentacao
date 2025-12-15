@@ -1,4 +1,4 @@
-SGT_Apuracao_EFD_IPI# SGT_Apuracao_EFD_IPI - Apuração de IPI para EFD
+##SGT_Apuracao_EFD_IPI# SGT_Apuracao_EFD_IPI - Apuração de IPI para EFD
 
 ## 📖 Descrição
 Fórmula para cálculo e apuração do Imposto sobre Produtos Industrializados (IPI) para geração da Escrituração Fiscal Digital (EFD), realizando a consolidação de débitos, créditos e saldos do período fiscal.

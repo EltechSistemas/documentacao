@@ -1,4 +1,4 @@
-# SGT_Apuracao_LF_IPI - Apuração de IPI para Livro Fiscal (LF)
+# SGT_Apuracao_LF_IPI
 
 ## 📖 Descrição
 Fórmula para cálculo e apuração do Imposto sobre Produtos Industrializados (IPI) para geração do Livro Fiscal (LF), realizando a consolidação de débitos, créditos e saldos do período com foco nas obrigações do Livro Fiscal para indústrias.

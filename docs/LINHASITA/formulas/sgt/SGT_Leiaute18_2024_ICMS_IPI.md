@@ -1,4 +1,4 @@
-# SGT_Leiaute18_2024_ICMS_IPI.md
+# SGT_Leiaute18_2024_ICMS_IPI
 
 ## 📖 Descrição
 Fórmula responsável pela geração da Escrituração Fiscal Digital (EFD) – ICMS/IPI conforme Leiaute 18/2024. Consolida operações tributárias, movimentações de estoque, apurações fiscais e todas as informações exigidas pela legislação para entrega ao fisco.

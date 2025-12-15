@@ -1,4 +1,4 @@
-# SGT_Apuracao_EFD_IPI_G5 - Apuração de IPI (Grupo 5) para EFD
+# SGT_Apuracao_EFD_IPI_G5
 
 ## 📖 Descrição
 Fórmula alternativa para cálculo e apuração do Imposto sobre Produtos Industrializados (IPI) conforme Grupo 5 da EFD, realizando a consolidação de débitos, créditos e saldos com lógica específica para empresas do Grupo 5.
