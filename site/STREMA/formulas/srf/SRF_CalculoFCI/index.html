@@ -20,7 +20,7 @@
     
     
       
-        <title>SRF - Cálculo da FCI (Equilibrio) - documentacao-eltech</title>
+        <title>Documentação de Códigos Fonte - Sistema Empresarial - documentacao-eltech</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#srf-calculo-da-fci-equilibrio" class="md-skip">
+        <a href="#documentacao-de-codigos-fonte-sistema-empresarial" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SRF - Cálculo da FCI (Equilibrio)
+              Documentação de Códigos Fonte - Sistema Empresarial
             
           </span>
         </div>
@@ -4442,7 +4442,7 @@
   
   
   <span class="md-ellipsis">
-    SRF - Cálculo da FCI (Equilibrio)
+    Documentação de Códigos Fonte - Sistema Empresarial
     
   </span>
   
@@ -4455,7 +4455,7 @@
   
   
   <span class="md-ellipsis">
-    SRF - Cálculo da FCI (Equilibrio)
+    Documentação de Códigos Fonte - Sistema Empresarial
     
   </span>
   
@@ -4478,6 +4478,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cgs-parcelamento-equilibrio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CGS - Parcelamento (Equilibrio)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CGS - Parcelamento (Equilibrio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#descricao" class="md-nav__link">
     <span class="md-ellipsis">
       📖 Descrição
@@ -4485,8 +4504,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#finalidade" class="md-nav__link">
     <span class="md-ellipsis">
       🎯 Finalidade
@@ -4494,8 +4513,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#publico-alvo" class="md-nav__link">
     <span class="md-ellipsis">
       👥 Público-Alvo
@@ -4503,8 +4522,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#dados-e-fontes" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Dados e Fontes
@@ -4512,8 +4531,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#parametros-da-formula" class="md-nav__link">
     <span class="md-ellipsis">
       ⚙️ Parâmetros da Fórmula
@@ -4521,8 +4540,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fluxo-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
       🔄 Fluxo do Processo
@@ -4542,45 +4561,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-selecao-de-produtos-e-componentes" class="md-nav__link">
+  <a href="#2-calculo-dos-ajustes-de-data" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Seleção de Produtos e Componentes
+      2. Cálculo dos Ajustes de Data
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-calculo-das-entradas-importacoes" class="md-nav__link">
+  <a href="#3-calculo-dos-valores-das-parcelas" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Cálculo das Entradas (Importações)
+      3. Cálculo dos Valores das Parcelas
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-calculo-das-saidas-vendas" class="md-nav__link">
+  <a href="#4-validacoes-e-regras-especiais" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Cálculo das Saídas (Vendas)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-calculo-do-ci-e-geracao-da-fci" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cálculo do CI e Geração da FCI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-validacoes-finais" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Validações Finais
+      4. Validações e Regras Especiais
     </span>
   </a>
   
@@ -4590,8 +4591,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#regras-de-negocio" class="md-nav__link">
     <span class="md-ellipsis">
       ⚠️ Regras de Negócio
@@ -4602,27 +4603,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuracoes-do-repositorio-srf2002" class="md-nav__link">
+  <a href="#configuracao-de-vencimentos" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurações do Repositório (SRF2002)
+      Configuração de Vencimentos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#calculo-do-ci" class="md-nav__link">
+  <a href="#calculo-financeiro" class="md-nav__link">
     <span class="md-ellipsis">
-      Cálculo do CI
+      Cálculo Financeiro
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#validacoes-de-dados" class="md-nav__link">
+  <a href="#validacoes-de-parcelas" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações de Dados
+      Validações de Parcelas
     </span>
   </a>
   
@@ -4632,95 +4633,17 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#metodos-principais" class="md-nav__link">
     <span class="md-ellipsis">
       🔧 Métodos Principais
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Métodos Principais">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#executar" class="md-nav__link">
-    <span class="md-ellipsis">
-      executar()
-    </span>
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#buscarrepositorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarRepositorio()
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validaralinhamentostring-codigoalinhamento" class="md-nav__link">
-    <span class="md-ellipsis">
-      validarAlinhamento(String codigoAlinhamento)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buscarprodutoscombomcriterion-crititem-string-bom" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarProdutosComBOM(Criterion critItem, String bom)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buscaridsitensimportadossetlong-abm01ids" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarIdsItensImportados(Set&lt;Long&gt; abm01ids)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selecionarentradas" class="md-nav__link">
-    <span class="md-ellipsis">
-      selecionarEntradas(...)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selecionarsaidas" class="md-nav__link">
-    <span class="md-ellipsis">
-      selecionarSaidas(...)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setarorigemmercadorianoitembyci" class="md-nav__link">
-    <span class="md-ellipsis">
-      setarOrigemMercadoriaNoItemByCI(...)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#estrutura-de-saida" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Estrutura de Saída
@@ -4728,57 +4651,413 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔧 Dependências
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#2-srf-documento-eltech" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Observações Técnicas
+      2. SRF - Documento (Eltech)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+    <nav class="md-nav" aria-label="2. SRF - Documento (Eltech)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tratamento-de-datas" class="md-nav__link">
+  <a href="#descricao_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Tratamento de Datas
+      📖 Descrição
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#campos-de-alinhamento" class="md-nav__link">
+  <a href="#finalidade_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Campos de Alinhamento
+      🎯 Finalidade
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#json-da-especificacao" class="md-nav__link">
+  <a href="#publico-alvo_1" class="md-nav__link">
     <span class="md-ellipsis">
-      JSON da Especificação
+      👥 Público-Alvo
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#validacoes-de-negocio" class="md-nav__link">
+  <a href="#dados-e-fontes_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações de Negócio
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-da-formula_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros da Fórmula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-do-processo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento-por-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processamento por Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-calculo-de-taxas-de-comissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cálculo de Taxas de Comissão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-composicao-de-observacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Composição de Observações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-processamento-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Processamento Final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-negocio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacao-de-itens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validação de Itens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observacoes-fiscais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observações Fiscais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxas-de-comissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxas de Comissão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentos-referenciados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentos Referenciados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-srf-calculo-de-item-de-entrada-por-importacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. SRF - Cálculo de Item de Entrada por Importação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. SRF - Cálculo de Item de Entrada por Importação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalidade_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publico-alvo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dados-e-fontes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-da-formula_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros da Fórmula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-do-processo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-carregamento-de-dados-geograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Carregamento de Dados Geográficos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-carregamento-de-dados-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Carregamento de Dados do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-calculo-de-cfop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cálculo de CFOP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-calculo-de-valores-do-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Cálculo de Valores do Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calculo-de-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Cálculo de Impostos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ajustes-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ajustes Finais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-negocio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações Críticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-de-cfop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculo de CFOP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-de-importacao-pcd-314" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculo de Importação (PCD 314)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Impostos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scv-pedidos-por-item-eltech" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SCV - Pedidos por Item (Eltech)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. SCV - Pedidos por Item (Eltech)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalidade_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publico-alvo_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dados-e-fontes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
     </span>
   </a>
   
@@ -5508,6 +5787,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cgs-parcelamento-equilibrio" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CGS - Parcelamento (Equilibrio)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CGS - Parcelamento (Equilibrio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#descricao" class="md-nav__link">
     <span class="md-ellipsis">
       📖 Descrição
@@ -5515,8 +5813,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#finalidade" class="md-nav__link">
     <span class="md-ellipsis">
       🎯 Finalidade
@@ -5524,8 +5822,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#publico-alvo" class="md-nav__link">
     <span class="md-ellipsis">
       👥 Público-Alvo
@@ -5533,8 +5831,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#dados-e-fontes" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Dados e Fontes
@@ -5542,8 +5840,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#parametros-da-formula" class="md-nav__link">
     <span class="md-ellipsis">
       ⚙️ Parâmetros da Fórmula
@@ -5551,8 +5849,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fluxo-do-processo" class="md-nav__link">
     <span class="md-ellipsis">
       🔄 Fluxo do Processo
@@ -5572,45 +5870,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-selecao-de-produtos-e-componentes" class="md-nav__link">
+  <a href="#2-calculo-dos-ajustes-de-data" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Seleção de Produtos e Componentes
+      2. Cálculo dos Ajustes de Data
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-calculo-das-entradas-importacoes" class="md-nav__link">
+  <a href="#3-calculo-dos-valores-das-parcelas" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Cálculo das Entradas (Importações)
+      3. Cálculo dos Valores das Parcelas
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-calculo-das-saidas-vendas" class="md-nav__link">
+  <a href="#4-validacoes-e-regras-especiais" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Cálculo das Saídas (Vendas)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-calculo-do-ci-e-geracao-da-fci" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cálculo do CI e Geração da FCI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-validacoes-finais" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Validações Finais
+      4. Validações e Regras Especiais
     </span>
   </a>
   
@@ -5620,8 +5900,8 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#regras-de-negocio" class="md-nav__link">
     <span class="md-ellipsis">
       ⚠️ Regras de Negócio
@@ -5632,27 +5912,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuracoes-do-repositorio-srf2002" class="md-nav__link">
+  <a href="#configuracao-de-vencimentos" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurações do Repositório (SRF2002)
+      Configuração de Vencimentos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#calculo-do-ci" class="md-nav__link">
+  <a href="#calculo-financeiro" class="md-nav__link">
     <span class="md-ellipsis">
-      Cálculo do CI
+      Cálculo Financeiro
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#validacoes-de-dados" class="md-nav__link">
+  <a href="#validacoes-de-parcelas" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações de Dados
+      Validações de Parcelas
     </span>
   </a>
   
@@ -5662,95 +5942,17 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#metodos-principais" class="md-nav__link">
     <span class="md-ellipsis">
       🔧 Métodos Principais
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🔧 Métodos Principais">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#executar" class="md-nav__link">
-    <span class="md-ellipsis">
-      executar()
-    </span>
-  </a>
-  
 </li>
         
           <li class="md-nav__item">
-  <a href="#buscarrepositorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarRepositorio()
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#validaralinhamentostring-codigoalinhamento" class="md-nav__link">
-    <span class="md-ellipsis">
-      validarAlinhamento(String codigoAlinhamento)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buscarprodutoscombomcriterion-crititem-string-bom" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarProdutosComBOM(Criterion critItem, String bom)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#buscaridsitensimportadossetlong-abm01ids" class="md-nav__link">
-    <span class="md-ellipsis">
-      buscarIdsItensImportados(Set&lt;Long&gt; abm01ids)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selecionarentradas" class="md-nav__link">
-    <span class="md-ellipsis">
-      selecionarEntradas(...)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#selecionarsaidas" class="md-nav__link">
-    <span class="md-ellipsis">
-      selecionarSaidas(...)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setarorigemmercadorianoitembyci" class="md-nav__link">
-    <span class="md-ellipsis">
-      setarOrigemMercadoriaNoItemByCI(...)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#estrutura-de-saida" class="md-nav__link">
     <span class="md-ellipsis">
       📊 Estrutura de Saída
@@ -5758,57 +5960,413 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔧 Dependências
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#2-srf-documento-eltech" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Observações Técnicas
+      2. SRF - Documento (Eltech)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+    <nav class="md-nav" aria-label="2. SRF - Documento (Eltech)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tratamento-de-datas" class="md-nav__link">
+  <a href="#descricao_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Tratamento de Datas
+      📖 Descrição
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#campos-de-alinhamento" class="md-nav__link">
+  <a href="#finalidade_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Campos de Alinhamento
+      🎯 Finalidade
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#json-da-especificacao" class="md-nav__link">
+  <a href="#publico-alvo_1" class="md-nav__link">
     <span class="md-ellipsis">
-      JSON da Especificação
+      👥 Público-Alvo
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#validacoes-de-negocio" class="md-nav__link">
+  <a href="#dados-e-fontes_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações de Negócio
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-da-formula_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros da Fórmula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-do-processo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-processamento-por-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Processamento por Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-calculo-de-taxas-de-comissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cálculo de Taxas de Comissão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-composicao-de-observacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Composição de Observações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-processamento-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Processamento Final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-negocio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacao-de-itens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validação de Itens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observacoes-fiscais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observações Fiscais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taxas-de-comissao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taxas de Comissão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentos-referenciados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentos Referenciados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-srf-calculo-de-item-de-entrada-por-importacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. SRF - Cálculo de Item de Entrada por Importação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. SRF - Cálculo de Item de Entrada por Importação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalidade_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publico-alvo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dados-e-fontes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-da-formula_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Parâmetros da Fórmula
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-do-processo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo do Processo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracao-inicial_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuração Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-carregamento-de-dados-geograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Carregamento de Dados Geográficos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-carregamento-de-dados-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Carregamento de Dados do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-calculo-de-cfop" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Cálculo de CFOP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-calculo-de-valores-do-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Cálculo de Valores do Item
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-calculo-de-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Cálculo de Impostos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-ajustes-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ajustes Finais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-negocio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações Críticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-de-cfop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculo de CFOP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-de-importacao-pcd-314" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculo de Importação (PCD 314)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-de-impostos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento de Impostos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scv-pedidos-por-item-eltech" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. SCV - Pedidos por Item (Eltech)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. SCV - Pedidos por Item (Eltech)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descricao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Descrição
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finalidade_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Finalidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publico-alvo_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Público-Alvo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dados-e-fontes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Dados e Fontes
     </span>
   </a>
   
@@ -5835,31 +6393,38 @@
 
 
 
-<h1 id="srf-calculo-da-fci-equilibrio">SRF - Cálculo da FCI (Equilibrio)<a class="headerlink" href="#srf-calculo-da-fci-equilibrio" title="Permanent link">&para;</a></h1>
-<h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
-<p>Fórmula para cálculo e geração de Ficha de Conteúdo de Importação (FCI), considerando composições de produtos (BOM), entradas de itens importados, saídas do produto final e regras de negócio específicas do módulo Equilibrio.</p>
-<h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
-<p>Calcular automaticamente o conteúdo de importação (CI) de produtos compostos, com base nas entradas de componentes importados e nas vendas do produto final, gerando registros de FCI para fins fiscais e de controle de origem da mercadoria.</p>
-<h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
+<h1 id="documentacao-de-codigos-fonte-sistema-empresarial">Documentação de Códigos Fonte - Sistema Empresarial<a class="headerlink" href="#documentacao-de-codigos-fonte-sistema-empresarial" title="Permanent link">&para;</a></h1>
+<h2 id="sumario">Sumário<a class="headerlink" href="#sumario" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-cgs---parcelamento-equilibrio">CGS - Parcelamento (Equilibrio)</a></li>
+<li><a href="#2-srf---documento-eltech">SRF - Documento (Eltech)</a></li>
+<li><a href="#3-srf---cálculo-de-item-de-entrada-por-importação">SRF - Cálculo de Item de Entrada por Importação</a></li>
+<li><a href="#4-scv---pedidos-por-item-eltech">SCV - Pedidos por Item (Eltech)</a></li>
+<li><a href="#5-scf---boleto-banco-do-brasil-linhasita">SCF - Boleto Banco do Brasil (Linhasita)</a></li>
+<li><a href="#6-scf---demonstrativo-de-resultados-do-exercício-dre---lcb">SCF - Demonstrativo de Resultados do Exercício (DRE) - LCB</a></li>
+<li><a href="#7-cgs---parcelamento-eltech">CGS - Parcelamento (Eltech)</a></li>
+<li><a href="#8-srf---cálculo-de-ficha-de-conteúdo-de-importação-fci">SRF - Cálculo de Ficha de Conteúdo de Importação (FCI)</a></li>
+</ol>
+<hr />
+<h2 id="1-cgs-parcelamento-equilibrio">1. CGS - Parcelamento (Equilibrio)<a class="headerlink" href="#1-cgs-parcelamento-equilibrio" title="Permanent link">&para;</a></h2>
+<h3 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h3>
+<p>Fórmula para cálculo e geração de parcelas de condições de pagamento, considerando datas de vencimento, ajustes por dias da semana, feriados, valores mínimos por parcela e configurações específicas do módulo Equilibrio.</p>
+<h3 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h3>
+<p>Calcular automaticamente as parcelas de uma condição de pagamento, aplicando regras de vencimento, descontos, juros, multas e validações de valores mínimos por parcela.</p>
+<h3 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Departamento Fiscal</li>
-<li>Contabilidade</li>
-<li>Controle de Qualidade</li>
-<li>Compras</li>
+<li>Departamento Financeiro</li>
+<li>Faturamento</li>
+<li>Crédito e Cobrança</li>
 </ul>
-<h2 id="dados-e-fontes">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes" title="Permanent link">&para;</a></h2>
+<h3 id="dados-e-fontes">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes" title="Permanent link">&para;</a></h3>
 <p><strong>Tabelas Principais:</strong>
-- <code>Abp20</code> - Composição de produtos (BOM)
-- <code>Abm01</code> - Cadastro de itens
-- <code>Abm0101</code> - Configurações fiscais do item
-- <code>Abm12</code> - CST de origem da mercadoria
+- <code>Abe30</code> - Condições de pagamento
+- <code>Abe3001</code> - Parcelas da condição de pagamento
+- <code>Abe3002</code> - Dias complementares (ajustes de vencimento)
 - <code>Eaa01</code> - Documentos fiscais
-- <code>Eaa0103</code> - Itens do documento fiscal
-- <code>Eab01</code> - Cadastro de FCI
-- <code>Eab0101</code> - Cálculos da FCI
-- <code>Eab01011</code> - Itens importados da FCI
-- <code>Aba20</code> / <code>Aba2001</code> - Repositório de dados (configurações da tarefa SRF2002)</p>
-<h2 id="parametros-da-formula">⚙️ Parâmetros da Fórmula<a class="headerlink" href="#parametros-da-formula" title="Permanent link">&para;</a></h2>
+- <code>Abb01</code> - Documentos da central (data de emissão)</p>
+<h3 id="parametros-da-formula">⚙️ Parâmetros da Fórmula<a class="headerlink" href="#parametros-da-formula" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -5871,189 +6436,401 @@
 </thead>
 <tbody>
 <tr>
-<td>dataCalculo</td>
+<td>dtBase</td>
 <td>LocalDate</td>
 <td>Sim</td>
-<td>Data base para o cálculo da FCI</td>
+<td>Data base para cálculo das parcelas</td>
 </tr>
 <tr>
-<td>bom</td>
-<td>String</td>
+<td>abe30id</td>
+<td>Long</td>
 <td>Sim</td>
-<td>Código da composição (BOM)</td>
+<td>ID da condição de pagamento</td>
 </tr>
 <tr>
-<td>whereItem</td>
-<td>ClientCriterion</td>
+<td>valor</td>
+<td>BigDecimal</td>
 <td>Sim</td>
-<td>Critério para seleção de produtos</td>
+<td>Valor total a ser parcelado</td>
 </tr>
 <tr>
-<td>dtIniEnt</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data inicial para entradas</td>
-</tr>
-<tr>
-<td>dtFinEnt</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data final para entradas</td>
-</tr>
-<tr>
-<td>dtIniSai</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data inicial para saídas</td>
-</tr>
-<tr>
-<td>dtFinSai</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data final para saídas</td>
+<td>eaa01</td>
+<td>Eaa01</td>
+<td>Não</td>
+<td>Documento fiscal relacionado</td>
 </tr>
 </tbody>
 </table>
-<h2 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h2>
-<h3 id="1-configuracao-inicial">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial" title="Permanent link">&para;</a></h3>
+<h3 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h3>
+<h4 id="1-configuracao-inicial">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Validação dos parâmetros obrigatórios</li>
-<li>Carregamento das configurações do repositório (Aba2001)</li>
-<li>Definição dos campos de alinhamento para valores e quantidades</li>
+<li>Carregamento da condição de pagamento (Abe30)</li>
+<li>Definição da data de emissão (do documento ou atual)</li>
 </ul>
-<h3 id="2-selecao-de-produtos-e-componentes">2. <strong>Seleção de Produtos e Componentes</strong><a class="headerlink" href="#2-selecao-de-produtos-e-componentes" title="Permanent link">&para;</a></h3>
+<h4 id="2-calculo-dos-ajustes-de-data">2. <strong>Cálculo dos Ajustes de Data</strong><a class="headerlink" href="#2-calculo-dos-ajustes-de-data" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Busca de produtos com base no BOM informado</li>
-<li>Identificação de componentes importados (CST 1, 2, 6, 7, 8)</li>
-<li>Carregamento do último cálculo de FCI existente</li>
+<li>Aplicação de dias adicionais conforme dia da semana da data base</li>
+<li>Cálculo de vencimentos nominais para cada parcela</li>
+<li>Ajustes por vencimentos fixos e dias específicos</li>
+<li>Tratamento de meses com menos dias (ex: fevereiro)</li>
+<li>Aplicação de ajustes complementares (Abe3002)</li>
 </ul>
-<h3 id="3-calculo-das-entradas-importacoes">3. <strong>Cálculo das Entradas (Importações)</strong><a class="headerlink" href="#3-calculo-das-entradas-importacoes" title="Permanent link">&para;</a></h3>
+<h4 id="3-calculo-dos-valores-das-parcelas">3. <strong>Cálculo dos Valores das Parcelas</strong><a class="headerlink" href="#3-calculo-dos-valores-das-parcelas" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Soma de quantidades e valores de entradas no período</li>
-<li>Ajustes retroativos conforme configuração</li>
-<li>Cálculo do Valor Médio Unitário (VMU) por componente</li>
-<li>Controle de médias a partir da última FCI</li>
+<li>Distribuição percentual do valor total</li>
+<li>Cálculo do saldo para última parcela</li>
+<li>Aplicação de juros, multas e encargos</li>
+<li>Cálculo de descontos por antecipação</li>
 </ul>
-<h3 id="4-calculo-das-saidas-vendas">4. <strong>Cálculo das Saídas (Vendas)</strong><a class="headerlink" href="#4-calculo-das-saidas-vendas" title="Permanent link">&para;</a></h3>
+<h4 id="4-validacoes-e-regras-especiais">4. <strong>Validações e Regras Especiais</strong><a class="headerlink" href="#4-validacoes-e-regras-especiais" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Soma de quantidades e valores de saídas no período</li>
-<li>Filtro por UF (interestaduais ou todas)</li>
-<li>Ajustes retroativos conforme configuração</li>
-<li>Cálculo do unitário médio de saída</li>
+<li>Verificação de valor mínimo por parcela</li>
+<li>Opção de agrupamento em parcela única</li>
+<li>Cálculo de comissões na última parcela</li>
+<li>Validação de documentos financeiros</li>
 </ul>
-<h3 id="5-calculo-do-ci-e-geracao-da-fci">5. <strong>Cálculo do CI e Geração da FCI</strong><a class="headerlink" href="#5-calculo-do-ci-e-geracao-da-fci" title="Permanent link">&para;</a></h3>
+<h3 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h3>
+<h4 id="configuracao-de-vencimentos">Configuração de Vencimentos<a class="headerlink" href="#configuracao-de-vencimentos" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Cálculo do Conteúdo de Importação: <code>CI = (Total VMU Importações / Unitário Saídas) * 100</code></li>
-<li>Validação de variação mínima de 5% em relação ao último CI</li>
-<li>Criação/atualização dos registros de FCI (Eab01, Eab0101, Eab01011)</li>
-<li>Atualização automática da origem da mercadoria no item (CST-A)</li>
+<li><strong>Dias base</strong>: Ajustes por dia da semana na data base (abe30diasDtBase1-7)</li>
+<li><strong>Vencimentos fixos</strong>: Datas específicas por parcela (dt_vcto_fixo)</li>
+<li><strong>Dias do mês</strong>: Vencimento em dia específico do mês (diavcto)</li>
+<li><strong>Ajustes complementares</strong>: Regras por faixa de dias (Abe3002)</li>
+<li><strong>Mês referência</strong>: Ajustes para mês corrente ou seguinte</li>
 </ul>
-<h3 id="6-validacoes-finais">6. <strong>Validações Finais</strong><a class="headerlink" href="#6-validacoes-finais" title="Permanent link">&para;</a></h3>
+<h4 id="calculo-financeiro">Cálculo Financeiro<a class="headerlink" href="#calculo-financeiro" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Verificação de inclusão de pelo menos um cálculo</li>
-<li>Validação de consistência entre unitários de entrada e saída</li>
-<li>Tratamento de exceções e mensagens de erro</li>
+<li><strong>Juros</strong>: Percentual aplicado sobre o valor da parcela</li>
+<li><strong>Multa</strong>: Percentual ou valor fixo (vlr_fixo)</li>
+<li><strong>Desconto</strong>: Percentual com limite temporal (dias_dtlimite)</li>
+<li><strong>Encargos</strong>: Valores adicionais fixos</li>
 </ul>
-<h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
-<h3 id="configuracoes-do-repositorio-srf2002">Configurações do Repositório (SRF2002)<a class="headerlink" href="#configuracoes-do-repositorio-srf2002" title="Permanent link">&para;</a></h3>
+<h4 id="validacoes-de-parcelas">Validações de Parcelas<a class="headerlink" href="#validacoes-de-parcelas" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>tipoSaida</strong>: 1=Interestaduais, 2=Todas</li>
-<li><strong>considEntRetro</strong>: Considerar entradas retroativas</li>
-<li><strong>consEntRetroSomenteUltMes</strong>: Somente último mês para retroativos</li>
-<li><strong>considSaiRetro</strong>: Considerar saídas retroativas</li>
-<li><strong>consSaiRetroSomenteUltMes</strong>: Somente último mês para retroativos</li>
-<li><strong>considMediaUnitAPartirDaUltimaFCI</strong>: Considerar médias da última FCI</li>
-<li><strong>gerarFCIcomCIZero</strong>: Gerar FCI mesmo com CI zero</li>
-<li><strong>atualizarOrigemMercadoria</strong>: Atualizar CST-A automaticamente</li>
+<li><strong>Valor mínimo</strong>: Configurável por condição de pagamento (abe30vmpValor)</li>
+<li><strong>Opções</strong>: </li>
+<li>0 - Agrupar em uma parcela quando valor mínimo não for atingido</li>
+<li>1 - Validar valor mínimo e interromper se não atingido</li>
+<li><strong>Documentos financeiros</strong>: </li>
+<li>Tipo 1 - Gera na data de vencimento</li>
+<li>Tipo 2 - Gera na data de emissão</li>
 </ul>
-<h3 id="calculo-do-ci">Cálculo do CI<a class="headerlink" href="#calculo-do-ci" title="Permanent link">&para;</a></h3>
+<h3 id="metodos-principais">🔧 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>CI ≤ 40%</strong>: Origem 5 (Nacional - Mercadoria ou Bem com Conteúdo de Importação inferior ou igual a 40%)</li>
-<li><strong>CI 40,01% a 70%</strong>: Origem 3 (Nacional - Mercadoria ou Bem com Conteúdo de Importação superior a 40% e inferior ou igual a 70%)</li>
-<li><strong>CI &gt; 70%</strong>: Origem 8 (Nacional - Mercadoria ou Bem com Conteúdo de Importação superior a 70%)</li>
+<li><code>executar()</code> - Método principal que orquestra todo o processo de parcelamento</li>
+<li><code>obterDiasAdicionaisAData()</code> - Calcula dias adicionais baseado no dia da semana</li>
+<li><code>buscarCondicaoPagamentoPorId()</code> - Busca a condição de pagamento pelo ID</li>
+<li><code>buscarParcelasPeloIdCondicaoPagamento()</code> - Busca as parcelas configuradas para a condição</li>
+<li><code>buscarDiaComplementarPeloIdCondicaoPagamento()</code> - Busca ajustes complementares de dias</li>
+<li><code>montarParcelaDto()</code> - Monta o DTO da parcela com todos os dados calculados</li>
 </ul>
-<h3 id="validacoes-de-dados">Validações de Dados<a class="headerlink" href="#validacoes-de-dados" title="Permanent link">&para;</a></h3>
+<h3 id="estrutura-de-saida">📊 Estrutura de Saída<a class="headerlink" href="#estrutura-de-saida" title="Permanent link">&para;</a></h3>
+<p><strong>ParcelaDto:</strong>
+- <code>vctoN</code> - Data de vencimento nominal
+- <code>valor</code> - Valor da parcela
+- <code>criaDoc</code> - Tipo de documento financeiro (1 ou 2)
+- <code>abf15id</code> - ID do portador
+- <code>abf16id</code> - ID da operação
+- <code>abf01id</code> - ID do banco
+- <code>abf40id</code> - ID da forma de pagamento
+- <code>cposLivres</code> - Campos livres (juros, multa, desconto, etc.)</p>
+<p><strong>Lista de Parcelas:</strong> Retornada no parâmetro <code>listaParcelas</code></p>
+<hr />
+<h2 id="2-srf-documento-eltech">2. SRF - Documento (Eltech)<a class="headerlink" href="#2-srf-documento-eltech" title="Permanent link">&para;</a></h2>
+<h3 id="descricao_1">📖 Descrição<a class="headerlink" href="#descricao_1" title="Permanent link">&para;</a></h3>
+<p>Fórmula para processamento e composição de documentos fiscais, aplicando regras de tributação, observações fiscais, cálculo de comissões, validações de itens e tratamento de documentos referenciados.</p>
+<h3 id="finalidade_1">🎯 Finalidade<a class="headerlink" href="#finalidade_1" title="Permanent link">&para;</a></h3>
+<p>Processar documentos fiscais (notas fiscais) aplicando regras de negócio específicas, como validação de itens, cálculo de taxas de comissão, composição de observações e tratamento de documentos referenciados.</p>
+<h3 id="publico-alvo_1">👥 Público-Alvo<a class="headerlink" href="#publico-alvo_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Interrupção se nenhum produto for selecionado</li>
-<li>Validação de unitário de importação ≤ unitário de saída</li>
-<li>Verificação de variação mínima de 5% no CI</li>
-<li>Suporte a cálculos retroativos</li>
+<li>Departamento Fiscal</li>
+<li>Faturamento</li>
+<li>Tesouraria</li>
+<li>Contabilidade</li>
 </ul>
-<h2 id="metodos-principais">🔧 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h2>
-<h3 id="executar"><code>executar()</code><a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
-<p>Método principal que orquestra todo o processo de cálculo da FCI.</p>
-<h3 id="buscarrepositorio"><code>buscarRepositorio()</code><a class="headerlink" href="#buscarrepositorio" title="Permanent link">&para;</a></h3>
-<p>Carrega as configurações da tarefa SRF2002 do repositório de dados.</p>
-<h3 id="validaralinhamentostring-codigoalinhamento"><code>validarAlinhamento(String codigoAlinhamento)</code><a class="headerlink" href="#validaralinhamentostring-codigoalinhamento" title="Permanent link">&para;</a></h3>
-<p>Valida os campos de alinhamento para valores e quantidades.</p>
-<h3 id="buscarprodutoscombomcriterion-crititem-string-bom"><code>buscarProdutosComBOM(Criterion critItem, String bom)</code><a class="headerlink" href="#buscarprodutoscombomcriterion-crititem-string-bom" title="Permanent link">&para;</a></h3>
-<p>Busca produtos com base no BOM informado.</p>
-<h3 id="buscaridsitensimportadossetlong-abm01ids"><code>buscarIdsItensImportados(Set&lt;Long&gt; abm01ids)</code><a class="headerlink" href="#buscaridsitensimportadossetlong-abm01ids" title="Permanent link">&para;</a></h3>
-<p>Identifica componentes importados pelo CST.</p>
-<h3 id="selecionarentradas"><code>selecionarEntradas(...)</code><a class="headerlink" href="#selecionarentradas" title="Permanent link">&para;</a></h3>
-<p>Seleciona e calcula entradas de componentes importados.</p>
-<h3 id="selecionarsaidas"><code>selecionarSaidas(...)</code><a class="headerlink" href="#selecionarsaidas" title="Permanent link">&para;</a></h3>
-<p>Seleciona e calcula saídas do produto principal.</p>
-<h3 id="setarorigemmercadorianoitembyci"><code>setarOrigemMercadoriaNoItemByCI(...)</code><a class="headerlink" href="#setarorigemmercadorianoitembyci" title="Permanent link">&para;</a></h3>
-<p>Atualiza a origem da mercadoria (CST-A) com base no CI calculado.</p>
-<h2 id="estrutura-de-saida">📊 Estrutura de Saída<a class="headerlink" href="#estrutura-de-saida" title="Permanent link">&para;</a></h2>
-<p><strong>Registros Criados/Atualizados:</strong>
-- <code>Eab01</code> - Cadastro da FCI do item
-- <code>Eab0101</code> - Cálculo da FCI (data, CI, valores)
-- <code>Eab01011</code> - Itens importados do cálculo (VMU, quantidades)</p>
-<p><strong>Campos do Eab0101:</strong>
-- <code>eab0101unitImp</code> - Unitário total das importações
-- <code>eab0101unitSai</code> - Unitário médio das saídas
-- <code>eab0101ci</code> - Conteúdo de Importação calculado
-- <code>eab0101qtdSai</code> - Quantidade total de saídas
-- <code>eab0101vlrSai</code> - Valor total de saídas
-- <code>eab0101status</code> - Status da FCI (A_ENVIAR, etc.)</p>
-<h2 id="dependencias">🔧 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
-<p><strong>Bibliotecas:</strong>
-- <code>multiorm</code> - Criteria e consultas ao banco
-- <code>multitec.utils</code> - Utilitários de data e validação
-- <code>sam.dicdados</code> - Tipos de fórmula
-- <code>sam.dto.cgs</code> - DTOs do módulo CGS
-- <code>sam.model</code> - Entidades do sistema
-- <code>java.time</code> - Manipulação de datas</p>
-<p><strong>Serviços:</strong>
-- <code>CGSService</code> - Serviço do módulo CGS
-- <code>ParametroService</code> - Serviço de parâmetros
-- <code>EspecificacaoService</code> - Serviço de especificações
-- <code>CASService</code> - Serviço de composição de JSON</p>
-<p><strong>Módulo:</strong> Equilibrio</p>
-<h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
-<h3 id="tratamento-de-datas">Tratamento de Datas<a class="headerlink" href="#tratamento-de-datas" title="Permanent link">&para;</a></h3>
+<h3 id="dados-e-fontes_1">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes_1" title="Permanent link">&para;</a></h3>
+<p><strong>Tabelas Principais:</strong>
+- <code>Abe01</code> - Entidades (clientes/fornecedores)
+- <code>Abe02</code> - Dados comerciais da entidade
+- <code>Abe03</code> - Dados fiscais da entidade
+- <code>Abe05</code> - Representantes
+- <code>Abe40</code> - Tabelas de preço
+- <code>Abb01</code> - Documentos centrais
+- <code>Abb10</code> - Operações comerciais
+- <code>Abd01</code> - Parâmetros de cálculo de documentos (PCD)
+- <code>Abd02</code> - Campos fiscais do PCD
+- <code>Abd05</code> - Campos industriais do PCD
+- <code>Eaa01</code> - Documentos fiscais
+- <code>Eaa0101</code> - Endereços do documento
+- <code>Eaa0103</code> - Itens do documento fiscal
+- <code>Eaa01033</code> - Itens de devolução referenciados
+- <code>Abm01</code> - Produtos
+- <code>Abm0101</code> - Configurações do produto por empresa
+- <code>Abm10</code> - Valores do produto
+- <code>Abm1001</code> - Valores do produto por UF
+- <code>Aac10</code> - Empresas
+- <code>Aac13</code> - Dados fiscais da empresa
+- <code>Aag02</code> - Estados (UF)
+- <code>Aag0201</code> - Municípios
+- <code>Aaj10</code> - Códigos de situação tributária (CST)</p>
+<h3 id="parametros-da-formula_1">⚙️ Parâmetros da Fórmula<a class="headerlink" href="#parametros-da-formula_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Obrigatório</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eaa01</td>
+<td>Eaa01</td>
+<td>Sim</td>
+<td>Documento fiscal a ser processado</td>
+</tr>
+<tr>
+<td>procInvoc</td>
+<td>String</td>
+<td>Sim</td>
+<td>Processo de invocação da fórmula</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fluxo-do-processo_1">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo_1" title="Permanent link">&para;</a></h3>
+<h4 id="1-configuracao-inicial_1">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Suporte a períodos flexíveis para entradas e saídas</li>
-<li>Cálculos retroativos configuráveis</li>
-<li>Busca inteligente do último mês com movimentação</li>
+<li>Validação do documento fiscal (Eaa01)</li>
+<li>Carregamento da operação comercial (Abb10)</li>
+<li>Obtenção do PCD (Abd01)</li>
+<li>Carregamento da entidade (Abe01) e dados fiscais</li>
+<li>Carregamento da empresa (Aac10) e dados fiscais</li>
 </ul>
-<h3 id="campos-de-alinhamento">Campos de Alinhamento<a class="headerlink" href="#campos-de-alinhamento" title="Permanent link">&para;</a></h3>
+<h4 id="2-processamento-por-item">2. <strong>Processamento por Item</strong><a class="headerlink" href="#2-processamento-por-item" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>FCICAMPOVLRIMP</code> - Campo para valor de importação</li>
-<li><code>FCICAMPOQTDIMP</code> - Campo para quantidade de importação</li>
-<li><code>FCICAMPOVLRSAI</code> - Campo para valor de saída</li>
-<li><code>FCICAMPOQTDSAI</code> - Campo para quantidade de saída</li>
+<li>Validação de itens sem código de produto</li>
+<li>Carregamento de configurações do produto (Abm0101)</li>
+<li>Obtenção de valores do produto por UF (Abm1001)</li>
+<li>Aplicação de observações fiscais específicas por item</li>
+<li>Tratamento de CST ICMS com redução de base de cálculo</li>
 </ul>
-<h3 id="json-da-especificacao">JSON da Especificação<a class="headerlink" href="#json-da-especificacao" title="Permanent link">&para;</a></h3>
+<h4 id="3-calculo-de-taxas-de-comissao">3. <strong>Cálculo de Taxas de Comissão</strong><a class="headerlink" href="#3-calculo-de-taxas-de-comissao" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Composição dinâmica dos campos da FCI</li>
-<li>Suporte a campos livres configuráveis</li>
-<li>Integração com o serviço CAS</li>
+<li>Obtenção de taxas fixadas na entidade (Abe02)</li>
+<li>Obtenção de taxas fixadas na tabela de preço (Abe40)</li>
+<li>Obtenção de taxas de representantes (Abe05)</li>
+<li>Definição final das taxas no documento</li>
 </ul>
-<h3 id="validacoes-de-negocio">Validações de Negócio<a class="headerlink" href="#validacoes-de-negocio" title="Permanent link">&para;</a></h3>
+<h4 id="4-composicao-de-observacoes">4. <strong>Composição de Observações</strong><a class="headerlink" href="#4-composicao-de-observacoes" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Controle rigoroso de arredondamentos (6 casas decimais)</li>
-<li>Tratamento de casos sem movimentação</li>
-<li>Suporte a múltiplos cálculos por item</li>
+<li>Composição de observações de uso interno</li>
+<li>Composição de observações fiscais</li>
+<li>Composição de observações ao contribuinte</li>
+<li>Composição de observações de retenção/indenização</li>
+<li>Composição de observações gerais</li>
+</ul>
+<h4 id="5-processamento-final">5. <strong>Processamento Final</strong><a class="headerlink" href="#5-processamento-final" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Cálculo de fidelidade (para PCD específico)</li>
+<li>Cálculo de crédito/cashback (para PCD específico)</li>
+<li>Composição de observações com documentos referenciados</li>
+<li>Atualização do documento fiscal</li>
+</ul>
+<h3 id="regras-de-negocio_1">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio_1" title="Permanent link">&para;</a></h3>
+<h4 id="validacao-de-itens">Validação de Itens<a class="headerlink" href="#validacao-de-itens" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Todos os itens devem ter código de produto preenchido</li>
+<li>Configurações do produto são carregadas por empresa</li>
+<li>Valores do produto são aplicados conforme UF do endereço principal</li>
+</ul>
+<h4 id="observacoes-fiscais">Observações Fiscais<a class="headerlink" href="#observacoes-fiscais" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Observações do fisco podem ser definidas por produto/UF</li>
+<li>Tratamento especial para CST ICMS 20 (redução de base de cálculo)</li>
+<li>Regime especial Simples Nacional com aproveitamento de ICMS</li>
+</ul>
+<h4 id="taxas-de-comissao">Taxas de Comissão<a class="headerlink" href="#taxas-de-comissao" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Hierarquia de fontes: Entidade → Tabela de Preço → Representante</li>
+<li>Taxas podem ser fixadas em múltiplos níveis</li>
+<li>Valores zerados são substituídos pelas fontes disponíveis</li>
+</ul>
+<h4 id="documentos-referenciados">Documentos Referenciados<a class="headerlink" href="#documentos-referenciados" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Identificação de itens devolvidos referenciados</li>
+<li>Composição automática de observação com dados dos documentos</li>
+<li>Inclusão de número, data e chave de acesso da NFe</li>
 </ul>
 <hr />
-<p><strong>Última Alteração:</strong> 02/12/2025 às 15:25<br />
-<strong>Autor:</strong> Bruno<br />
-<strong>Tipo:</strong> Fórmula de Cálculo de FCI<br />
-<strong>Versão:</strong> 1.0<br />
-<strong>Observação:</strong> O funcionamento dessa fórmula depende 100% do script na tarefa SRF2002 e do repositório de dados. Ver documentação no Trello.</p>
+<h2 id="3-srf-calculo-de-item-de-entrada-por-importacao">3. SRF - Cálculo de Item de Entrada por Importação<a class="headerlink" href="#3-srf-calculo-de-item-de-entrada-por-importacao" title="Permanent link">&para;</a></h2>
+<h3 id="descricao_2">📖 Descrição<a class="headerlink" href="#descricao_2" title="Permanent link">&para;</a></h3>
+<p>Fórmula para cálculo de impostos e valores em itens de documentos fiscais de entrada por importação, aplicando regras específicas de importação, tributação federal e estadual, conversões de unidades e tratamento de moedas estrangeiras.</p>
+<h3 id="finalidade_2">🎯 Finalidade<a class="headerlink" href="#finalidade_2" title="Permanent link">&para;</a></h3>
+<p>Calcular automaticamente os valores fiscais e financeiros de itens em documentos de importação, incluindo impostos de importação (II), IPI, ICMS, PIS/COFINS, conversões monetárias e ajustes de base de cálculo.</p>
+<h3 id="publico-alvo_2">👥 Público-Alvo<a class="headerlink" href="#publico-alvo_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Departamento Fiscal</li>
+<li>Importação/Exportação</li>
+<li>Contabilidade</li>
+<li>Faturamento</li>
+</ul>
+<h3 id="dados-e-fontes_2">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes_2" title="Permanent link">&para;</a></h3>
+<p><strong>Tabelas Principais:</strong>
+- <code>Eaa0103</code> - Itens do documento fiscal
+- <code>Eaa01</code> - Documentos fiscais
+- <code>Eaa0102</code> - Dados gerais do documento
+- <code>Eaa0101</code> - Endereços do documento
+- <code>Abb01</code> - Central de documento
+- <code>Abb10</code> - Operações comerciais
+- <code>Abd01</code> - Parâmetros de cálculo de documentos (PCD)
+- <code>Abe01</code> - Entidades (clientes/fornecedores)
+- <code>Abm01</code> - Produtos
+- <code>Abm0101</code> - Configurações do produto por empresa
+- <code>Abm12</code> - Dados fiscais do item
+- <code>Abm13</code> - Dados comerciais do item
+- <code>Abm1301</code> - Fatores de conversão de unidade
+- <code>Abm10</code> - Valores do produto
+- <code>Abm1001</code> - Valores do produto por UF
+- <code>Aaj15</code> - CFOP (Código Fiscal de Operações)
+- <code>Abg01</code> - NCM (Nomenclatura Comum do Mercosul)
+- <code>Aaj10</code> - CST ICMS
+- <code>Aaj11</code> - CST IPI
+- <code>Aaj12</code> - CST PIS
+- <code>Aaj13</code> - CST COFINS
+- <code>Aac10</code> - Empresas
+- <code>Aag02</code> - Estados (UF)
+- <code>Aag0201</code> - Municípios</p>
+<h3 id="parametros-da-formula_2">⚙️ Parâmetros da Fórmula<a class="headerlink" href="#parametros-da-formula_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parâmetro</th>
+<th>Tipo</th>
+<th>Obrigatório</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>eaa0103</td>
+<td>Eaa0103</td>
+<td>Sim</td>
+<td>Item do documento fiscal a ser calculado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fluxo-do-processo_2">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo_2" title="Permanent link">&para;</a></h3>
+<h4 id="1-configuracao-inicial_2">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Validação do item do documento (Eaa0103)</li>
+<li>Carregamento do documento fiscal (Eaa01)</li>
+<li>Validação de pessoa física como contribuinte de ICMS</li>
+<li>Carregamento da operação comercial (Abb10) e PCD (Abd01)</li>
+<li>Obtenção de dados da entidade (Abe01) e empresa (Aac10)</li>
+</ul>
+<h4 id="2-carregamento-de-dados-geograficos">2. <strong>Carregamento de Dados Geográficos</strong><a class="headerlink" href="#2-carregamento-de-dados-geograficos" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Identificação do endereço principal da entidade</li>
+<li>Obtenção de município e UF da entidade</li>
+<li>Obtenção de município e UF da empresa</li>
+<li>Determinação se operação é intraestadual ou interestadual</li>
+</ul>
+<h4 id="3-carregamento-de-dados-do-produto">3. <strong>Carregamento de Dados do Produto</strong><a class="headerlink" href="#3-carregamento-de-dados-do-produto" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Configurações fiscais (Abm12) e comerciais (Abm13) do item</li>
+<li>Fatores de conversão de unidades (Abm1301)</li>
+<li>NCM (Abg01) e CFOP (Aaj15)</li>
+<li>Valores do produto por UF (Abm1001)</li>
+<li>Códigos de situação tributária (CSTs)</li>
+</ul>
+<h4 id="4-calculo-de-cfop">4. <strong>Cálculo de CFOP</strong><a class="headerlink" href="#4-calculo-de-cfop" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Determinação automática de CFOP baseado em:</li>
+<li>Tipo de operação comercial</li>
+<li>Localização geográfica (dentro/fora do estado)</li>
+<li>Tipo de inscrição da entidade (CNPJ/CPF)</li>
+<li>Presença de IVA no item</li>
+<li>Tipo de produto (revenda/produção)</li>
+</ul>
+<h4 id="5-calculo-de-valores-do-item">5. <strong>Cálculo de Valores do Item</strong><a class="headerlink" href="#5-calculo-de-valores-do-item" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>PCD 114</strong>: Cálculo simples (quantidade × valor unitário)</li>
+<li><strong>PCD 314</strong>: Cálculo complexo de importação:</li>
+<li>Conversão monetária (FOB para Real)</li>
+<li>Soma de fretes, seguros e acréscimos</li>
+<li>Cálculo de CIF (Custo, Seguro e Frete)</li>
+</ul>
+<h4 id="6-calculo-de-impostos">6. <strong>Cálculo de Impostos</strong><a class="headerlink" href="#6-calculo-de-impostos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>II (Imposto de Importação)</strong>: Base CIF × Alíquota</li>
+<li><strong>IPI</strong>: Base (CIF + II) × Alíquota NCM</li>
+<li><strong>PIS/COFINS</strong>: Base valor total × Alíquotas</li>
+<li><strong>ICMS</strong>: Cálculo complexo com base em fórmula específica</li>
+<li>Tratamento de isenções e alíquotas zero</li>
+</ul>
+<h4 id="7-ajustes-finais">7. <strong>Ajustes Finais</strong><a class="headerlink" href="#7-ajustes-finais" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Conversão de quantidades para unidades de estoque</li>
+<li>Cálculo de pesos brutos e líquidos</li>
+<li>Aplicação de descontos incondicionais</li>
+<li>Cálculo de valor total do documento</li>
+<li>Definição de custo de aquisição</li>
+</ul>
+<h3 id="regras-de-negocio_2">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio_2" title="Permanent link">&para;</a></h3>
+<h4 id="validacoes-criticas">Validações Críticas<a class="headerlink" href="#validacoes-criticas" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Pessoa física não pode ser contribuinte de ICMS</li>
+<li>Item deve ter configuração fiscal cadastrada</li>
+<li>CFOP deve existir no cadastro após determinação automática</li>
+<li>Cotação monetária obrigatória para importação em moeda estrangeira</li>
+</ul>
+<h4 id="calculo-de-cfop">Cálculo de CFOP<a class="headerlink" href="#calculo-de-cfop" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Dígito inicial fixo em "3" para importação</li>
+<li>CFOPs específicos para operações com IVA (401)</li>
+<li>Diferenciação entre venda (102/108) e revenda (101/107)</li>
+<li>CFOP 109 para operações específicas</li>
+</ul>
+<h4 id="calculo-de-importacao-pcd-314">Cálculo de Importação (PCD 314)<a class="headerlink" href="#calculo-de-importacao-pcd-314" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Conversão obrigatória de moeda estrangeira</li>
+<li>CIF = FOB + Frete + Seguro + Acréscimos</li>
+<li>Base de cálculo do ICMS inclui todos os impostos</li>
+<li>Valor total do documento igual à base de cálculo do ICMS</li>
+</ul>
+<h4 id="tratamento-de-impostos">Tratamento de Impostos<a class="headerlink" href="#tratamento-de-impostos" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>II</strong>: Zerado quando alíquota for zero</li>
+<li><strong>IPI</strong>: Base inclui CIF + II, isenção move valor para campo específico</li>
+<li><strong>PIS/COFINS</strong>: Alíquotas diferenciadas para operações com exterior</li>
+<li><strong>ICMS</strong>: Cálculo por fórmula ((CIF+impostos)/(1-aliq))×aliq</li>
+<li><strong>CST 51</strong>: Zera ICMS e alíquota automaticamente</li>
+</ul>
+<hr />
+<h2 id="4-scv-pedidos-por-item-eltech">4. SCV - Pedidos por Item (Eltech)<a class="headerlink" href="#4-scv-pedidos-por-item-eltech" title="Permanent link">&para;</a></h2>
+<h3 id="descricao_3">📖 Descrição<a class="headerlink" href="#descricao_3" title="Permanent link">&para;</a></h3>
+<p>Relatório que consolida informações de pedidos agrupados por item, permitindo análise de quantidades solicitadas versus quantidades atendidas, com filtros flexíveis para diferentes tipos de pedidos e situações.</p>
+<h3 id="finalidade_3">🎯 Finalidade<a class="headerlink" href="#finalidade_3" title="Permanent link">&para;</a></h3>
+<p>Fornecer uma visão consolidada dos pedidos por item, facilitando o acompanhamento de atendimento, identificação de saldos pendentes e análise de movimentação de produtos.</p>
+<h3 id="publico-alvo_3">👥 Público-Alvo<a class="headerlink" href="#publico-alvo_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Comercial/Vendas</li>
+<li>Compras</li>
+<li>Planejamento</li>
+<li>Estoques</li>
+<li>Gerência</li>
+</ul>
+<h3 id="dados-e-fontes_3">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes_3" title="Permanent link">&para;</a></h3>
+<p><strong>Tabelas Principais:</strong>
+- <code>Eaa01</code> - Documentos fiscais
+- <code>Abb01</code> - Central de documento
+- <code>Eaa0103</code> - Itens do documento fiscal
+- <code>Eaa01032</code> - Itens atendidos do SCV
+- <code>Abm01</code> - Produtos
+- <code>Aam01</code> - Classes de produtos
+- <code>Abe01</code> - Entidades (cliente)</p>
 
 
 
