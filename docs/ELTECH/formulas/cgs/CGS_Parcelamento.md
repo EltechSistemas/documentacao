@@ -1,7 +1,7 @@
-# CGS - Parcelamento (Equilibrio)
+# CGS - Parcelamento (Eltech)
 
 ## 📖 Descrição
-Fórmula para cálculo e geração de parcelas de condições de pagamento, considerando datas de vencimento, ajustes por dias da semana, feriados, valores mínimos por parcela e configurações específicas do módulo Equilibrio.
+Fórmula para cálculo e geração de parcelas de condições de pagamento, considerando datas de vencimento, ajustes por dias da semana, feriados, valores mínimos por parcela e configurações específicas do módulo CGS.
 
 ## 🎯 Finalidade
 Calcular automaticamente as parcelas de uma condição de pagamento, aplicando regras de vencimento, descontos, juros, multas e validações de valores mínimos por parcela.
@@ -72,8 +72,12 @@ Calcular automaticamente as parcelas de uma condição de pagamento, aplicando r
 
 ### Validações de Parcelas
 - **Valor mínimo**: Configurável por condição de pagamento (abe30vmpValor)
-- **Opções**: 0 - Agrupar em uma parcela, 1 - Validar valor mínimo
-- **Documentos financeiros**: Tipo 1 - Gera na data de vencimento, Tipo 2 - Gera na data de emissão
+- **Opções**: 
+  - 0 - Agrupar em uma parcela quando valor mínimo não for atingido
+  - 1 - Validar valor mínimo e interromper se não atingido
+- **Documentos financeiros**: 
+  - Tipo 1 - Gera na data de vencimento
+  - Tipo 2 - Gera na data de emissão
 
 ## 🔧 Métodos Principais
 
@@ -122,7 +126,7 @@ Monta o DTO da parcela com todos os dados calculados.
 - `sam.model` - Entidades do sistema
 - `java.time` - Manipulação de datas
 
-**Módulo:** Equilibrio
+**Módulo:** CGS (Condições Gerais do Sistema)
 
 ## 📝 Observações Técnicas
 
@@ -141,7 +145,7 @@ Monta o DTO da parcela com todos os dados calculados.
 - `nomevcto` - Nome personalizado do vencimento
 
 ### Validações de Negócio
-- Interrupção se valor mínimo não for atingido
+- Interrupção se valor mínimo não for atingido (opção 1)
 - Cálculo preciso de saldos para evitar diferenças
 - Suporte a condições complexas de pagamento
 - Opção de agrupamento em parcela única quando valor mínimo não é atingido
@@ -170,6 +174,13 @@ Monta o DTO da parcela com todos os dados calculados.
 - `dia_final` - Dia final para ajuste
 - `dia_data` - Dia de ajuste
 - `mes_data` - Mês de ajuste (0=corrente, 1=seguinte)
+
+### Lógica de Agrupamento em Parcela Única
+- Quando `abe30vmpOpcao = 0` e valor da parcela < valor mínimo
+- Soma todas as parcelas em uma única
+- Usa data da primeira parcela (ou emissão se docFinan = 2)
+- Mantém campos livres da primeira parcela
+- Aplica validação de valor mínimo ao total agrupado
 
 ---
 
