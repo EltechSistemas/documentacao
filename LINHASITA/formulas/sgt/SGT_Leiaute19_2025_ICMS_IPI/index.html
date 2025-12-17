@@ -20,7 +20,7 @@
     
     
       
-        <title>SGT - Leiaute 19/2025 (EFD ICMS/IPI) - documentacao-eltech</title>
+        <title>SGT_Leiaute19_2025_ICMS_IPI - documentacao-eltech</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sgt-leiaute-192025-efd-icmsipi" class="md-skip">
+        <a href="#sgt_leiaute19_2025_icms_ipi" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SGT - Leiaute 19/2025 (EFD ICMS/IPI)
+              SGT_Leiaute19_2025_ICMS_IPI
             
           </span>
         </div>
@@ -3444,7 +3444,7 @@
   
   
   <span class="md-ellipsis">
-    SGT - Leiaute 19/2025 (EFD ICMS/IPI)
+    SGT_Leiaute19_2025_ICMS_IPI
     
   </span>
   
@@ -3457,7 +3457,7 @@
   
   
   <span class="md-ellipsis">
-    SGT - Leiaute 19/2025 (EFD ICMS/IPI)
+    SGT_Leiaute19_2025_ICMS_IPI
     
   </span>
   
@@ -3525,117 +3525,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxo-do-processo" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔄 Fluxo do Processo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-configuracao-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Configuração Inicial
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-geracao-dos-blocos-da-efd" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Geração dos Blocos da EFD
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-consolidacao-e-validacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Consolidação e Validação
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regras-de-negocio" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚠️ Regras de Negócio
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#documentos-fiscais-bloco-c-e-d" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentos Fiscais (Bloco C e D)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apuracoes-fiscais-bloco-e" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apurações Fiscais (Bloco E)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ciap-bloco-g" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIAP (Bloco G)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inventario-bloco-h" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inventário (Bloco H)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controle-de-producao-bloco-k" class="md-nav__link">
-    <span class="md-ellipsis">
-      Controle de Produção (Bloco K)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outras-informacoes-bloco-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outras Informações (Bloco 1)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#metodos-principais" class="md-nav__link">
     <span class="md-ellipsis">
       🔧 Métodos Principais
@@ -3667,6 +3556,15 @@
   <a href="#gerarblococ" class="md-nav__link">
     <span class="md-ellipsis">
       gerarBlocoC()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerarblocod" class="md-nav__link">
+    <span class="md-ellipsis">
+      gerarBlocoD()
     </span>
   </a>
   
@@ -3709,6 +3607,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#gerarbloco1" class="md-nav__link">
+    <span class="md-ellipsis">
+      gerarBloco1()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gerarfechamentobloco0" class="md-nav__link">
     <span class="md-ellipsis">
       gerarFechamentoBloco0()
@@ -3732,64 +3639,172 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-saida" class="md-nav__link">
+  <a href="#fluxo-de-execucao" class="md-nav__link">
     <span class="md-ellipsis">
-      📊 Estrutura de Saída
+      📝 Fluxo de Execução
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📝 Fluxo de Execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inicializacao-e-validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicialização e Validação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-geracao-dos-blocos-em-ordem-estruturada" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Geração dos Blocos em Ordem Estruturada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processamento-de-documentos-fiscais" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processamento de Documentos Fiscais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-processamento-de-apuracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Processamento de Apurações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-finalizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Finalização
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações Críticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-perfil-a-b-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regras de Perfil (A, B, C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-especifico-por-modelo-de-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento Específico por Modelo de Documento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculos-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculos Especiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#dependencias" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Dependências
+      🔄 Dependências
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#saida-da-formula" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Observações Técnicas
+      🎨 Saída da Fórmula
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+    <nav class="md-nav" aria-label="🎨 Saída da Fórmula">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tratamento-de-perfis-a-b-c" class="md-nav__link">
+  <a href="#arquivo-de-saida" class="md-nav__link">
     <span class="md-ellipsis">
-      Tratamento de Perfis (A, B, C)
+      Arquivo de Saída
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#campos-json" class="md-nav__link">
+  <a href="#campos-gerados-exemplos" class="md-nav__link">
     <span class="md-ellipsis">
-      Campos JSON
+      Campos Gerados (Exemplos)
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#controle-de-paginacao" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacoes-tecnicas" class="md-nav__link">
     <span class="md-ellipsis">
-      Controle de Paginação
+      📌 Observações Técnicas
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="📌 Observações Técnicas">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#validacoes" class="md-nav__link">
+  <a href="#arquitetura" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações
+      Arquitetura
     </span>
   </a>
   
@@ -3804,8 +3819,146 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manutenibilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracoes-necessarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Configurações Necessárias
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configurações Necessárias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisitos-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos do Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracoes-especificas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurações Específicas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideracoes-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Considerações de Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Considerações de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexidade-fiscal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexidade Fiscal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoramento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizações
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Estrutura do Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-auxiliares" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Métodos Auxiliares
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitacoes-conhecidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Limitações Conhecidas
+    </span>
+  </a>
   
 </li>
       
@@ -4343,6 +4496,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../relatorio/srf/SRF_DanfeSimplificada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF_DanfeSimplificada
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../relatorio/srf/SRF_ExportacaoPorPaises/" class="md-nav__link">
         
   
@@ -4584,7 +4760,7 @@
   
   
   <span class="md-ellipsis">
-    Srf
+    Sce
     
   </span>
   
@@ -4594,6 +4770,77 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Sce
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MITRA/formulas/sce/SCE_PleEntSaiPrecoMedio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SCE PleEntSaiPrecoMedio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_2" id="__nav_7_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_2">
             <span class="md-nav__icon md-icon"></span>
             Srf
           </label>
@@ -5964,7 +6211,7 @@
   
   
   <span class="md-ellipsis">
-    Formulas
+    TECTAPE
     
   </span>
   
@@ -5975,7 +6222,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_1">
             <span class="md-nav__icon md-icon"></span>
-            Formulas
+            TECTAPE
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -6004,7 +6251,7 @@
   
   
   <span class="md-ellipsis">
-    Srf
+    Formulas
     
   </span>
   
@@ -6014,6 +6261,173 @@
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_1_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1_1_1" id="__nav_9_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_9_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Srf
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VETRO/TECTAPE/formulas/srf/SRF_CalculoItem_Saida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRF CalculoItem Saida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Formulas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Formulas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2_1" id="__nav_9_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Srf
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2_1">
             <span class="md-nav__icon md-icon"></span>
             Srf
           </label>
@@ -6160,117 +6574,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxo-do-processo" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔄 Fluxo do Processo
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-configuracao-inicial" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Configuração Inicial
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-geracao-dos-blocos-da-efd" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Geração dos Blocos da EFD
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-consolidacao-e-validacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Consolidação e Validação
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regras-de-negocio" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚠️ Regras de Negócio
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#documentos-fiscais-bloco-c-e-d" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentos Fiscais (Bloco C e D)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apuracoes-fiscais-bloco-e" class="md-nav__link">
-    <span class="md-ellipsis">
-      Apurações Fiscais (Bloco E)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ciap-bloco-g" class="md-nav__link">
-    <span class="md-ellipsis">
-      CIAP (Bloco G)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inventario-bloco-h" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inventário (Bloco H)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controle-de-producao-bloco-k" class="md-nav__link">
-    <span class="md-ellipsis">
-      Controle de Produção (Bloco K)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#outras-informacoes-bloco-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outras Informações (Bloco 1)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#metodos-principais" class="md-nav__link">
     <span class="md-ellipsis">
       🔧 Métodos Principais
@@ -6302,6 +6605,15 @@
   <a href="#gerarblococ" class="md-nav__link">
     <span class="md-ellipsis">
       gerarBlocoC()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerarblocod" class="md-nav__link">
+    <span class="md-ellipsis">
+      gerarBlocoD()
     </span>
   </a>
   
@@ -6344,6 +6656,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#gerarbloco1" class="md-nav__link">
+    <span class="md-ellipsis">
+      gerarBloco1()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gerarfechamentobloco0" class="md-nav__link">
     <span class="md-ellipsis">
       gerarFechamentoBloco0()
@@ -6367,64 +6688,172 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-saida" class="md-nav__link">
+  <a href="#fluxo-de-execucao" class="md-nav__link">
     <span class="md-ellipsis">
-      📊 Estrutura de Saída
+      📝 Fluxo de Execução
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📝 Fluxo de Execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inicializacao-e-validacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicialização e Validação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-geracao-dos-blocos-em-ordem-estruturada" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Geração dos Blocos em Ordem Estruturada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-processamento-de-documentos-fiscais" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Processamento de Documentos Fiscais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-processamento-de-apuracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Processamento de Apurações
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-finalizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Finalização
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regras-de-negocio" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Regras de Negócio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validacoes-criticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validações Críticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-de-perfil-a-b-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regras de Perfil (A, B, C)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tratamento-especifico-por-modelo-de-documento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tratamento Específico por Modelo de Documento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculos-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cálculos Especiais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#dependencias" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Dependências
+      🔄 Dependências
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#saida-da-formula" class="md-nav__link">
     <span class="md-ellipsis">
-      📝 Observações Técnicas
+      🎨 Saída da Fórmula
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
+    <nav class="md-nav" aria-label="🎨 Saída da Fórmula">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tratamento-de-perfis-a-b-c" class="md-nav__link">
+  <a href="#arquivo-de-saida" class="md-nav__link">
     <span class="md-ellipsis">
-      Tratamento de Perfis (A, B, C)
+      Arquivo de Saída
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#campos-json" class="md-nav__link">
+  <a href="#campos-gerados-exemplos" class="md-nav__link">
     <span class="md-ellipsis">
-      Campos JSON
+      Campos Gerados (Exemplos)
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#controle-de-paginacao" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observacoes-tecnicas" class="md-nav__link">
     <span class="md-ellipsis">
-      Controle de Paginação
+      📌 Observações Técnicas
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="📌 Observações Técnicas">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#validacoes" class="md-nav__link">
+  <a href="#arquitetura" class="md-nav__link">
     <span class="md-ellipsis">
-      Validações
+      Arquitetura
     </span>
   </a>
   
@@ -6439,8 +6868,146 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#manutenibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manutenibilidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadados
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracoes-necessarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Configurações Necessárias
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configurações Necessárias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisitos-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pré-requisitos do Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracoes-especificas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurações Específicas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideracoes-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Considerações de Implementação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Considerações de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexidade-fiscal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexidade Fiscal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoramento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizações
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-do-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎨 Estrutura do Código
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodos-auxiliares" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Métodos Auxiliares
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      📊 Contadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitacoes-conhecidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Limitações Conhecidas
+    </span>
+  </a>
   
 </li>
       
@@ -6460,204 +7027,312 @@
 
 
 
-<h1 id="sgt-leiaute-192025-efd-icmsipi">SGT - Leiaute 19/2025 (EFD ICMS/IPI)<a class="headerlink" href="#sgt-leiaute-192025-efd-icmsipi" title="Permanent link">&para;</a></h1>
+<h1 id="sgt_leiaute19_2025_icms_ipi">SGT_Leiaute19_2025_ICMS_IPI<a class="headerlink" href="#sgt_leiaute19_2025_icms_ipi" title="Permanent link">&para;</a></h1>
 <h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
-<p>Fórmula para geração do arquivo <strong>EFD-ICMS/IPI</strong> (Escrituração Fiscal Digital) conforme Leiaute versão 19 (2025), contendo registros dos blocos 0, B, C, D, E, G, H, K, 1 e 9, com suporte a múltiplos modelos de documentos fiscais e apurações de ICMS, IPI, ST, DIFAL, CIAP, inventário e controle de produção.</p>
+<p>Fórmula para geração do arquivo digital da EFD (Escrituração Fiscal Digital) - Blocos 0, B, C, D, E, G, H, K e 1, conforme Leiaute 19/2025 da SEFAZ. Responsável por consolidar informações fiscais de ICMS e IPI para envio ao SPED Fiscal.</p>
 <h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
-<p>Gerar arquivo digital no formato exigido pela Receita Federal (EFD-ICMS/IPI) para entrega obrigatória, consolidando operações fiscais, apurações, inventário, CIAP e movimentações de estoque do período.</p>
+<p>Gerar arquivo digital da EFD contendo todas as operações fiscais (entradas, saídas, serviços, apurações, inventários, CIAP, produção/estoque) de um período determinado, atendendo às exigências do SPED Fiscal para empresas industriais e comerciais.</p>
 <h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Departamento Fiscal</li>
-<li>Contabilidade</li>
-<li>Auditoria Fiscal</li>
-<li>Faturamento</li>
 <li>Controladoria</li>
+<li>Contabilidade</li>
+<li>Desenvolvedores de fórmulas do sistema</li>
 </ul>
 <h2 id="dados-e-fontes">📊 Dados e Fontes<a class="headerlink" href="#dados-e-fontes" title="Permanent link">&para;</a></h2>
 <p><strong>Tabelas Principais:</strong>
-- <code>Eaa01</code> – Documentos fiscais
-- <code>Eaa0102</code> – Dados complementares do documento fiscal
-- <code>Eaa0103</code> – Itens do documento fiscal
-- <code>Eaa01031</code> – Lançamentos fiscais
-- <code>Eaa01034</code> – Declarações de importação
-- <code>Abb01</code> – Central de documentos
-- <code>Aah01</code> – Tipo de documento fiscal
-- <code>Abe01</code> – Entidades (clientes/fornecedores)
-- <code>Abm01</code> – Itens (produtos/serviços)
-- <code>Aac10</code> – Empresa
-- <code>Edb01</code> – Apurações fiscais
-- <code>Ecc01</code> – Fichas do CIAP
-- <code>Bcb10</code> / <code>Bcb11</code> – Inventário físico
-- <code>Bcc01</code> – Movimentações de estoque/produção</p>
+- <code>Eaa01</code> - Documentos fiscais
+- <code>Eaa0103</code> - Itens dos documentos
+- <code>Eaa0102</code> - Dados gerais dos documentos
+- <code>Eaa0101</code> - Endereços dos documentos
+- <code>Abb01</code> - Central de documentos
+- <code>Abe01</code> - Entidades (clientes/fornecedores)
+- <code>Abm01</code> - Itens/produtos
+- <code>Aac10</code> - Empresa
+- <code>Edb01</code> - Apurações fiscais
+- <code>Ecc01</code> - CIAP (Controle de Crédito de ICMS do Ativo Permanente)
+- <code>Bcb10/Bcb11</code> - Inventários
+- <code>Bcc01</code> - Controle de produção/estoque</p>
+<p><strong>Entidades Envolvidas:</strong>
+- <code>Eaa01</code> - Documento fiscal
+- <code>Eaa0103</code> - Item do documento
+- <code>Abb01</code> - Central do documento
+- <code>Abe01</code> - Entidade participante
+- <code>Abm01</code> - Item/produto
+- <code>Aac10</code> - Empresa
+- <code>Aac13</code> - Dados fiscais da empresa
+- <code>Edb01</code> - Apuração fiscal
+- <code>Ecc01</code> - Ficha CIAP</p>
 <h2 id="parametros-da-formula">⚙️ Parâmetros da Fórmula<a class="headerlink" href="#parametros-da-formula" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Parâmetro</th>
-<th>Tipo</th>
-<th>Obrigatório</th>
-<th>Descrição</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>dtInicial</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data inicial do período de apuração</td>
-</tr>
-<tr>
-<td>dtFinal</td>
-<td>LocalDate</td>
-<td>Sim</td>
-<td>Data final do período de apuração</td>
-</tr>
-<tr>
-<td>arqSubstituto</td>
-<td>Integer</td>
-<td>Sim</td>
-<td>Indicador de arquivo substituto (0 = Não, 1 = Sim)</td>
-</tr>
-<tr>
-<td>dtInventario</td>
-<td>LocalDate</td>
-<td>Não</td>
-<td>Data do inventário físico (opcional)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h2>
-<h3 id="1-configuracao-inicial">1. <strong>Configuração Inicial</strong><a class="headerlink" href="#1-configuracao-inicial" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Validação dos parâmetros obrigatórios</li>
-<li>Carregamento dos dados da empresa (Aac10)</li>
-<li>Verificação das informações fiscais e perfil da empresa</li>
-<li>Seleção de alinhamentos (EFD, ICMS, ST, IPI, DIFAL)</li>
-</ul>
-<h3 id="2-geracao-dos-blocos-da-efd">2. <strong>Geração dos Blocos da EFD</strong><a class="headerlink" href="#2-geracao-dos-blocos-da-efd" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Bloco 0</strong> – Abertura, identificação e referências</li>
-<li><strong>Bloco B</strong> – Escrituração e apuração do ISS</li>
-<li><strong>Bloco C</strong> – Documentos fiscais I – Mercadorias (ICMS/IPI)</li>
-<li><strong>Bloco D</strong> – Documentos fiscais II – Serviços (ICMS)</li>
-<li><strong>Bloco E</strong> – Apuração do ICMS e do IPI</li>
-<li><strong>Bloco G</strong> – CIAP (Controle de Crédito de ICMS do Ativo Permanente)</li>
-<li><strong>Bloco H</strong> – Inventário Físico</li>
-<li><strong>Bloco K</strong> – Controle da Produção e Estoque</li>
-<li><strong>Bloco 1</strong> – Outras Informações</li>
-<li><strong>Bloco 9</strong> – Controle e encerramento do arquivo digital</li>
-</ul>
-<h3 id="3-consolidacao-e-validacao">3. <strong>Consolidação e Validação</strong><a class="headerlink" href="#3-consolidacao-e-validacao" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Contagem de linhas por registro</li>
-<li>Geração dos registros totais (0990, C990, D990, E990, etc.)</li>
-<li>Montagem final do arquivo texto com delimitador "|"</li>
-</ul>
-<h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
-<h3 id="documentos-fiscais-bloco-c-e-d">Documentos Fiscais (Bloco C e D)<a class="headerlink" href="#documentos-fiscais-bloco-c-e-d" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Filtragem por modelo (01, 1B, 04, 55, 02, 06, 59, etc.)</li>
-<li>Tratamento por situação do documento (cancelado, regular, etc.)</li>
-<li>Cálculo de valores (ICMS, IPI, PIS, COFINS, descontos, frete)</li>
-<li>Geração de registros analíticos (C170, C190, C590, etc.)</li>
-</ul>
-<h3 id="apuracoes-fiscais-bloco-e">Apurações Fiscais (Bloco E)<a class="headerlink" href="#apuracoes-fiscais-bloco-e" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Busca das apurações de ICMS (011), ST (012), IPI (013) e DIFAL (014)</li>
-<li>Cálculo de débitos, créditos, ajustes e saldos</li>
-<li>Geração de obrigações a recolher (E116, E250, E316)</li>
-</ul>
-<h3 id="ciap-bloco-g">CIAP (Bloco G)<a class="headerlink" href="#ciap-bloco-g" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Identificação de bens do ativo imobilizado</li>
-<li>Cálculo de apropriação de créditos de ICMS</li>
-<li>Movimentações (entrada, baixa, alienação, etc.)</li>
-</ul>
-<h3 id="inventario-bloco-h">Inventário (Bloco H)<a class="headerlink" href="#inventario-bloco-h" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Geração a partir de data de inventário informada</li>
-<li>Valores unitários, totais e classificação (próprio/terceiros)</li>
-</ul>
-<h3 id="controle-de-producao-bloco-k">Controle de Produção (Bloco K)<a class="headerlink" href="#controle-de-producao-bloco-k" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Registro de produção própria, terceiros, correções e inventário</li>
-<li>Movimentações internas entre itens (K220)</li>
-</ul>
-<h3 id="outras-informacoes-bloco-1">Outras Informações (Bloco 1)<a class="headerlink" href="#outras-informacoes-bloco-1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Exportação (1100, 1105)</li>
-<li>Valores agregados (1400)</li>
-<li>Instrumentos de pagamento eletrônico (1601)</li>
-</ul>
+<ol>
+<li><strong>dtInicial</strong> (Date): Data inicial do período de apuração</li>
+<li><strong>dtFinal</strong> (Date): Data final do período de apuração</li>
+<li><strong>arqSubstituto</strong> (Integer): Indicador de arquivo substituto (0=Original, 1=Substituto)</li>
+<li><strong>dtInventario</strong> (Date): Data do inventário (opcional)</li>
+</ol>
 <h2 id="metodos-principais">🔧 Métodos Principais<a class="headerlink" href="#metodos-principais" title="Permanent link">&para;</a></h2>
 <h3 id="executar"><code>executar()</code><a class="headerlink" href="#executar" title="Permanent link">&para;</a></h3>
-<p>Método principal que orquestra a geração completa da EFD.</p>
+<p>Método principal que orquestra toda a geração da EFD:
+1. <strong>Validação de dados</strong> da empresa e período
+2. <strong>Seleção de alinhamentos</strong> (0050, 0030, 0033, 0032, 0031)
+3. <strong>Inicialização de arquivos</strong> e contadores
+4. <strong>Geração dos blocos</strong> na ordem correta do SPED
+5. <strong>Consolidação do arquivo final</strong></p>
 <h3 id="geraraberturabloco0"><code>gerarAberturaBloco0()</code><a class="headerlink" href="#geraraberturabloco0" title="Permanent link">&para;</a></h3>
-<p>Inicializa os contadores e gera registros de abertura (0000, 0001, 0005, 0015, 0100).</p>
+<p>Configura os registros iniciais do arquivo EFD:
+- <strong>Registro 0000</strong>: Abertura e identificação da entidade
+- <strong>Registro 0001</strong>: Abertura do Bloco 0
+- <strong>Registro 0005</strong>: Dados complementares da empresa
+- <strong>Registro 0100</strong>: Dados do contabilista
+- <strong>Inicialização</strong> de estruturas de dados para registros posteriores</p>
 <h3 id="gerarblococ"><code>gerarBlocoC()</code><a class="headerlink" href="#gerarblococ" title="Permanent link">&para;</a></h3>
-<p>Processa documentos fiscais de mercadorias (C100, C300, C500, C800) e seus registros filhos.</p>
+<p>Gera o Bloco C - Documentos Fiscais I - Mercadorias (ICMS/IPI):
+- <strong>Registro C100</strong>: Notas fiscais (01, 1B, 04, 55)
+- <strong>Registro C300/C350</strong>: NFC-e e cupons fiscais
+- <strong>Registro C500</strong>: NF de energia elétrica, água, gás
+- <strong>Registro C800</strong>: Cupom Fiscal Eletrônico (SAT)
+- <strong>Registros analíticos</strong> correspondentes a cada documento</p>
+<h3 id="gerarblocod"><code>gerarBlocoD()</code><a class="headerlink" href="#gerarblocod" title="Permanent link">&para;</a></h3>
+<p>Gera o Bloco D - Documentos Fiscais II - Serviços (ICMS):
+- <strong>Registro D100</strong>: Conhecimentos de transporte
+- <strong>Registro D500</strong>: Notas fiscais de serviço
+- <strong>Registro D700</strong>: Notas fiscais de serviço eletrônica</p>
 <h3 id="gerarblocoe"><code>gerarBlocoE()</code><a class="headerlink" href="#gerarblocoe" title="Permanent link">&para;</a></h3>
-<p>Gera apurações de ICMS, ST, DIFAL e IPI com seus ajustes e obrigações.</p>
+<p>Gera o Bloco E - Apuração do ICMS e do IPI:
+- <strong>Registro E100/E110</strong>: Apuração do ICMS próprio
+- <strong>Registro E200/E210</strong>: Apuração do ICMS ST
+- <strong>Registro E300/E310</strong>: Apuração do diferencial de alíquota
+- <strong>Registro E500/E520</strong>: Apuração do IPI</p>
 <h3 id="gerarblocog"><code>gerarBlocoG()</code><a class="headerlink" href="#gerarblocog" title="Permanent link">&para;</a></h3>
-<p>Processa o CIAP com movimentações de bens e créditos apropriados.</p>
+<p>Gera o Bloco G - CIAP (Controle de Crédito de ICMS do Ativo Permanente):
+- <strong>Registro G110</strong>: Totais do CIAP
+- <strong>Registro G125</strong>: Movimentação de bens
+- <strong>Registro G130/G140</strong>: Identificação de documentos fiscais relacionados</p>
 <h3 id="gerarblocoh"><code>gerarBlocoH()</code><a class="headerlink" href="#gerarblocoh" title="Permanent link">&para;</a></h3>
-<p>Gera o inventário físico com itens e valores.</p>
+<p>Gera o Bloco H - Inventário Físico:
+- <strong>Registro H005</strong>: Totais do inventário
+- <strong>Registro H010</strong>: Itens do inventário
+- <strong>Registro H020</strong>: Informações complementares do inventário</p>
 <h3 id="gerarblocok"><code>gerarBlocoK()</code><a class="headerlink" href="#gerarblocok" title="Permanent link">&para;</a></h3>
-<p>Controle de produção e estoque com registros de movimentações e correções.</p>
+<p>Gera o Bloco K - Controle da Produção e Estoque:
+- <strong>Registro K100</strong>: Período de apuração
+- <strong>Registro K200</strong>: Estoque escriturado
+- <strong>Registros K220-K302</strong>: Movimentações de produção</p>
+<h3 id="gerarbloco1"><code>gerarBloco1()</code><a class="headerlink" href="#gerarbloco1" title="Permanent link">&para;</a></h3>
+<p>Gera o Bloco 1 - Outras Informações:
+- <strong>Registro 1100</strong>: Informações sobre exportação
+- <strong>Registro 1400</strong>: Informações sobre valores agregados
+- <strong>Registro 1601</strong>: Operações com instrumentos de pagamento eletrônico</p>
 <h3 id="gerarfechamentobloco0"><code>gerarFechamentoBloco0()</code><a class="headerlink" href="#gerarfechamentobloco0" title="Permanent link">&para;</a></h3>
-<p>Completa o bloco 0 com registros cadastrais (0150, 0190, 0200, 0300, 0400, 0450, etc.).</p>
+<p>Completa o Bloco 0 com registros que dependem do processamento dos outros blocos:
+- <strong>Registro 0150</strong>: Cadastro de participantes
+- <strong>Registro 0200</strong>: Cadastro de itens
+- <strong>Registro 0300</strong>: Cadastro de bens do CIAP
+- <strong>Registros 0400-0600</strong>: Tabelas auxiliares</p>
 <h3 id="gerarbloco9"><code>gerarBloco9()</code><a class="headerlink" href="#gerarbloco9" title="Permanent link">&para;</a></h3>
-<p>Gera o bloco 9 com totais de registros e encerramento do arquivo.</p>
-<h2 id="estrutura-de-saida">📊 Estrutura de Saída<a class="headerlink" href="#estrutura-de-saida" title="Permanent link">&para;</a></h2>
-<p><strong>Arquivo de Texto:</strong>
-- Dois arquivos concatenados (<code>txt1</code> e <code>txt2</code>)
-- Formato delimitado por "|"
-- Codificação UTF-8
-- Linhas no padrão EFD: <code>REG|CAMPO1|CAMPO2|...|CAMPON</code></p>
-<p><strong>Blocos Gerados:</strong>
-- 0, B, C, D, E, G, H, K, 1, 9</p>
-<p><strong>Saída no Parâmetro:</strong> <code>dadosArquivo</code></p>
-<h2 id="dependencias">🔧 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
+<p>Gera o Bloco 9 - Controle e Encerramento:
+- <strong>Registro 9001</strong>: Abertura do Bloco 9
+- <strong>Registro 9900</strong>: Controle de registros
+- <strong>Registro 9999</strong>: Encerramento do arquivo</p>
+<h2 id="fluxo-de-execucao">📝 Fluxo de Execução<a class="headerlink" href="#fluxo-de-execucao" title="Permanent link">&para;</a></h2>
+<h3 id="1-inicializacao-e-validacao">1. <strong>Inicialização e Validação</strong><a class="headerlink" href="#1-inicializacao-e-validacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Carrega dados da empresa e valida configurações fiscais</li>
+<li>Verifica período informado e parâmetros obrigatórios</li>
+<li>Inicializa estruturas de dados e arquivos de saída</li>
+</ul>
+<h3 id="2-geracao-dos-blocos-em-ordem-estruturada">2. <strong>Geração dos Blocos em Ordem Estruturada</strong><a class="headerlink" href="#2-geracao-dos-blocos-em-ordem-estruturada" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Bloco 0 (Abertura)</strong>: Registros iniciais</li>
+<li><strong>Bloco B</strong>: Escrituração do ISS (se aplicável)</li>
+<li><strong>Bloco C</strong>: Documentos fiscais de mercadorias</li>
+<li><strong>Bloco D</strong>: Documentos fiscais de serviços</li>
+<li><strong>Bloco E</strong>: Apurações de ICMS e IPI</li>
+<li><strong>Bloco G</strong>: CIAP</li>
+<li><strong>Bloco H</strong>: Inventário</li>
+<li><strong>Bloco K</strong>: Produção e estoque</li>
+<li><strong>Bloco 1</strong>: Outras informações</li>
+<li><strong>Bloco 0 (Complemento)</strong>: Registros dependentes</li>
+<li><strong>Bloco 9</strong>: Controle e encerramento</li>
+</ol>
+<h3 id="3-processamento-de-documentos-fiscais">3. <strong>Processamento de Documentos Fiscais</strong><a class="headerlink" href="#3-processamento-de-documentos-fiscais" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Busca documentos por modelo e período</li>
+<li>Processa cada documento e seus itens</li>
+<li>Gera registros principais e analíticos</li>
+<li>Atualiza estruturas de dados para registros posteriores</li>
+</ul>
+<h3 id="4-processamento-de-apuracoes">4. <strong>Processamento de Apurações</strong><a class="headerlink" href="#4-processamento-de-apuracoes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Busca apurações de ICMS, ICMS-ST, Diferencial e IPI</li>
+<li>Calcula totais e gera registros de apuração</li>
+<li>Inclui ajustes e obrigações a recolher</li>
+</ul>
+<h3 id="5-finalizacao">5. <strong>Finalização</strong><a class="headerlink" href="#5-finalizacao" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Completa registros que dependem de dados consolidados</li>
+<li>Gera registros de controle e totais</li>
+<li>Fecha arquivo com registro 9999</li>
+</ul>
+<h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
+<h3 id="validacoes-criticas">Validações Críticas<a class="headerlink" href="#validacoes-criticas" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Empresa</strong>: Deve ter município, endereço e informações fiscais configuradas</li>
+<li><strong>Período</strong>: Data final não pode ser anterior à data inicial</li>
+<li><strong>Documentos</strong>: Devem ter situação fiscal definida para processamento</li>
+<li><strong>Itens</strong>: Devem ter configuração fiscal cadastrada para a empresa</li>
+<li><strong>Apurações</strong>: Devem existir para o período informado (ICMS obrigatório, IPI se industrial)</li>
+</ol>
+<h3 id="regras-de-perfil-a-b-c">Regras de Perfil (A, B, C)<a class="headerlink" href="#regras-de-perfil-a-b-c" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Perfil A</strong>: Industrial/equiparado, gera todos os registros</li>
+<li><strong>Perfil B</strong>: Comércio, restringe alguns registros</li>
+<li><strong>Perfil C</strong>: Outros, restringe mais registros</li>
+<li>A geração de cada registro depende do perfil e tipo de operação</li>
+</ul>
+<h3 id="tratamento-especifico-por-modelo-de-documento">Tratamento Específico por Modelo de Documento<a class="headerlink" href="#tratamento-especifico-por-modelo-de-documento" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Modelo 01, 1B, 04, 55</strong>: Bloco C, registros completos</li>
+<li><strong>Modelo 02</strong>: NFC-e, registros simplificados</li>
+<li><strong>Modelo 06, 28, 29, 66</strong>: Energia, água, gás</li>
+<li><strong>Modelo 07-11, 26-27, 57, 67</strong>: Transportes</li>
+<li><strong>Modelo 21-22, 62</strong>: Serviços diversos</li>
+</ul>
+<h3 id="calculos-especiais">Cálculos Especiais<a class="headerlink" href="#calculos-especiais" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>CIAP</strong>: Cálculo de apropriação de crédito de ICMS</li>
+<li><strong>Inventário</strong>: Valoração e classificação de itens</li>
+<li><strong>Produção</strong>: Controle de entrada/saída de estoque</li>
+<li><strong>Exportação</strong>: Tratamento específico para operações de exportação</li>
+</ol>
+<h2 id="dependencias">🔄 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
+<p><strong>Classes:</strong>
+- <code>FormulaBase</code> - Classe base para fórmulas do sistema
+- Todas as entidades do modelo SAM mencionadas na seção "Entidades Envolvidas"</p>
 <p><strong>Bibliotecas:</strong>
-- <code>multiorm</code> – Criteria e consultas ao banco
-- <code>multitec.utils</code> – Utilitários de data, texto e validação
-- <code>sam.model</code> – Entidades do sistema
-- <code>java.time</code> – Manipulação de datas
-- <code>java.math</code> – Cálculos com BigDecimal</p>
-<p><strong>Módulos:</strong> Sistema Fiscal SAM</p>
-<h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
-<h3 id="tratamento-de-perfis-a-b-c">Tratamento de Perfis (A, B, C)<a class="headerlink" href="#tratamento-de-perfis-a-b-c" title="Permanent link">&para;</a></h3>
+- <code>br.com.multiorm</code> - ORM e consultas ao banco
+- <code>br.com.multitec.utils</code> - Utilitários diversos
+- <code>sam.dicdados.FormulaTipo</code> - Tipos de fórmula
+- <code>sam.server.samdev.utils.Parametro</code> - Parâmetros de consulta</p>
+<h2 id="saida-da-formula">🎨 Saída da Fórmula<a class="headerlink" href="#saida-da-formula" title="Permanent link">&para;</a></h2>
+<p>A fórmula gera um arquivo texto no formato delimitado por pipe (|) conforme layout do SPED EFD:</p>
+<h3 id="arquivo-de-saida">Arquivo de Saída<a class="headerlink" href="#arquivo-de-saida" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Perfil A: Completo, todas as operações</li>
-<li>Perfil B: Limitado, algumas operações de saída</li>
-<li>Perfil C: Simplificado, apenas entradas e saídas essenciais</li>
+<li><strong>Formato</strong>: Texto com delimitador "|"</li>
+<li><strong>Codificação</strong>: UTF-8</li>
+<li><strong>Estrutura</strong>: Blocos e registros conforme manual do SPED</li>
+<li><strong>Conteúdo</strong>: Todas as operações fiscais do período</li>
 </ul>
-<h3 id="campos-json">Campos JSON<a class="headerlink" href="#campos-json" title="Permanent link">&para;</a></h3>
+<h3 id="campos-gerados-exemplos">Campos Gerados (Exemplos)<a class="headerlink" href="#campos-gerados-exemplos" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Valores fiscais armazenados em campos JSON nas tabelas (<code>eaa01json</code>, <code>eaa0103json</code>, <code>edb01json</code>, etc.)</li>
-<li>Acesso via <code>jGet(campo)::numeric</code></li>
+<li><strong>Bloco 0</strong>: Identificação da empresa, participantes, itens, bens</li>
+<li><strong>Bloco C/D</strong>: Documentos fiscais com valores de impostos</li>
+<li><strong>Bloco E</strong>: Apurações de impostos</li>
+<li><strong>Bloco G/H/K</strong>: Controles específicos</li>
+<li><strong>Bloco 9</strong>: Totais e controle do arquivo</li>
 </ul>
-<h3 id="controle-de-paginacao">Controle de Paginação<a class="headerlink" href="#controle-de-paginacao" title="Permanent link">&para;</a></h3>
+<h2 id="observacoes-tecnicas">📌 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
+<h3 id="arquitetura">Arquitetura<a class="headerlink" href="#arquitetura" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Consultas paginadas para documentos fiscais (evita estouro de memória)</li>
-</ul>
-<h3 id="validacoes">Validações<a class="headerlink" href="#validacoes" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Empresa com município e informações fiscais</li>
-<li>Documentos com entidade e situação definida</li>
-<li>Apurações obrigatórias conforme perfil</li>
+<li>Fórmula extensa com aproximadamente 3000 linhas de código</li>
+<li>Processamento em lotes (paginado) para evitar estouro de memória</li>
+<li>Uso intensivo de <code>TableMap</code> para manipulação de dados</li>
+<li>Separação de arquivos txt1 e txt2 para organização do fluxo</li>
 </ul>
 <h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Uso de <code>Set</code> e <code>Map</code> para evitar duplicidades (ex: 0150, 0200, 0300)</li>
-<li>Consultas otimizadas com filtros por período e empresa</li>
+<li>Consultas paginadas para documentos fiscais</li>
+<li>Cache de entidades frequentemente acessadas</li>
+<li>Processamento em memória com estruturas otimizadas</li>
+<li>Validações para evitar processamento desnecessário</li>
 </ul>
-<hr />
-<p><strong>Última Alteração:</strong> 09/12/2025 às 08:20<br />
-<strong>Autor:</strong> Bruno<br />
-<strong>Tipo:</strong> Fórmula EFD-ICMS/IPI<br />
-<strong>Versão:</strong> Leiaute 19/2025<br />
-<strong>Sistema:</strong> SAM</p>
+<h3 id="manutenibilidade">Manutenibilidade<a class="headerlink" href="#manutenibilidade" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Métodos organizados por blocos do SPED</li>
+<li>Constantes para códigos fixos</li>
+<li>Funções auxiliares para cálculos repetitivos</li>
+<li>Comentários indicando alterações importantes</li>
+</ul>
+<h3 id="metadados">Metadados<a class="headerlink" href="#metadados" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Código identificado por metadados no final do arquivo: <code>meta-sis-eyJ0aXBvIjoiZm9ybXVsYSIsImZvcm11bGF0aXBvIjoiMDYifQ==</code></li>
+<li>Tipo de fórmula: <code>FormulaTipo.SGT_EFD</code></li>
+<li>Última alteração: 15/12/2025 11:16 por NAGYLA</li>
+</ul>
+<h2 id="configuracoes-necessarias">🔧 Configurações Necessárias<a class="headerlink" href="#configuracoes-necessarias" title="Permanent link">&para;</a></h2>
+<h3 id="pre-requisitos-do-sistema">Pré-requisitos do Sistema<a class="headerlink" href="#pre-requisitos-do-sistema" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Cadastro Completo da Empresa</strong> com dados fiscais (perfil, atividade, IE)</li>
+<li><strong>Documentos Fiscais</strong> lançados e processados no período</li>
+<li><strong>Apurações Fiscais</strong> realizadas para o período</li>
+<li><strong>Cadastro de Itens</strong> com configurações fiscais e comerciais</li>
+<li><strong>CIAP</strong> configurado para empresas industriais</li>
+<li><strong>Inventário</strong> lançado se necessário</li>
+</ol>
+<h3 id="configuracoes-especificas">Configurações Específicas<a class="headerlink" href="#configuracoes-especificas" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Alinhamentos</strong>: Configurações de campos JSON para cada registro</li>
+<li><strong>Perfil da Empresa</strong>: A, B ou C conforme atividade</li>
+<li><strong>Campos JSON</strong>: Estrutura de campos personalizados para cálculos</li>
+<li><strong>Unidades de Medida</strong>: Cadastro completo para conversões</li>
+</ol>
+<h2 id="consideracoes-de-implementacao">⚠️ Considerações de Implementação<a class="headerlink" href="#consideracoes-de-implementacao" title="Permanent link">&para;</a></h2>
+<h3 id="complexidade-fiscal">Complexidade Fiscal<a class="headerlink" href="#complexidade-fiscal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implementa layout complexo do SPED EFD</li>
+<li>Trata múltiplos modelos de documentos fiscais</li>
+<li>Considera diferentes perfis de empresa</li>
+<li>Atende legislação fiscal brasileira atual</li>
+</ul>
+<h3 id="testes">Testes<a class="headerlink" href="#testes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Necessário testar com diferentes perfis de empresa</li>
+<li>Validar com períodos com/sem inventário</li>
+<li>Testar cenários com/sem operações de exportação</li>
+<li>Verificar cálculos de apuração</li>
+</ul>
+<h3 id="monitoramento">Monitoramento<a class="headerlink" href="#monitoramento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Logs de processamento por documento</li>
+<li>Controle de progresso durante execução</li>
+<li>Validações de consistência de dados</li>
+<li>Tratamento de exceções específicas</li>
+</ul>
+<h3 id="atualizacoes">Atualizações<a class="headerlink" href="#atualizacoes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Acompanhamento de mudanças no layout do SPED</li>
+<li>Atualização de códigos e alíquotas</li>
+<li>Manutenção das regras por perfil</li>
+<li>Adaptação para novos modelos de documentos</li>
+</ul>
+<h2 id="estrutura-do-codigo">🎨 Estrutura do Código<a class="headerlink" href="#estrutura-do-codigo" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Package</strong>: <code>linhasita.formulas.sgt</code></li>
+<li><strong>Imports</strong>: Extensos, cobrindo ORM, utilitários, entidades SAM</li>
+<li><strong>Constantes</strong>: Versão do leiaute, códigos de alinhamento, modelos de documentos</li>
+<li><strong>Variáveis</strong>: Contadores por registro, estruturas de cache, arquivos de saída</li>
+<li><strong>Métodos</strong>: Organizados por blocos do SPED com responsabilidades específicas</li>
+</ul>
+<h2 id="metodos-auxiliares">🔧 Métodos Auxiliares<a class="headerlink" href="#metodos-auxiliares" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>buscarDocumentosPorModelo()</code>: Consulta documentos por modelo</li>
+<li><code>formatarValor()</code>: Formata valores monetários</li>
+<li><code>gerarCodigoEntidade()</code>: Gera código único para participantes</li>
+<li><code>comporRegistro0200()</code>: Prepara cadastro de itens</li>
+<li><code>gerarRegByPerfil()</code>: Define se registro deve ser gerado conforme perfil</li>
+</ul>
+<h2 id="contadores">📊 Contadores<a class="headerlink" href="#contadores" title="Permanent link">&para;</a></h2>
+<p>A fórmula mantém contadores detalhados por registro para:
+- Controle interno do processamento
+- Geração do registro 9900 (controle de registros)
+- Validação do total de linhas do arquivo</p>
+<h2 id="limitacoes-conhecidas">⚠️ Limitações Conhecidas<a class="headerlink" href="#limitacoes-conhecidas" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Processamento pode ser lento para períodos muito extensos</li>
+<li>Consumo de memória em períodos com muitos documentos</li>
+<li>Dependência de estrutura de JSON fields configurada</li>
+<li>Necessidade de apurações prévias para geração do bloco E</li>
+</ul>
 
 
 
