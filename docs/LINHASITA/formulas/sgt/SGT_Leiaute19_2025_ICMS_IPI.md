@@ -1,181 +1,306 @@
-# SGT - Leiaute 19/2025 (EFD ICMS/IPI)
+# SGT_Leiaute19_2025_ICMS_IPI
 
 ## 📖 Descrição
-Fórmula para geração do arquivo **EFD-ICMS/IPI** (Escrituração Fiscal Digital) conforme Leiaute versão 19 (2025), contendo registros dos blocos 0, B, C, D, E, G, H, K, 1 e 9, com suporte a múltiplos modelos de documentos fiscais e apurações de ICMS, IPI, ST, DIFAL, CIAP, inventário e controle de produção.
+Fórmula para geração do arquivo digital da EFD (Escrituração Fiscal Digital) - Blocos 0, B, C, D, E, G, H, K e 1, conforme Leiaute 19/2025 da SEFAZ. Responsável por consolidar informações fiscais de ICMS e IPI para envio ao SPED Fiscal.
 
 ## 🎯 Finalidade
-Gerar arquivo digital no formato exigido pela Receita Federal (EFD-ICMS/IPI) para entrega obrigatória, consolidando operações fiscais, apurações, inventário, CIAP e movimentações de estoque do período.
+Gerar arquivo digital da EFD contendo todas as operações fiscais (entradas, saídas, serviços, apurações, inventários, CIAP, produção/estoque) de um período determinado, atendendo às exigências do SPED Fiscal para empresas industriais e comerciais.
 
 ## 👥 Público-Alvo
 - Departamento Fiscal
-- Contabilidade
-- Auditoria Fiscal
-- Faturamento
 - Controladoria
+- Contabilidade
+- Desenvolvedores de fórmulas do sistema
 
 ## 📊 Dados e Fontes
-
 **Tabelas Principais:**
-- `Eaa01` – Documentos fiscais
-- `Eaa0102` – Dados complementares do documento fiscal
-- `Eaa0103` – Itens do documento fiscal
-- `Eaa01031` – Lançamentos fiscais
-- `Eaa01034` – Declarações de importação
-- `Abb01` – Central de documentos
-- `Aah01` – Tipo de documento fiscal
-- `Abe01` – Entidades (clientes/fornecedores)
-- `Abm01` – Itens (produtos/serviços)
-- `Aac10` – Empresa
-- `Edb01` – Apurações fiscais
-- `Ecc01` – Fichas do CIAP
-- `Bcb10` / `Bcb11` – Inventário físico
-- `Bcc01` – Movimentações de estoque/produção
+- `Eaa01` - Documentos fiscais
+- `Eaa0103` - Itens dos documentos
+- `Eaa0102` - Dados gerais dos documentos
+- `Eaa0101` - Endereços dos documentos
+- `Abb01` - Central de documentos
+- `Abe01` - Entidades (clientes/fornecedores)
+- `Abm01` - Itens/produtos
+- `Aac10` - Empresa
+- `Edb01` - Apurações fiscais
+- `Ecc01` - CIAP (Controle de Crédito de ICMS do Ativo Permanente)
+- `Bcb10/Bcb11` - Inventários
+- `Bcc01` - Controle de produção/estoque
+
+**Entidades Envolvidas:**
+- `Eaa01` - Documento fiscal
+- `Eaa0103` - Item do documento
+- `Abb01` - Central do documento
+- `Abe01` - Entidade participante
+- `Abm01` - Item/produto
+- `Aac10` - Empresa
+- `Aac13` - Dados fiscais da empresa
+- `Edb01` - Apuração fiscal
+- `Ecc01` - Ficha CIAP
 
 ## ⚙️ Parâmetros da Fórmula
-
-| Parâmetro        | Tipo        | Obrigatório | Descrição                                      |
-|------------------|-------------|-------------|------------------------------------------------|
-| dtInicial        | LocalDate   | Sim         | Data inicial do período de apuração            |
-| dtFinal          | LocalDate   | Sim         | Data final do período de apuração              |
-| arqSubstituto    | Integer     | Sim         | Indicador de arquivo substituto (0 = Não, 1 = Sim) |
-| dtInventario     | LocalDate   | Não         | Data do inventário físico (opcional)           |
-
-## 🔄 Fluxo do Processo
-
-### 1. **Configuração Inicial**
-- Validação dos parâmetros obrigatórios
-- Carregamento dos dados da empresa (Aac10)
-- Verificação das informações fiscais e perfil da empresa
-- Seleção de alinhamentos (EFD, ICMS, ST, IPI, DIFAL)
-
-### 2. **Geração dos Blocos da EFD**
-- **Bloco 0** – Abertura, identificação e referências
-- **Bloco B** – Escrituração e apuração do ISS
-- **Bloco C** – Documentos fiscais I – Mercadorias (ICMS/IPI)
-- **Bloco D** – Documentos fiscais II – Serviços (ICMS)
-- **Bloco E** – Apuração do ICMS e do IPI
-- **Bloco G** – CIAP (Controle de Crédito de ICMS do Ativo Permanente)
-- **Bloco H** – Inventário Físico
-- **Bloco K** – Controle da Produção e Estoque
-- **Bloco 1** – Outras Informações
-- **Bloco 9** – Controle e encerramento do arquivo digital
-
-### 3. **Consolidação e Validação**
-- Contagem de linhas por registro
-- Geração dos registros totais (0990, C990, D990, E990, etc.)
-- Montagem final do arquivo texto com delimitador "|"
-
-## ⚠️ Regras de Negócio
-
-### Documentos Fiscais (Bloco C e D)
-- Filtragem por modelo (01, 1B, 04, 55, 02, 06, 59, etc.)
-- Tratamento por situação do documento (cancelado, regular, etc.)
-- Cálculo de valores (ICMS, IPI, PIS, COFINS, descontos, frete)
-- Geração de registros analíticos (C170, C190, C590, etc.)
-
-### Apurações Fiscais (Bloco E)
-- Busca das apurações de ICMS (011), ST (012), IPI (013) e DIFAL (014)
-- Cálculo de débitos, créditos, ajustes e saldos
-- Geração de obrigações a recolher (E116, E250, E316)
-
-### CIAP (Bloco G)
-- Identificação de bens do ativo imobilizado
-- Cálculo de apropriação de créditos de ICMS
-- Movimentações (entrada, baixa, alienação, etc.)
-
-### Inventário (Bloco H)
-- Geração a partir de data de inventário informada
-- Valores unitários, totais e classificação (próprio/terceiros)
-
-### Controle de Produção (Bloco K)
-- Registro de produção própria, terceiros, correções e inventário
-- Movimentações internas entre itens (K220)
-
-### Outras Informações (Bloco 1)
-- Exportação (1100, 1105)
-- Valores agregados (1400)
-- Instrumentos de pagamento eletrônico (1601)
+1. **dtInicial** (Date): Data inicial do período de apuração
+2. **dtFinal** (Date): Data final do período de apuração
+3. **arqSubstituto** (Integer): Indicador de arquivo substituto (0=Original, 1=Substituto)
+4. **dtInventario** (Date): Data do inventário (opcional)
 
 ## 🔧 Métodos Principais
 
 ### `executar()`
-Método principal que orquestra a geração completa da EFD.
+Método principal que orquestra toda a geração da EFD:
+1. **Validação de dados** da empresa e período
+2. **Seleção de alinhamentos** (0050, 0030, 0033, 0032, 0031)
+3. **Inicialização de arquivos** e contadores
+4. **Geração dos blocos** na ordem correta do SPED
+5. **Consolidação do arquivo final**
 
 ### `gerarAberturaBloco0()`
-Inicializa os contadores e gera registros de abertura (0000, 0001, 0005, 0015, 0100).
+Configura os registros iniciais do arquivo EFD:
+- **Registro 0000**: Abertura e identificação da entidade
+- **Registro 0001**: Abertura do Bloco 0
+- **Registro 0005**: Dados complementares da empresa
+- **Registro 0100**: Dados do contabilista
+- **Inicialização** de estruturas de dados para registros posteriores
 
 ### `gerarBlocoC()`
-Processa documentos fiscais de mercadorias (C100, C300, C500, C800) e seus registros filhos.
+Gera o Bloco C - Documentos Fiscais I - Mercadorias (ICMS/IPI):
+- **Registro C100**: Notas fiscais (01, 1B, 04, 55)
+- **Registro C300/C350**: NFC-e e cupons fiscais
+- **Registro C500**: NF de energia elétrica, água, gás
+- **Registro C800**: Cupom Fiscal Eletrônico (SAT)
+- **Registros analíticos** correspondentes a cada documento
+
+### `gerarBlocoD()`
+Gera o Bloco D - Documentos Fiscais II - Serviços (ICMS):
+- **Registro D100**: Conhecimentos de transporte
+- **Registro D500**: Notas fiscais de serviço
+- **Registro D700**: Notas fiscais de serviço eletrônica
 
 ### `gerarBlocoE()`
-Gera apurações de ICMS, ST, DIFAL e IPI com seus ajustes e obrigações.
+Gera o Bloco E - Apuração do ICMS e do IPI:
+- **Registro E100/E110**: Apuração do ICMS próprio
+- **Registro E200/E210**: Apuração do ICMS ST
+- **Registro E300/E310**: Apuração do diferencial de alíquota
+- **Registro E500/E520**: Apuração do IPI
 
 ### `gerarBlocoG()`
-Processa o CIAP com movimentações de bens e créditos apropriados.
+Gera o Bloco G - CIAP (Controle de Crédito de ICMS do Ativo Permanente):
+- **Registro G110**: Totais do CIAP
+- **Registro G125**: Movimentação de bens
+- **Registro G130/G140**: Identificação de documentos fiscais relacionados
 
 ### `gerarBlocoH()`
-Gera o inventário físico com itens e valores.
+Gera o Bloco H - Inventário Físico:
+- **Registro H005**: Totais do inventário
+- **Registro H010**: Itens do inventário
+- **Registro H020**: Informações complementares do inventário
 
 ### `gerarBlocoK()`
-Controle de produção e estoque com registros de movimentações e correções.
+Gera o Bloco K - Controle da Produção e Estoque:
+- **Registro K100**: Período de apuração
+- **Registro K200**: Estoque escriturado
+- **Registros K220-K302**: Movimentações de produção
+
+### `gerarBloco1()`
+Gera o Bloco 1 - Outras Informações:
+- **Registro 1100**: Informações sobre exportação
+- **Registro 1400**: Informações sobre valores agregados
+- **Registro 1601**: Operações com instrumentos de pagamento eletrônico
 
 ### `gerarFechamentoBloco0()`
-Completa o bloco 0 com registros cadastrais (0150, 0190, 0200, 0300, 0400, 0450, etc.).
+Completa o Bloco 0 com registros que dependem do processamento dos outros blocos:
+- **Registro 0150**: Cadastro de participantes
+- **Registro 0200**: Cadastro de itens
+- **Registro 0300**: Cadastro de bens do CIAP
+- **Registros 0400-0600**: Tabelas auxiliares
 
 ### `gerarBloco9()`
-Gera o bloco 9 com totais de registros e encerramento do arquivo.
+Gera o Bloco 9 - Controle e Encerramento:
+- **Registro 9001**: Abertura do Bloco 9
+- **Registro 9900**: Controle de registros
+- **Registro 9999**: Encerramento do arquivo
 
-## 📊 Estrutura de Saída
+## 📝 Fluxo de Execução
 
-**Arquivo de Texto:**
-- Dois arquivos concatenados (`txt1` e `txt2`)
-- Formato delimitado por "|"
-- Codificação UTF-8
-- Linhas no padrão EFD: `REG|CAMPO1|CAMPO2|...|CAMPON`
+### 1. **Inicialização e Validação**
+- Carrega dados da empresa e valida configurações fiscais
+- Verifica período informado e parâmetros obrigatórios
+- Inicializa estruturas de dados e arquivos de saída
 
-**Blocos Gerados:**
-- 0, B, C, D, E, G, H, K, 1, 9
+### 2. **Geração dos Blocos em Ordem Estruturada**
+1. **Bloco 0 (Abertura)**: Registros iniciais
+2. **Bloco B**: Escrituração do ISS (se aplicável)
+3. **Bloco C**: Documentos fiscais de mercadorias
+4. **Bloco D**: Documentos fiscais de serviços
+5. **Bloco E**: Apurações de ICMS e IPI
+6. **Bloco G**: CIAP
+7. **Bloco H**: Inventário
+8. **Bloco K**: Produção e estoque
+9. **Bloco 1**: Outras informações
+10. **Bloco 0 (Complemento)**: Registros dependentes
+11. **Bloco 9**: Controle e encerramento
 
-**Saída no Parâmetro:** `dadosArquivo`
+### 3. **Processamento de Documentos Fiscais**
+- Busca documentos por modelo e período
+- Processa cada documento e seus itens
+- Gera registros principais e analíticos
+- Atualiza estruturas de dados para registros posteriores
 
-## 🔧 Dependências
+### 4. **Processamento de Apurações**
+- Busca apurações de ICMS, ICMS-ST, Diferencial e IPI
+- Calcula totais e gera registros de apuração
+- Inclui ajustes e obrigações a recolher
+
+### 5. **Finalização**
+- Completa registros que dependem de dados consolidados
+- Gera registros de controle e totais
+- Fecha arquivo com registro 9999
+
+## ⚠️ Regras de Negócio
+
+### Validações Críticas
+1. **Empresa**: Deve ter município, endereço e informações fiscais configuradas
+2. **Período**: Data final não pode ser anterior à data inicial
+3. **Documentos**: Devem ter situação fiscal definida para processamento
+4. **Itens**: Devem ter configuração fiscal cadastrada para a empresa
+5. **Apurações**: Devem existir para o período informado (ICMS obrigatório, IPI se industrial)
+
+### Regras de Perfil (A, B, C)
+- **Perfil A**: Industrial/equiparado, gera todos os registros
+- **Perfil B**: Comércio, restringe alguns registros
+- **Perfil C**: Outros, restringe mais registros
+- A geração de cada registro depende do perfil e tipo de operação
+
+### Tratamento Específico por Modelo de Documento
+- **Modelo 01, 1B, 04, 55**: Bloco C, registros completos
+- **Modelo 02**: NFC-e, registros simplificados
+- **Modelo 06, 28, 29, 66**: Energia, água, gás
+- **Modelo 07-11, 26-27, 57, 67**: Transportes
+- **Modelo 21-22, 62**: Serviços diversos
+
+### Cálculos Especiais
+1. **CIAP**: Cálculo de apropriação de crédito de ICMS
+2. **Inventário**: Valoração e classificação de itens
+3. **Produção**: Controle de entrada/saída de estoque
+4. **Exportação**: Tratamento específico para operações de exportação
+
+## 🔄 Dependências
+
+**Classes:**
+- `FormulaBase` - Classe base para fórmulas do sistema
+- Todas as entidades do modelo SAM mencionadas na seção "Entidades Envolvidas"
 
 **Bibliotecas:**
-- `multiorm` – Criteria e consultas ao banco
-- `multitec.utils` – Utilitários de data, texto e validação
-- `sam.model` – Entidades do sistema
-- `java.time` – Manipulação de datas
-- `java.math` – Cálculos com BigDecimal
+- `br.com.multiorm` - ORM e consultas ao banco
+- `br.com.multitec.utils` - Utilitários diversos
+- `sam.dicdados.FormulaTipo` - Tipos de fórmula
+- `sam.server.samdev.utils.Parametro` - Parâmetros de consulta
 
-**Módulos:** Sistema Fiscal SAM
+## 🎨 Saída da Fórmula
+A fórmula gera um arquivo texto no formato delimitado por pipe (|) conforme layout do SPED EFD:
 
-## 📝 Observações Técnicas
+### Arquivo de Saída
+- **Formato**: Texto com delimitador "|"
+- **Codificação**: UTF-8
+- **Estrutura**: Blocos e registros conforme manual do SPED
+- **Conteúdo**: Todas as operações fiscais do período
 
-### Tratamento de Perfis (A, B, C)
-- Perfil A: Completo, todas as operações
-- Perfil B: Limitado, algumas operações de saída
-- Perfil C: Simplificado, apenas entradas e saídas essenciais
+### Campos Gerados (Exemplos)
+- **Bloco 0**: Identificação da empresa, participantes, itens, bens
+- **Bloco C/D**: Documentos fiscais com valores de impostos
+- **Bloco E**: Apurações de impostos
+- **Bloco G/H/K**: Controles específicos
+- **Bloco 9**: Totais e controle do arquivo
 
-### Campos JSON
-- Valores fiscais armazenados em campos JSON nas tabelas (`eaa01json`, `eaa0103json`, `edb01json`, etc.)
-- Acesso via `jGet(campo)::numeric`
+## 📌 Observações Técnicas
 
-### Controle de Paginação
-- Consultas paginadas para documentos fiscais (evita estouro de memória)
-
-### Validações
-- Empresa com município e informações fiscais
-- Documentos com entidade e situação definida
-- Apurações obrigatórias conforme perfil
+### Arquitetura
+- Fórmula extensa com aproximadamente 3000 linhas de código
+- Processamento em lotes (paginado) para evitar estouro de memória
+- Uso intensivo de `TableMap` para manipulação de dados
+- Separação de arquivos txt1 e txt2 para organização do fluxo
 
 ### Performance
-- Uso de `Set` e `Map` para evitar duplicidades (ex: 0150, 0200, 0300)
-- Consultas otimizadas com filtros por período e empresa
+- Consultas paginadas para documentos fiscais
+- Cache de entidades frequentemente acessadas
+- Processamento em memória com estruturas otimizadas
+- Validações para evitar processamento desnecessário
 
----
+### Manutenibilidade
+- Métodos organizados por blocos do SPED
+- Constantes para códigos fixos
+- Funções auxiliares para cálculos repetitivos
+- Comentários indicando alterações importantes
 
-**Última Alteração:** 09/12/2025 às 08:20  
-**Autor:** Bruno  
-**Tipo:** Fórmula EFD-ICMS/IPI  
-**Versão:** Leiaute 19/2025  
-**Sistema:** SAM
+### Metadados
+- Código identificado por metadados no final do arquivo: `meta-sis-eyJ0aXBvIjoiZm9ybXVsYSIsImZvcm11bGF0aXBvIjoiMDYifQ==`
+- Tipo de fórmula: `FormulaTipo.SGT_EFD`
+- Última alteração: 15/12/2025 11:16 por NAGYLA
+
+## 🔧 Configurações Necessárias
+
+### Pré-requisitos do Sistema
+1. **Cadastro Completo da Empresa** com dados fiscais (perfil, atividade, IE)
+2. **Documentos Fiscais** lançados e processados no período
+3. **Apurações Fiscais** realizadas para o período
+4. **Cadastro de Itens** com configurações fiscais e comerciais
+5. **CIAP** configurado para empresas industriais
+6. **Inventário** lançado se necessário
+
+### Configurações Específicas
+1. **Alinhamentos**: Configurações de campos JSON para cada registro
+2. **Perfil da Empresa**: A, B ou C conforme atividade
+3. **Campos JSON**: Estrutura de campos personalizados para cálculos
+4. **Unidades de Medida**: Cadastro completo para conversões
+
+## ⚠️ Considerações de Implementação
+
+### Complexidade Fiscal
+- Implementa layout complexo do SPED EFD
+- Trata múltiplos modelos de documentos fiscais
+- Considera diferentes perfis de empresa
+- Atende legislação fiscal brasileira atual
+
+### Testes
+- Necessário testar com diferentes perfis de empresa
+- Validar com períodos com/sem inventário
+- Testar cenários com/sem operações de exportação
+- Verificar cálculos de apuração
+
+### Monitoramento
+- Logs de processamento por documento
+- Controle de progresso durante execução
+- Validações de consistência de dados
+- Tratamento de exceções específicas
+
+### Atualizações
+- Acompanhamento de mudanças no layout do SPED
+- Atualização de códigos e alíquotas
+- Manutenção das regras por perfil
+- Adaptação para novos modelos de documentos
+
+## 🎨 Estrutura do Código
+- **Package**: `linhasita.formulas.sgt`
+- **Imports**: Extensos, cobrindo ORM, utilitários, entidades SAM
+- **Constantes**: Versão do leiaute, códigos de alinhamento, modelos de documentos
+- **Variáveis**: Contadores por registro, estruturas de cache, arquivos de saída
+- **Métodos**: Organizados por blocos do SPED com responsabilidades específicas
+
+## 🔧 Métodos Auxiliares
+- `buscarDocumentosPorModelo()`: Consulta documentos por modelo
+- `formatarValor()`: Formata valores monetários
+- `gerarCodigoEntidade()`: Gera código único para participantes
+- `comporRegistro0200()`: Prepara cadastro de itens
+- `gerarRegByPerfil()`: Define se registro deve ser gerado conforme perfil
+
+## 📊 Contadores
+A fórmula mantém contadores detalhados por registro para:
+- Controle interno do processamento
+- Geração do registro 9900 (controle de registros)
+- Validação do total de linhas do arquivo
+
+## ⚠️ Limitações Conhecidas
+- Processamento pode ser lento para períodos muito extensos
+- Consumo de memória em períodos com muitos documentos
+- Dependência de estrutura de JSON fields configurada
+- Necessidade de apurações prévias para geração do bloco E
