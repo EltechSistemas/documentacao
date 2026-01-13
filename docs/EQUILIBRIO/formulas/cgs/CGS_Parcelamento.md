@@ -11,7 +11,7 @@ Calcular automaticamente as parcelas de uma condição de pagamento, aplicando r
 - Faturamento
 - Crédito e Cobrança
 
-## 📊 Dados e Fontesssss
+## 📊 Dados e Fontes
 
 **Tabelas Principais:**
 - `Abe30` - Condições de pagamento
