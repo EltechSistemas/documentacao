@@ -1,75 +1,173 @@
-# SCE - Registro de Inventário Modelo P7
+# SCE – Registro de Inventário – Modelo P7 – El Tech
 
 ## 📖 Descrição
-Relatório de registro de inventário (Modelo P7) que detalha itens por grupo e grau, incluindo totais, médias e unidades de medida. Permite geração de termo de abertura e encerramento do livro.
+Relatório oficial de **Registro de Inventário – Modelo P7**, utilizado para atender exigências fiscais e contábeis, apresentando a posição de inventário por **grupos, subgrupos (graus)** e itens, com totalizações, médias, unidades de medida e termos legais de abertura e encerramento de livro.
 
 ## 🎯 Finalidade
-Fornecer visão detalhada do inventário, permitindo controle administrativo e fiscal, com consolidação por grupos, graus e totais.
+Permitir a escrituração formal do inventário, possibilitando:
+- Atendimento à legislação fiscal e contábil
+- Emissão do Livro de Registro de Inventário
+- Controle por grupos (grau 1, grau 2 e grupo completo)
+- Apuração de quantidades, valores totais e médias
+- Geração de termos de abertura e encerramento do livro
 
 ## 👥 Público-Alvo
-- Controladoria
-- Departamento Fiscal
-- Auditoria Interna
-- Gestão de Estoque
-- Diretoria Administrativa
+- Contabilidade
+- Fiscal
+- Auditoria
+- Administração
+- Órgãos fiscalizadores
+
+## 📊 Dados e Fontes
+
+### Tabelas Principais
+- Bcb10 – Inventário
+- Bcb11 – Itens do Inventário
+- Abm40 – Grupo de Inventário
+- Abm01 – Item / Produto
+- Abe01 – Entidade
+- Aac10 – Empresa
+- Aac1002 – Inscrição Estadual por UF
+- Aag0201 – Município
+- Aag02 – UF
+
+### Entidades Envolvidas
+- Empresa emissora
+- Grupos de inventário
+- Itens inventariados
+- Clientes / Entidades (quando aplicável)
 
 ## ⚙️ Parâmetros do Relatório
 
-| Parâmetro | Tipo | Obrigatório | Descrição | Valores Possíveis |
-|-----------|------|-------------|-----------|-----------------|
-| grupos | List<Long> | Não | IDs de grupos de inventário | Lista de IDs |
-| livroNum | Integer | Sim | Número do livro | Inteiro |
-| livroPag | Integer | Sim | Número da página inicial | Inteiro |
-| impressao | Integer | Sim | Tipo de impressão | 0=Página, 1=Folha |
-| imprimir | Integer | Sim | Formato de impressão | 0=Livro, 1=Termo abertura, 2=Termo encerramento |
-| resumo | Integer | Não | Nivel de resumo dos grupos | 0=Nenhum, 1=Grau1, 2=Grau2 |
-| totUniMed | Boolean | Não | Totalizar unidades de medida | true/false |
-| totQtd | Boolean | Não | Totalizar quantidade | true/false |
-| inventario | Long | Sim | ID do inventário | Inteiro |
-| rascunho | Boolean | Não | Indica rascunho | true/false |
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|---------|------|-------------|-----------|
+| inventario | Long | Sim | ID do inventário |
+| grupos | Lista (Long) | Não | Filtro de grupos de inventário |
+| livroNum | Integer | Sim | Número do livro |
+| livroPag | Integer | Sim | Página inicial do livro |
+| impressao | Integer | Sim | 0 = Página / 1 = Folha |
+| imprimir | Integer | Sim | 0 = Livro / 1 = Termo Abertura / 2 = Termo Encerramento |
+| resumo | Integer | Não | 0 = Sem resumo / 1 = Grau 1 / 2 = Grau 2 |
+| totUniMed | Boolean | Não | Totalizar por unidade de medida |
+| totQtd | Boolean | Não | Totalizar quantidades |
+| rascunho | Boolean | Sim | Define se o relatório é rascunho |
+| data | LocalDate | Sim | Data do inventário |
+| dataTermo | String | Sim | Data por extenso para termo |
+| repLeg1 | String | Não | Representante legal |
+| contab1 | String | Não | Contador |
+| contab2 | String | Não | CRC do contador |
 
 ## 📋 Campos do Relatório
 
-| Campo | Descrição | Tipo |
-|-------|-----------|------|
-| abm40codigo | Código do grupo/registro | String |
-| abm40descr | Descrição do grupo | String |
-| bcb11qtde | Quantidade do item | BigDecimal |
-| bcb11total | Total do item | BigDecimal |
-| descTotComp | Total do grupo | BigDecimal |
-| totGrau1 / totGrau2 | Totais dos graus | BigDecimal |
-| mediaGrau1 / mediaGrau2 | Média por grau | BigDecimal |
-| totComp | Total geral do grupo | BigDecimal |
-| descrUniMed | Unidade de medida | String |
-| qtdUniMed | Quantidade por unidade | BigDecimal |
-| totUniMed | Total por unidade | BigDecimal |
+### Campos Principais
+| Campo | Descrição |
+|------|-----------|
+| abm40codigo | Código do grupo |
+| abm40descr | Descrição do grupo |
+| abm01codigo | Código do item |
+| abm01descr | Descrição do item |
+| abm01tipo | Tipo do item |
+| bcb11unid | Unidade de medida |
+| bcb11ncm | NCM |
+| bcb11qtde | Quantidade |
+| bcb11unit | Valor unitário |
+| bcb11total | Valor total |
+| bcb10data | Data do inventário |
+
+### Campos de Totalização
+| Campo | Descrição |
+|------|-----------|
+| totComp | Total do grupo |
+| totGrau1 | Total do Grau 1 |
+| totGrau2 | Total do Grau 2 |
+| bcb11Media | Média do grupo |
+| mediaGrau1 | Média Grau 1 |
+| mediaGrau2 | Média Grau 2 |
+| qtdUniMed | Quantidade por unidade |
+| totUniMed | Total por unidade |
 
 ## 🔄 Fluxo do Processo
-1. Carrega parâmetros e ano de referência.
-2. Inicializa totais e listas de dados.
-3. Busca os itens por grupo e inventário.
-4. Agrupa por grau1, grau2 e grupo, calculando totais e médias.
-5. Gera linhas de resumo, totais e unidades de medida.
-6. Se `imprimir != 0`, gera termo de abertura ou encerramento.
-7. Monta `TableMapDataSource` para JasperReports.
-8. Gera PDF com o relatório e informações adicionais.
+
+### 1. Inicialização
+- Define valores padrão
+- Preenche dados da empresa
+- Gera data do termo por extenso
+- Define assinaturas e responsáveis
+
+### 2. Validação de Execução
+- Verifica tipo de impressão (Livro / Termos)
+- Define layout do relatório (R1 ou R2)
+
+### 3. Processamento Principal
+- Busca itens do inventário por grupo e data
+- Ordena por código de grupo e item
+- Cria hierarquia:
+    - Grau 1 (2 primeiros dígitos)
+    - Grau 2 (4 primeiros dígitos)
+    - Grupo completo
+
+### 4. Totalizações
+- Soma valores por grupo
+- Soma valores por grau
+- Calcula médias por quantidade
+- Totaliza por unidade de medida (opcional)
+
+### 5. Resumo (Opcional)
+- Gera resumo por Grau 1, Grau 2 ou ambos
+- Apresenta totais consolidados
+
+### 6. Termos Oficiais
+- Termo de Abertura
+- Termo de Encerramento
+- Atualiza número de páginas do livro no inventário
+
+### 7. Pós-Execução
+- Atualiza livro e página no inventário
+- Retorna PDF para download
 
 ## ⚠️ Regras de Negócio
-- Agrupamento por códigos de 2 e 4 caracteres (grau1 e grau2).
-- Totalização condicional por unidade de medida.
-- Cálculo de médias apenas se quantidade > 0.
-- Termos de abertura e encerramento seguem regras legais (Lei 6374/89, Convênio 57/95).
-- Inclusão de resumo por grupos se parâmetro `resumo` for diferente de 0.
+
+### Agrupamentos
+- Grau 1: primeiros 2 caracteres do código do grupo
+- Grau 2: primeiros 4 caracteres do código do grupo
+- Grupo: código completo
+
+### Cálculos
+- Total = soma de `bcb11total`
+- Média = total / quantidade
+- Quantidade acumulada por grau e grupo
+
+### Livro Fiscal
+- Se não for rascunho, atualiza:
+    - Número do livro
+    - Número da última página utilizada
+
+### Unidades de Medida
+- Totalização opcional
+- Pode ser feita por grupo ou por grau
+- Restringe repetição de unidades já listadas
 
 ## 🎨 Saídas Disponíveis
+
 | Formato | Descrição |
-|---------|-----------|
-| PDF | Relatório pronto para impressão |
+|-------|-----------|
+| PDF | Livro de Registro de Inventário – Modelo P7 |
 
 ## 🔧 Dependências
-- `sam.server.samdev.relatorio.RelatorioBase` — Classe base para relatórios
-- `sam.server.samdev.relatorio.TableMapDataSource` — Fonte de dados para JasperReports
-- `br.com.multitec.utils.collections.TableMap` — Estrutura de dados
-- Entidades: `Abm40`, `Abm01`, `Bcb10`, `Bcb11`, `Aac10`, `Aag02`, `Aag0201`
-- JasperReports (`JasperReport`, `JasperPrint`)
-- Utilitários para datas e manipulação de mapas (`MDate`, `Utils`)
+
+### Frameworks e Bibliotecas
+- JasperReports
+- MultiORM
+- sam.server.samdev.relatorio
+- sam.model.entities
+
+### Infraestrutura
+- Sessão ORM ativa
+- Templates Jasper (`SCE_RegistroDeInventarioP7_R1` e `R2`)
+
+## 📝 Observações Técnicas
+- Uso intensivo de SQL nativo para performance
+- Controle rigoroso de totalizações hierárquicas
+- Compatível com exigências fiscais brasileiras
+- Relatório sensível a parâmetros de impressão e rascunho
+- Atualiza dados persistidos do inventário após impressão oficial
