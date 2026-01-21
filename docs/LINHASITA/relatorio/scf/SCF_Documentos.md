@@ -1,10 +1,14 @@
-# SCF_Documentos.md
+# SCF_Documentos
 
 ## 📖 Descrição
-Sistema de relatórios para documentos financeiros do SCF (Sistema de Controle Financeiro) da Linhasita, permitindo a geração de relatórios analíticos e sintéticos de documentos a receber, recebidos, a pagar e pagos.
+Classe `SCF_Documentos` do sistema Linhasita responsável pela geração de relatórios financeiros de documentos à receber, recebidos, à pagar e pagos. Suporta filtros detalhados, cálculos financeiros e geração em PDF/XLSX.
 
 ## 🎯 Finalidade
-Fornecer relatórios financeiros completos e flexíveis para análise de documentos, com diferentes opções de ordenação, filtros e formatos de saída.
+Fornecer relatórios financeiros completos, permitindo:
+- Filtragem por período, entidade, operação, portador, PLF e tipo de documento;
+- Ordenação por número, vencimento, entidade, pagamento, portador ou representante;
+- Cálculo de juros, multa e desconto automático;
+- Relatórios analíticos, sintéticos ou agrupados.
 
 ## 👥 Público-Alvo
 - Departamento Financeiro
@@ -13,29 +17,24 @@ Fornecer relatórios financeiros completos e flexíveis para análise de documen
 - Diretoria
 
 ## ⚙️ Configuração
-**Recursos Necessários:**
-- Classe `SCF_Documentos` - Relatório de documentos financeiros
+**Classe Principal:** `SCF_Documentos`  
+**Pacote:** `linhasita.relatorios.scf`
 
-**Localização:** `linhasita/relatorios/scf/`
+**Dependências:**
+- `multiorm` - Persistência e consultas
+- `multitec.utils` - Utilitários e coleções
+- `sam.server.samdev.relatorio` - Framework de relatórios
 
 ## 📊 Dados e Fontes
 **Tabelas Principais:**
 - `DAA01` - Documentos financeiros
+- `DAA0103` - Histórico de documentos financeiros
 - `ABB01` - Documentos fiscais
 - `ABE01` - Entidades/Clientes
 - `ABF15` - Portadores
 - `ABF16` - Operações
 - `ABF20` - PLF (Plano de Livro Fiscal)
 - `AAC10` - Empresas
-
-**Entidades Envolvidas:**
-- `Daa01` - Documentos financeiros
-- `Abb01` - Documentos fiscais
-- `Abe01` - Entidades
-- `Abf15` - Portadores
-- `Abf16` - Operações
-- `Abf20` - PLF
-- `Aac10` - Empresas
 
 ## ⚙️ Parâmetros do Processo
 
@@ -49,9 +48,17 @@ Fornecer relatórios financeiros completos e flexíveis para análise de documen
 | entidade | List<Long> | Não | Lista de entidades para filtro |
 | dataVenc | LocalDate[] | Não | Período de vencimento |
 | dataEmissao | LocalDate[] | Não | Período de emissão |
+| dataLcto | LocalDate[] | Não | Período de lançamento |
 | tipoData | Integer | Não | Tipo de data (0-Pagamento, 1-Recebimento) |
+| portador | List<Long> | Não | Filtro por portador |
+| operacao | List<Long> | Não | Filtro por operação |
+| plf | List<Long> | Não | Filtro por PLF |
+| rep | List<Long> | Não | Filtro por representante |
+| documento | List<Long> | Não | Filtro por tipo de documento |
 | sintetico | Boolean | Não | Relatório sintético |
 | vencimento | Integer | Não | Tipo de vencimento (0-Real, 1-Nominal) |
+| isTotalDia | Boolean | Não | Total diário no relatório |
+| considerarTransmutado | Boolean | Não | Considerar ou ignorar documentos transmutados |
 
 ## 📋 Saídas do Processo
 
@@ -62,42 +69,38 @@ Fornecer relatórios financeiros completos e flexíveis para análise de documen
 
 ## 🔄 Fluxo do Processo
 
-1. **Configuração Inicial**
-   - Define valores padrão para filtros
+1. **Criação de Valores Iniciais**
+   - Define valores padrão de filtros (ordem, classe, números, datas e PLF)
    - Obtém empresas acessíveis ao usuário
-   - Configura título do relatório baseado na classe selecionada
+   - Configura parâmetros iniciais, como considerar documentos transmutados
 
-2. **Processamento de Filtros**
-   - Aplica filtros de data, entidade, documento, etc.
-   - Define ordenação conforme parâmetro
-   - Configura condições WHERE dinâmicas
+2. **Configuração de Título e Parâmetros**
+   - Define título do relatório conforme `classe` e `ordem`
+   - Adiciona parâmetros de empresa, período, tipo de data e total diário
 
 3. **Busca de Documentos**
-   - Executa consulta SQL com filtros aplicados
-   - Processa dados de juros, multa e desconto
-   - Calcula dias em atraso
+   - Executa método `buscaDocumentos()` com filtros aplicados
+   - Realiza LEFT JOIN com `daa0103` usando `ROW_NUMBER()` para pegar o registro mais recente
+   - Filtra por PLF, entidade, portador, operação, tipo de documento e transmutado
 
-4. **Geração do Relatório**
-   - Seleciona template baseado na ordenação
-   - Gera PDF ou XLSX conforme seleção
-   - Retorna arquivo para download
+4. **Processamento Financeiro**
+   - Calcula dias de atraso
+   - Calcula juros, multa e desconto a partir de JSON do documento
+   - Marca documentos como "Previsão" ou "Real"
+   - Remove duplicidades
+
+5. **Geração do Relatório**
+   - Seleciona template com base em ordem e tipo sintético
+   - Gera PDF ou XLSX conforme parâmetro `impressao`
 
 ## ⚠️ Regras de Negócio
 
-### Filtros e Ordenação
 - Ordenação por número, vencimento, entidade, pagamento, portador ou representante
-- Filtro por período de emissão, vencimento ou pagamento/recebimento
-- Suporte a documentos à receber e a pagar
-
-### Cálculos Financeiros
-- Cálculo automático de juros e multa baseado em JSON do documento
-- Cálculo de dias em atraso
-- Tratamento de descontos
-
-### Acesso a Dados
-- Restrição por empresas acessíveis ao usuário
-- Filtro por PLF (Plano de Livro Fiscal)
-- Suporte a documentos transmutados
+- Filtro por período de emissão, vencimento, pagamento/recebimento
+- Cálculo automático de juros, multa e desconto
+- Consideração de documentos transmutados
+- Controle de acesso por empresa e usuário
+- Suporte a documentos à receber e à pagar, prévios e reais
 
 ## 🎨 Tipos de Relatório
 
@@ -109,45 +112,30 @@ Fornecer relatórios financeiros completos e flexíveis para análise de documen
 | Por Representante | Agrupado por representante | SCF_DocumentosRepresentante |
 | Sintético | Resumido | SCF_DocumentosSintetico2 |
 
-## 🔧 Dependências
+## 🔄 Métodos Principais
 
-**Bibliotecas:**
-- `multiorm` - Persistência e consultas
-- `multitec.utils` - Utilitários e coleções
-- `sam.server.samdev.relatorio` - Framework de relatórios
+### `executar()`
+- Orquestra a geração do relatório, aplica filtros, calcula juros/multa/desconto, remove duplicidades e gera PDF/XLSX.
 
-**Consultas:**
-- Busca de documentos com múltiplos filtros
-- Cálculo de empresas acessíveis
-- Agregação de dados por diferentes critérios
+### `buscaDocumentos(...)`
+- Executa a consulta SQL principal, com múltiplos LEFT JOINs e filtros dinâmicos.
+- Suporta `ROW_NUMBER()` para buscar a versão mais recente do documento.
 
-## 📝 Observações Técnicas
+### `criarValoresIniciais()`
+- Retorna os filtros padrão, PLF e empresa do usuário logado.
 
+### `empresasAcessiveis()`
+- Retorna lista de empresas que o usuário tem acesso.
+
+### `buscarEmpresa()`
+- Retorna a empresa principal do relatório concatenada em string.
+
+## 💡 Observações Técnicas
 - Suporte a múltiplos formatos de saída (PDF/XLSX)
-- Consulta otimizada com LEFT JOIN e ROW_NUMBER para dados mais recentes
+- Consulta SQL otimizada com LEFT JOIN e ROW_NUMBER
 - Tratamento de dados JSON para cálculos financeiros
-- Flexibilidade total na ordenação e agrupamento
+- Flexibilidade na ordenação e agrupamento
 - Filtros dinâmicos baseados em parâmetros
 - Suporte a documentos prévios (previsão) e reais
 - Controle de acesso por empresa
 
-## 🔄 Métodos Principais
-
-### `executar()`
-Método principal que orquestra todo o processo de geração do relatório.
-
-### `buscaDocumentos()`
-Executa a consulta SQL principal com todos os filtros aplicados.
-
-### `criarValoresIniciais()`
-Configura valores padrão e acessos iniciais.
-
-### `empresasAcessiveis()`
-Retorna lista de empresas que o usuário logado tem acesso.
-
-## 💡 Consulta SQL
-A consulta principal utiliza:
-- `ROW_NUMBER()` para obter o registro mais recente da `daa0103`
-- Múltiplos `LEFT JOIN` para relacionar todas as entidades
-- Cláusulas `WHERE` dinâmicas baseadas nos filtros
-- `ORDER BY` flexível baseado no parâmetro de ordenação
