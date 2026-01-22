@@ -1,63 +1,25 @@
-## SRF_CalculoItem_Saida
+# SRF - Cálculo de Item de Saída
 
 ## 📖 Descrição
-Fórmula de cálculo fiscal para itens de documentos de saída no sistema SRF (Sistema de Registro Fiscal), responsável por calcular impostos, definir CFOPs, CSTs e tratar operações especiais como Zona Franca e diferencial de alíquota.
+Fórmula responsável pelo cálculo fiscal, tributário e comercial de itens em documentos fiscais de saída. Realiza a apuração de impostos (ICMS, IPI, PIS, COFINS), ajustes de CFOP, cálculo de descontos, comissões e tratamento especial para operações em Zona Franca e Reforma Tributária (CBS/IBS).
 
 ## 🎯 Finalidade
-Calcular automaticamente os valores fiscais (ICMS, IPI, PIS, COFINS) e definir as configurações fiscais (CFOP, CST) para itens de documentos de saída, considerando as regras tributárias vigentes e operações especiais como Zona Franca, Amazônia Ocidental e diferencial de alíquota interestadual.
+Calcular automaticamente os valores fiscais e tributários de itens em documentos de saída, garantindo conformidade com a legislação tributária brasileira e regras comerciais específicas da empresa.
 
 ## 👥 Público-Alvo
 - Departamento Fiscal
-- Controladoria
-- Departamento Financeiro
-- Departamento Comercial
-- Desenvolvedores de fórmulas do sistema
+- Faturamento
+- Contabilidade
+- Comercial
 
 ## 📊 Dados e Fontes
-**Tabelas Principais:**
-- `EAA0103` - Itens do documento fiscal
-- `EAA01` - Documento fiscal
-- `EAA0101` - Endereços do documento
-- `EAA0102` - Dados gerais do documento
-- `ABB01` - Central de documentos
-- `ABD01` - Tipo de documento (PCD)
-- `ABE01` - Entidades (clientes/fornecedores)
-- `ABE0101` - Endereços da entidade
-- `ABM01` - Itens
-- `ABM0101` - Configurações do item por empresa
-- `ABM10` - Valores do item
-- `ABM1001` - Valores do item por estado
-- `ABM1002` - Valores do item por município
-- `ABM1003` - Valores do item por entidade
-- `ABM12` - Dados fiscais do item
-- `ABM13` - Dados comerciais do item
-- `ABM1301` - Fatores de conversão de unidade
-- `AAC10` - Empresa
-- `AAG01` - Países
-- `AAG02` - Estados
-- `AAG0201` - Municípios
-- `AAJ10` - CST ICMS
-- `AAJ11` - CST IPI
-- `AAJ12` - CST PIS
-- `AAJ13` - CST COFINS
-- `AAJ14` - CSOSN
-- `AAJ15` - CFOP
-- `AAM06` - Unidades de medida
-- `ABG01` - NCM
-- `ABB10` - Operação comercial
-- `ABE30` - Condição de pagamento
-- `ABE40` - Tabela de preços
 
-**Entidades Envolvidas:**
-- `Eaa0103` - Item do documento atual
-- `Eaa01` - Documento fiscal
-- `Eaa0101` - Endereço principal do documento
-- `Eaa0102` - Dados gerais do documento
-- `Abb01` - Central de documento
-- `Abd01` - Tipo de documento (PCD)
-- `Abe01` - Entidade (cliente)
-- `Abe0101` - Endereço principal da entidade
-- `Abm01` - Item
+**Tabelas Principais:**
+- `Eaa0103` - Itens do documento fiscal
+- `Eaa01` - Documentos fiscais
+- `Abe40` - Tabela de preços
+- `Abe4001` - Preços por item na tabela
+- `Abm01` - Itens (produtos/serviços)
 - `Abm0101` - Configuração do item por empresa
 - `Abm10` - Valores do item
 - `Abm1001` - Valores do item por estado
@@ -65,226 +27,179 @@ Calcular automaticamente os valores fiscais (ICMS, IPI, PIS, COFINS) e definir a
 - `Abm1003` - Valores do item por entidade
 - `Abm12` - Dados fiscais do item
 - `Abm13` - Dados comerciais do item
-- `Aac10` - Empresa
-- `Aag01` - País
-- `Aag02` - Estado
-- `Aag0201` - Município
 - `Aaj10` - CST ICMS
 - `Aaj11` - CST IPI
 - `Aaj12` - CST PIS
 - `Aaj13` - CST COFINS
 - `Aaj14` - CSOSN
 - `Aaj15` - CFOP
-- `Aam06` - Unidade de medida
-- `Abg01` - NCM
-- `Abb10` - Operação comercial
-- `Abe30` - Condição de pagamento do documento
-- `Abe30Item` - Condição de pagamento do item
-- `Abe40` - Tabela de preços
+- `Aaj07` - Classificação tributária CBS/IBS
+- `Aaj09` - CST CBS/IBS
 
 ## ⚙️ Parâmetros da Fórmula
-A fórmula não possui parâmetros de entrada configuráveis via interface. Os dados são obtidos diretamente das entidades vinculadas ao contexto de execução, principalmente do item do documento (`Eaa0103`).
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+|-----------|------|-------------|-----------|
+| eaa0103 | Eaa0103 | Sim | Item do documento fiscal a ser calculado |
+
+## 🔄 Fluxo do Processo
+
+### 1. **Configuração Inicial**
+- Validação do item do documento (Eaa0103)
+- Carregamento do documento fiscal relacionado (Eaa01)
+- Verificação do tipo de documento (saída)
+- Validação de entidade contribuinte de ICMS
+
+### 2. **Carregamento de Dados**
+- Dados da empresa (Aac10)
+- Dados da entidade/cliente (Abe01)
+- Endereços da entidade e empresa
+- Configurações do item (Abm01, Abm0101)
+- Dados fiscais e comerciais do item
+- Operação comercial (Abb10)
+
+### 3. **Cálculo de Preço e Comissões**
+- Busca de preço na tabela de preços (Abe40, Abe4001)
+- Verificação de vencimento da tabela de preços
+- Cálculo de taxas de comissão
+- Aplicação de descontos informados nos campos livres
+
+### 4. **Cálculos Fiscais e Tributários**
+- **CFOP**: Ajuste automático conforme operação
+- **ICMS**: Cálculo de base, alíquota e valor com tratamento para:
+  - Operações normais
+  - Substituição tributária (ST)
+  - Redução de base de cálculo
+  - Operações isentas
+  - Diferencial de alíquota interestadual
+- **IPI**: Cálculo conforme CST
+- **PIS/COFINS**: Cálculo de bases e valores
+- **Reforma Tributária**: Cálculo de CBS/IBS quando aplicável
+
+### 5. **Tratamentos Especiais**
+- **Zona Franca/Área de Livre Comércio**: Regimes especiais de tributação
+- **Consumidor Final**: Cálculo de impostos aproximados
+- **Retornos**: Ajustes específicos para itens retornados
+
+### 6. **Cálculos Finais**
+- Total do documento
+- Total financeiro
+- Pesos e volumes
+- Outras informações complementares
+
+## ⚠️ Regras de Negócio
+
+### Validações Iniciais
+- Entidades pessoa física não podem ser contribuintes de ICMS
+- Documentos devem ser de saída
+- Item deve ter configuração fiscal válida
+
+### Cálculo de Preços
+- Tabelas de preço vencidas são rejeitadas
+- Busca considera: item, tabela, condição de pagamento, quantidade e desconto
+- Taxas de comissão são buscadas na configuração do item se não encontradas na tabela
+
+### Regras Fiscais
+- **CFOP**: Ajustado automaticamente conforme tipo de operação (venda, revenda) e localização
+- **ICMS**: Tratamento diferenciado para:
+  - Contribuintes vs não contribuintes
+  - Operações internas vs interestaduais
+  - Consumidor final
+  - Substituição tributária
+- **Zona Franca**: Regime especial com isenções e reduções
+- **Reforma Tributária**: Aplicação de CBS/IBS quando configurado
+
+### Campos Livres (JSON)
+Utilizados para armazenar valores calculados e configurações:
+- `vlr_desc_tx` - Taxa de desconto
+- `vlr_frete_dest` - Valor do frete
+- `vlr_seguro` - Valor do seguro
+- `vlr_outras` - Outras despesas
+- `icm_aliq` - Alíquota de ICMS
+- `st_aliq` - Alíquota de ST
+- `cbs_aliq` - Alíquota de CBS
+- `ibs_uf_aliq` - Alíquota de IBS estadual
 
 ## 🔧 Métodos Principais
 
 ### `executar()`
-Método principal de execução da fórmula, responsável por:
-1. **Carregar entidades relacionadas** (documento, empresa, entidade, item, configurações fiscais)
-2. **Validar dados básicos** (endereço principal, tipo de documento, configuração fiscal do item)
-3. **Carregar campos livres (JSON)** de todas as entidades relevantes
-4. **Definir preço unitário e taxas de comissão** através do método `setarObterPrecoUnitarioTaxasComissaoItem()`
-5. **Executar cálculo fiscal completo** através do método `calcularItem()`
-6. **Atualizar o item do documento** com os resultados calculados
+Método principal que orquestra todo o processo de cálculo do item.
 
 ### `setarObterPrecoUnitarioTaxasComissaoItem()`
-- Busca o preço unitário na tabela de preços (`Abe40`) considerando:
-  - Item específico
-  - Tabela de preços vigente
-  - Condição de pagamento (do item ou do documento)
-  - Quantidade comercial
-  - Taxa de desconto informada no JSON
-- Busca taxas de comissão na configuração comercial do item (`Abm13`)
-- Valida vencimento da tabela de preços
-- Define preço unitário e taxas de comissão no item
+Busca o preço unitário e taxas de comissão na tabela de preços.
 
 ### `calcularItem()`
-Método complexo que realiza todos os cálculos fiscais:
-1. **Ajuste de CFOP** conforme operação, tipo de item e localização
-2. **Cálculo de quantidades** (uso, volume) com fatores de conversão
-3. **Cálculo de pesos** (líquido e bruto)
-4. **Cálculo de desconto incondicional**
-5. **Cálculo de IPI** com diferentes CSTs (50, 51, 52, 53, 54, 55, 99)
-6. **Cálculo de ICMS** com múltiplos CSTs (00, 10, 20, 30, 40, 41, 50, 51, 60, 70, 90) e tratamento de ST
-7. **Cálculo de PIS** com CSTs (01, 02, 03, 04, 05, 06, 07, 08, 09, 49)
-8. **Cálculo de COFINS** com CSTs (01, 02, 03, 04, 05, 06, 07, 08, 09, 49)
-9. **Tratamento especial para Zona Franca/Área de Livre Comércio/Amazônia Ocidental**
-10. **Cálculo de diferencial de alíquota interestadual** (a partir de 2016)
-11. **Cálculo de valores aproximados de impostos** para venda a consumidor final
+Realiza todos os cálculos fiscais, tributários e comerciais do item.
 
-## 📝 Fluxo de Execução
+### `aplicarReformaTributaria()`
+Aplica as regras da Reforma Tributária (CBS/IBS) quando configurado.
 
-### 1. **Inicialização e Validação**
-- Obtém o item do documento (`Eaa0103`) e suas relações
-- Valida se a entidade é pessoa física contribuinte de ICMS (lança exceção se for)
-- Identifica o endereço principal da entidade no documento
-- Valida se o documento é de saída (PCD)
-- Carrega todas as entidades relacionadas (empresa, estado, município, configurações do item)
+### `formulaZFMeALC()`
+Tratamento especial para Zona Franca e Áreas de Livre Comércio.
 
-### 2. **Configuração de Preços e Comissões**
-- Verifica validade da tabela de preços
-- Busca preço unitário na tabela de preços considerando múltiplos critérios
-- Busca taxas de comissão na configuração do item
-- Define preço unitário e taxas no item
+### `red_bc_aliq()`
+Calcula as alíquotas efetivas com reduções aplicadas.
 
-### 3. **Cálculos Fiscais Principais**
-- **Definição de CFOP** baseada em operação, tipo de item e localização
-- **Cálculo de valores totais** e quantidades convertidas
-- **Cálculo de IPI** com diferentes regimes tributários
-- **Cálculo de ICMS** incluindo substituição tributária e reduções de base
-- **Cálculo de PIS/COFINS** com diferentes alíquotas
-- **Tratamento de operações especiais** (Zona Franca, Amazônia Ocidental)
+## 📊 Estrutura de Saída
 
-### 4. **Tratamentos Especiais**
-- **Zona Franca/Área Livre Comércio**: ajuste de CFOPs, CSTs e cálculos específicos
-- **Amazônia Ocidental**: tratamento especial para IPI
-- **Diferencial de alíquota interestadual**: cálculo de partilha entre estados
-- **Consumidor final**: cálculo de valores aproximados de impostos
+**Item Calculado (Eaa0103):**
+- `eaa0103unit` - Preço unitário calculado
+- `eaa0103total` - Valor total do item
+- `eaa0103totDoc` - Total do documento
+- `eaa0103totFinanc` - Total financeiro
+- `eaa0103cfop` - CFOP ajustado
+- `eaa0103cstIcms` - CST de ICMS
+- `eaa0103cstIpi` - CST de IPI
+- `eaa0103cstPis` - CST de PIS
+- `eaa0103cstCofins` - CST de COFINS
+- `eaa0103json` - Campos livres com todos os valores calculados
 
-### 5. **Finalização**
-- Cálculo do total do documento
-- Cálculo do valor financeiro
-- Atualização do JSON do item com todos os valores calculados
-- Persistência do item atualizado
+**Campos Livres (JSON) Principais:**
+- `icm_bc`, `icm_aliq`, `icm_icm` - Base, alíquota e valor do ICMS
+- `st_bc`, `st_aliq`, `st_icm` - Base, alíquota e valor do ICMS ST
+- `ipi_bc`, `ipi_aliq`, `ipi_ipi` - Base, alíquota e valor do IPI
+- `pis_bc`, `pis_aliq`, `pis_pis` - Base, alíquota e valor do PIS
+- `cofins_bc`, `cofins_aliq`, `cofins_cofins` - Base, alíquota e valor do COFINS
+- `cbs_ibs_bc`, `vlr_cbs`, `vlr_ibs` - Base e valores de CBS/IBS
+- `vlr_desc` - Valor do desconto
+- `vlr_pl`, `vlr_pb` - Peso líquido e bruto
 
-## ⚠️ Regras de Negócio
-
-### Validações Críticas
-1. **Pessoa Física Contribuinte**: Não permitir se a entidade for pessoa física e contribuinte de ICMS
-2. **Endereço Principal**: Obrigatório existir endereço principal da entidade no documento
-3. **Tipo de Documento**: Apenas documentos de saída são processados
-4. **Configuração Fiscal do Item**: Obrigatória existência e tipo fiscal definido
-5. **Tabela de Preços**: Não pode estar vencida
-
-### Regras de CFOP
-- Determinação automática baseada em operação, tipo de item e localização
-- Ajustes para operações interestaduais e com substituição tributária
-- CFOPs específicos para Zona Franca (6109, 6110)
-
-### Regras de CST
-- **ICMS**: Determinação baseada em tipo de item, operação e localização
-- **IPI**: Ajustes conforme alíquota (0% → CST 51, sem alíquota → CST 53)
-- **PIS/COFINS**: Aplicação conforme configuração do item
-- **Zona Franca**: CSTs específicos (ICMS 040, IPI 55, PIS/COFINS 06)
-
-### Cálculos Especiais
-1. **Substituição Tributária**: Cálculo de IVA, base de cálculo e valor do ICMS-ST
-2. **Redução de Base**: Aplicação de percentuais de redução na base de cálculo
-3. **Diferencial de Alíquota**: Cálculo de partilha entre estados (2016 em diante)
-4. **Zona Franca**: Cálculo de desoneração de ICMS e ajustes de PIS/COFINS
-
-## 🔄 Dependências
-
-**Classes:**
-- `FormulaBase` - Classe base para fórmulas do sistema
-- Todas as entidades do modelo SAM mencionadas na seção "Entidades Envolvidas"
+## 🔧 Dependências
 
 **Bibliotecas:**
-- `br.com.multiorm` - ORM e critérios de consulta
-- `br.com.multitec.utils` - Utilitários e coleções
-- `sam.dicdados` - Definição de tipos de fórmula
-- `sam.model.entities` - Modelos de entidades do sistema
-- `sam.server.samdev.utils` - Utilitários do sistema
+- `multiorm` - Criteria e consultas ao banco
+- `multitec.utils` - Utilitários e validações
+- `sam.dicdados` - Tipos de fórmula
+- `sam.model` - Entidades do sistema
+- `java.time` - Manipulação de datas
 
-## 🎨 Saída da Fórmula
-A fórmula não gera relatórios ou arquivos de saída. Sua execução resulta na atualização dos seguintes campos da entidade `Eaa0103`:
+**Módulo:** SRF (Sistema de Regras Fiscais)
 
-### Campos Diretos
-- `eaa0103unit` - Preço unitário definido
-- `eaa0103txComis0` a `eaa0103txComis4` - Taxas de comissão
-- `eaa0103total` - Valor total do item
-- `eaa0103qtUso` - Quantidade de uso convertida
-- `eaa0103totDoc` - Total do documento
-- `eaa0103totFinanc` - Valor financeiro
-- `eaa0103clasReceita` - Classificação da receita
-- `eaa0103cfop` - CFOP definido
-- `eaa0103cstIcms` - CST ICMS definido
-- `eaa0103cstIpi` - CST IPI definido
-- `eaa0103cstPis` - CST PIS definido
-- `eaa0103cstCofins` - CST COFINS definido
-- `eaa0103motDesIcms` - Motivo da desoneração de ICMS
+## 📝 Observações Técnicas
 
-### Campos no JSON (`eaa0103json`)
-- **Valores básicos**: `vlr_vlme`, `vlr_pl`, `vlr_pb`, `vlr_desc`
-- **IPI**: `ipi_bc`, `ipi_aliq`, `ipi_ipi`, `ipi_isento`, `ipi_outras`
-- **ICMS**: `icm_bc`, `icm_reduc_bc`, `icm_aliq`, `icm_icm`, `icm_isento`, `icm_outras`
-- **ICMS-ST**: `st_bc`, `st_aliq`, `st_icm`, `tx_iva_st`
-- **PIS**: `pis_bc`, `pis_aliq`, `pis_pis`
-- **COFINS**: `cofins_bc`, `cofins_aliq`, `cofins_cofins`
-- **Zona Franca**: `icmszf_bc`, `tx_icms_zf`, `vlr_descicmszf`, `icm_desonerado`
-- **Diferencial de Alíquota**: `partilha_aliq`, `internaufdest_aliq`, `fcpufdest_aliq`, `icmsufdest_bc`, `interesuf_aliq`, `icms_fcp`, `interufdest_icms`, `icms_ufdest`, `uforig_icms`
-- **Impostos Aproximados**: `impfed_vlr`, `impest_vlr`, `impaprx_vlr`
-
-## 📌 Observações Técnicas
-
-### Arquitetura
-- Fórmula extensa com mais de 1500 linhas de código
-- Uso intensivo de `TableMap` para manipulação de JSON
-- Múltiplas consultas ao banco de dados para carregar entidades relacionadas
-- Lógica condicional complexa para tratamento de diferentes cenários fiscais
+### Tratamento de Exceções
+- `ValidacaoException` lançada para erros de negócio
+- Validações preventivas para evitar cálculos incorretos
+- Mensagens de erro claras para o usuário
 
 ### Performance
-- Carrega múltiplas entidades relacionadas que podem impactar performance
-- Executa consultas SQL adicionais para preços e configurações
-- Processamento intensivo de cálculos matemáticos
+- Uso de caching de sessão para entidades frequentemente acessadas
+- Consultas otimizadas com critérios específicos
+- Carregamento lazy apenas quando necessário
 
 ### Manutenibilidade
-- Código altamente especializado em legislação fiscal brasileira
-- Múltiplas regras condicionais aninhadas
-- Necessidade de atualização constante conforme mudanças na legislação
+- Código modularizado por funcionalidade
+- Métodos específicos para cada tipo de cálculo
+- Configurações centralizadas em campos livres (JSON)
 
-### Metadados
-- Código identificado por metadados no final do arquivo: `meta-sis-eyJ0aXBvIjoiZm9ybXVsYSIsImZvcm11bGF0aXBvIjoiNjIifQ==`
-- Tipo de fórmula: `FormulaTipo.SCV_SRF_ITEM_DO_DOCUMENTO`
+### Extensibilidade
+- Suporte a novos tipos de operação através de configuração
+- Campos livres permitem customizações sem alteração de código
+- Métodos de cálculo podem ser estendidos para novas regras
 
-### Limitações Conhecidas
-- Não contempla CST de PIS 03 (alíquota por unidade de medida)
-- Não contempla CST de COFINS 03 (alíquota por unidade de medida)
-- Lógica específica para legislação brasileira
-- Dependência de múltiplas configurações de sistema
+---
 
-## 🔧 Configurações Necessárias
-
-### Pré-requisitos do Sistema
-1. **Cadastro Completo de Itens** com configurações fiscais e comerciais
-2. **Cadastro de Estados e Municípios** com alíquotas atualizadas
-3. **Configuração de Operações Comerciais** com tipos definidos
-4. **Tabelas de Preços** vigentes e configuradas
-5. **Cadastro de CFOPs e CSTs** completos no sistema
-
-### Configurações Específicas
-1. **JSON das Entidades**: Configurações específicas em campos livres
-2. **Fatores de Conversão**: Configurados nos dados comerciais dos itens
-3. **Alíquotas por Estado**: Configuradas no cadastro de estados
-4. **Regimes Especiais**: Configurados nas entidades (REB, regime especial)
-
-## ⚠️ Considerações de Implementação
-
-### Complexidade Fiscal
-- Fórmula implementa lógica complexa da legislação tributária brasileira
-- Requer conhecimento especializado em ICMS, IPI, PIS, COFINS
-- Necessidade de acompanhamento constante de mudanças legais
-
-### Testes
-- Requer testes abrangentes para diferentes cenários fiscais
-- Necessidade de dados de teste representativos de diferentes estados e operações
-- Testes devem cobrir casos especiais (Zona Franca, ST, diferencial de alíquota)
-
-### Monitoramento
-- Monitorar performance em documentos com muitos itens
-- Logs detalhados para diagnóstico de problemas
-- Alertas para configurações ausentes ou inconsistentes
-
-### Atualizações
-- Revisão periódica para adequação à legislação vigente
-- Atualização de alíquotas e regras conforme publicações oficiais
-- Manutenção dos tratamentos especiais (Zona Franca, diferencial de alíquota)
+**Última Alteração:** 12/01/2026 às 16:30  
+**Autor:** Bruno  
+**Tipo:** Fórmula de Cálculo Fiscal  
+**Versão:** 1.0
