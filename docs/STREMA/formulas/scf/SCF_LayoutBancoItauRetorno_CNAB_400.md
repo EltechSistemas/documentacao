@@ -1,134 +1,142 @@
-# SCF_LayoutBancoItauRetorno_CNAB_400 - Processamento de Retorno Bancário Itaú
+# SCF_LayoutBancoItauRetorno_CNAB_400
 
 ## 📖 Descrição
-Classe responsável pelo processamento de arquivos de retorno bancário no layout CNAB 400 do Banco Itaú, realizando a conciliação automática de documentos financeiros com as ocorrências informadas pelo banco.
+Fórmula de retorno de cobrança responsável por processar arquivos CNAB 400 do Banco Itaú, interpretando registros de liquidação, validando documentos financeiros e preparando informações para exibição e baixa de títulos no sistema SCF.
 
 ## 🎯 Finalidade
-Automatizar o processo de conciliação bancária, validando e processando retornos de cobrança, identificando inconsistências e aplicando liquidações automáticas nos documentos do sistema.
+Realizar a leitura e validação de arquivos de retorno bancário CNAB 400, garantindo a consistência dos dados financeiros, identificação correta dos documentos (`Daa01`) e tratamento de ocorrências de cobrança informadas pelo banco.
 
 ## 👥 Público-Alvo
-- Departamento Financeiro
-- Tesouraria
-- Contabilidade
-- Backoffice bancário
+- Financeiro
+- Contas a Receber
+- Cobrança
+- Controladoria
+- TI / Desenvolvimento
+
+## ⚙️ Configuração
+**Recursos Necessários:**
+- Fórmula `SCF_LayoutBancoItauRetorno_CNAB_400`
+
+**Tipo de Fórmula:**
+- `SCF_RETORNO_DE_COBRANCA`
+
+## 📊 Dados e Fontes
+**Entidades Principais:**
+- `Daa01` – Títulos a receber
+- `Abf20` – Plano financeiro (PLF)
+
+**Fontes de Dados:**
+- Arquivo texto CNAB 400 (Banco Itaú)
+- Parâmetros internos do SCF
+
+**Campos e Estruturas Utilizadas:**
+- Registro tipo `1` (detalhe)
+- Campos posicionais do layout CNAB 400
+- JSON de campos customizados do `Daa01`
 
 ## ⚙️ Parâmetros do Processo
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|-------------|-----------|
-| registros | TextFileLeitura | Sim | Arquivo de retorno bancário CNAB 400 |
+|----------|------|-------------|----------|
+| registros | Arquivo Texto | Sim | Conteúdo do arquivo CNAB 400 de retorno |
 
-## 📋 Estrutura do Arquivo CNAB 400
+## 📋 Saídas do Processo
 
-### Layout do Registro Detalhe (Tipo 1):
-| Posição | Tamanho | Descrição |
-|---------|---------|-----------|
-| 0-1 | 1 | Tipo registro (1) |
-| 37-62 | 25 | Identificação do documento |
-| 108-110 | 2 | Código da ocorrência |
-| 152-165 | 13 | Valor do documento (com 2 decimais) |
-| 240-253 | 13 | Valor do desconto |
-| 253-266 | 13 | Valor líquido |
-| 266-279 | 13 | Valor da multa/juros |
-| 295-301 | 6 | Data pagamento (DDMMAA) |
+| Campo | Descrição | Tipo |
+|------|-----------|------|
+| tmList | Lista de registros processados | List<TableMap> |
+| daa01 | Documento financeiro validado | Daa01 |
+| abf20id | Identificador do plano financeiro | Long |
+| ocorrencia | Descrição da ocorrência bancária | String |
+| inconsistencias | Lista de inconsistências encontradas | List<String> |
 
 ## 🔄 Fluxo do Processo
 
-### 1. **Leitura do Arquivo**
-- Ignora header (primeira linha)
-- Processa apenas registros do tipo 1 (detalhe)
-- Itera linha por linha do arquivo
+1. **Inicialização**
+    - Cria lista de resultados (`tmList`)
+    - Abre arquivo CNAB 400 recebido
+    - Instancia serviço `SCFService`
 
-### 2. **Validação do Documento**
-- Extrai ID do documento (posições 37-62)
-- Remove zeros à esquerda do ID
-- Busca documento no sistema por ID ou campo customizado
+2. **Leitura do Arquivo**
+    - Ignora o header do arquivo
+    - Processa apenas registros do tipo `1`
 
-### 3. **Validações de Negócio**
-- Verifica se documento já foi quitado
-- Compara valores do documento com retorno bancário
-- Valida código de ocorrência existente
-- Verifica presença de data de pagamento
+3. **Identificação do Documento**
+    - Extrai o ID do documento do retorno
+    - Remove zeros à esquerda
+    - Tenta localizar o documento pelo ID ou campo customizado
 
-### 4. **Processamento de Ocorrências**
-- Identifica tipo de ocorrência (02, 03, 04, 06, 09, 29)
-- Mapeia para PLF (Parametro e Lançamento Fiscal) correspondente
-- Aplica liquidação para ocorrência "06" (Liquidação normal)
+4. **Validações do Documento**
+    - Documento inexistente
+    - Documento já quitado
+    - Divergência de valores
+    - Ocorrência bancária inexistente
+    - Ausência de data de pagamento
 
-### 5. **Atualização de Dados**
-- Define data de pagamento
-- Calcula valor líquido
-- Registra juros e descontos no JSON do documento
+5. **Tratamento Financeiro**
+    - Atualiza data de pagamento
+    - Calcula valor líquido
+    - Atualiza juros e descontos no JSON do documento
+
+6. **Mapeamento da Ocorrência**
+    - Obtém descrição da ocorrência
+    - Define plano financeiro (PLF) quando aplicável
+
+7. **Preparação do Retorno**
+    - Consolida inconsistências
+    - Retorna lista de documentos válidos e inválidos
 
 ## ⚠️ Regras de Negócio
 
-### Validações de Documento:
-- **Documento não encontrado**: Gera inconsistência se ID não existir
-- **Documento já quitado**: Impede processamento duplicado
-- **Valor divergente**: Compara valor do documento com retorno (exceto para R$ 0,01)
-- **Ocorrência inválida**: Verifica se código existe no mapeamento
+### Validações Obrigatórias
+- Documento deve existir no sistema
+- Documento não pode estar quitado
+- Valor do documento deve ser compatível com o valor do retorno
+- Código de ocorrência deve existir nos parâmetros
+- Data de pagamento deve estar presente quando informada pelo banco
 
-### Códigos de Ocorrência Suportados:
-| Código | Descrição | Ação |
-|--------|-----------|------|
-| 02 | Entrada confirmada | Informação |
-| 03 | Entrada rejeitada | Informação |
-| 04 | Alteração de Dados | Informação |
-| 06 | Liquidação normal | **Aplica baixa** |
-| 09 | Baixa Simples | Informação |
-| 29 | Tarifa manutenção Boletos Vencidos | Informação |
+### Regras Financeiras
+- Valores monetários são convertidos dividindo por 100
+- Juros e descontos são armazenados em campos JSON
+- Documento com valor **0,01** ignora validação de divergência de valor
 
-### Mapeamento PLF:
-- **06** → Código PLF "201" (Liquidação normal)
+### Ocorrências Bancárias Tratadas
 
-### Tratamento de Valores:
-- Valores monetários divididos por 100 (2 casas decimais)
-- Data no formato DDMMAA convertida para LocalDate
-- Campos numéricos com zeros são considerados vazios
+| Código | Descrição |
+|------|----------|
+| 02 | Entrada confirmada |
+| 03 | Entrada rejeitada |
+| 04 | Alteração de dados |
+| 06 | Liquidação normal |
+| 09 | Baixa simples |
+| 29 | Tarifa manutenção boletos vencidos |
 
-## 🎨 Saídas Geradas
+## 🎨 Inconsistências Registradas
 
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| tmList | List<TableMap> | Lista de documentos processados |
-| daa01 | Daa01 | Documento financeiro |
-| abf20id | Long | ID do PLF para liquidação |
-| ocorrencia | String | Descrição da ocorrência |
-| inconsistencias | List<String> | Lista de erros encontrados |
+| Situação | Descrição |
+|--------|-----------|
+| Documento não encontrado | ID inexistente ou inválido no retorno |
+| Documento quitado | Título já recebido anteriormente |
+| Divergência de valor | Valor do retorno diferente do valor do documento |
+| Ocorrência inválida | Código não cadastrado |
+| Sem data de pagamento | Data não informada no retorno |
 
 ## 🔧 Dependências
 
-### Bibliotecas:
-- `TextFileLeitura` - Leitura de arquivos texto
-- `SCFService` - Serviço do módulo financeiro
-- `MultiORM` - Acesso a dados
+**Bibliotecas:**
+- `multiorm` – Critérios e consultas ORM
+- `multitec.utils` – Leitura de arquivos e utilitários
+- `java.time` – Manipulação de datas
 
-### Entidades:
-- `Daa01` - Documentos financeiros
-- `Abf20` - PLF (Parametro e Lançamento Fiscal)
-
-### Configurações:
-- Mapeamento fixo de ocorrências bancárias
-- Códigos PLF pré-definidos
+**Serviços:**
+- `SCFService` – Serviços de cobrança
 
 ## 📝 Observações Técnicas
 
-### Busca de Documentos:
-- Primeiro busca por ID direto (daa01id)
-- Fallback para campo customizado (id_sam3)
-- Join com central de documentos para dados complementares
-
-### Tratamento de Erros:
-- Continua processamento mesmo com documentos inválidos
-- Coleta todas as inconsistências por documento
-- Retorna lista completa para decisão manual
-
-### Performance:
-- Processamento linha a linha do arquivo
-- Consultas otimizadas com criteria
-- Uso de TableMap para dados temporários
-
-### Segurança:
-- Validação rigorosa de dados antes do processamento
-- Prevenção de dupla liquidação
-- Verificação de consistência de valores
+- Layout específico para **CNAB 400 – Banco Itaú**
+- Processa apenas registros de detalhe (tipo `1`)
+- Documento pode ser localizado por ID principal ou campo customizado
+- Estrutura tolerante a erros, com registro detalhado de inconsistências
+- JSON utilizado para armazenar juros e descontos de liquidação
+- Retorno preparado para exibição e processamento posterior
+- Não realiza baixa automática, apenas valida e prepara dados
