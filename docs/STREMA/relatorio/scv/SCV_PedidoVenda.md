@@ -1,200 +1,233 @@
 # SCV_PedidoVenda.md
 
-## 📖 Descrição
-Sistema de geração de relatórios de pedidos de venda para o SCV (Sistema de Controle de Vendas) da Strema, com funcionalidades de impressão e envio automático por e-mail.
+📖 **Descrição**  
+Relatório de Pedido de Venda (SCV) que reúne informações de pedidos e itens, incluindo dados do cliente, endereço, frete, impostos, valores, status, representante e itens do pedido. Permite também envio automático por e-mail e marcação de impressão no sistema.
 
-## 🎯 Finalidade
-Gerar relatórios detalhados de pedidos de venda com opções de visualização, exportação e distribuição automatizada para clientes, incluindo controle de estoque e informações fiscais.
+---
 
-## 👥 Público-Alvo
-- Departamento Comercial
-- Vendedores
+🎯 **Finalidade**  
+Permitir a geração e impressão do Pedido de Venda ou Pedido de Expedição (ou ambos), com detalhamento completo de itens e valores, além de possibilitar o envio por e-mail e controle de impressão do documento.
+
+---
+
+👥 **Público-Alvo**
+- Comercial
+- Faturamento
 - Expedição
+- Financeiro
 - Atendimento ao Cliente
-- Gestão Comercial
 
-## ⚙️ Configuração
-**Recursos Necessários:**
-- Classe `SCV_PedidoVenda` - Relatório de pedidos de venda
-- Arquivos de imagem (Logo.png, LogoEx-Power.png)
-- Subrelatórios: SCV_PedidoVendaExpedicao_S1, SCV_PedidoVendaExpedicao_S2
+---
 
-**Localização:** `strema/relatorios/scv/`
+📊 **Dados e Fontes**
 
-## 📊 Dados e Fontes
-**Tabelas Principais:**
-- `EAA01` - Documentos fiscais
-- `ABB01` - Cabeçalho de documentos
-- `ABE01` - Entidades/Clientes
-- `EAA0103` - Itens do pedido
-- `ABM01` - Materiais/Produtos
-- `AAB10` - Usuários
-- `ABE0104` - Classificação de entidades (e-mails)
-- `AAC10` - Empresa
+### Tabelas Principais
+- **EAA01** – Pedido de Venda
+- **ABB01** – Documento
+- **ABB10** – Operador (usuário)
+- **ABE01** – Entidade (Cliente / Representante / Despacho)
+- **EAA0101** – Endereços do pedido
+- **EAA0102** – Informações de despacho/frete
+- **EAA0103** – Itens do pedido
+- **ABM01** – Produto
+- **AAM01** – Classe do item
+- **AAM06** – Unidade de medida
+- **ABE30** – Centro de Produção (CP)
+- **EAA01 JSON** – Informações de modelo e impostos
+- **EAA0103 JSON** – Impostos por item
+- **ABE0104** – Emails do cliente
+- **AAC10** – Empresa ativa
+- **AAC1002** – Inscrição Estadual da empresa
+- **ABE05** – Vínculo de representante com usuário
+- **BCC02 / BCC0201** – Saldos (para cálculo de total líquido)
+- **BAB01 / ABP20** – Produção (para cálculo de total líquido)
 
-**Entidades Envolvidas:**
-- `Eaa01` - Documento fiscal
-- `Abb01` - Cabeçalho do documento
-- `Abe01` - Entidade/Cliente
-- `Eaa0103` - Item do pedido
-- `Abm01` - Material/Produto
-- `Aab10` - Usuário
-- `Abe0104` - Classificação de entidade
-- `Aac10` - Empresa
+### Entidades Envolvidas
+- **Eaa01** – Pedido de Venda
+- **Abb01** – Documento
+- **Abe01** – Entidade
+- **Abm01** – Produto
+- **Aam06** – Unidade de Medida
+- **Aab10** – Usuário
+- **Aab1008** – E-mail do usuário (para envio)
+- **Aac10** – Empresa
+- **Aac1002** – IE da empresa
+- **Abe0104** – Emails do cliente
 
-## ⚙️ Parâmetros do Processo
+---
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|-------------|-----------|
-| pedido | Integer | Sim | Tipo de pedido (1-Venda, 2-Expedição, 3-Venda/Expedição) |
-| numIni | Integer | Não | Número inicial do pedido |
-| numFim | Integer | Não | Número final do pedido |
-| tipo | List<Long> | Não | Lista de tipos de documento |
-| entidade | List<Long> | Não | Lista de entidades |
-| representante | List<Long> | Não | Lista de representantes |
-| classeItens | List<Long> | Não | Lista de classes de itens |
-| dataEmissao | LocalDate[] | Não | Período de emissão |
-| dataEntrega | LocalDate[] | Não | Período de entrega |
-| enviaEmail | Boolean | Não | Enviar por e-mail automaticamente |
-| tipoSCV2002 | Long | Não | Filtro específico da tela SCV2002 |
+⚙️ **Parâmetros do Relatório**
 
-## 📋 Saídas do Processo
+| Parâmetro | Tipo | Obrigatório | Descrição | Valores Possíveis |
+|---|---|---|---|---|
+| pedido | Integer | Sim (default 2) | Tipo de relatório | 1 = Pedido de Venda / 2 = Pedido de Expedição / 3 = Ambos |
+| numIni | Integer | Não | Número inicial do pedido | Numérico |
+| numFim | Integer | Não | Número final do pedido | Numérico |
+| tipo | Lista (Long) | Não | Tipo de documento | IDs (aah01id) |
+| entidade | Lista (Long) | Não | Cliente | IDs (abe01id) |
+| representante | Lista (Long) | Não | Representante | IDs (abe01id) |
+| classeItens | Lista (Long) | Não | Classe do item | IDs (aam01id) |
+| dataEmissao | Intervalo de Datas | Não | Período de emissão | Data inicial e final |
+| dataEntrega | Intervalo de Datas | Não | Período de entrega | Data inicial e final |
+| enviaEmail | Boolean | Não | Envia e-mail ao cliente | true / false |
+| tipoSCV2002 | Long | Não | Filtro específico (tela SCV200289) | ID do tipo |
 
-| Campo | Descrição | Tipo |
-|-------|-----------|------|
-| PDF | Relatório formatado | Arquivo |
-| E-mail | Pedido enviado por e-mail | Mensagem |
+**Observação:**
+- O filtro de **representante** é preenchido automaticamente com base no usuário logado caso não seja informado.
+- `pedido` define qual relatório Jasper será utilizado.
 
-## 🔄 Fluxo do Processo
+---
 
-1. **Configuração Inicial**
-   - Define valores padrão para filtros
-   - Carrega logos e recursos visuais
-   - Compõe dados da empresa e inscrição estadual
+📋 **Campos do Relatório**
 
-2. **Processamento de Filtros**
-   - Aplica filtros de número, tipo, entidade, representante
-   - Processa filtros de data de emissão e entrega
-   - Aplica filtro específico da tela SCV2002
+| Campo | Descrição | Tipo | Origem / Regra |
+|---|---|---|---|
+| eaa01id | ID do pedido | Long | `eaa01id` |
+| Pedido | Número do pedido | Integer | `abb01num` |
+| Data | Data de emissão | Date | `abb01data` |
+| Cliente | Nome do cliente | String | `ent.abe01nome` |
+| Código Cliente | Código do cliente | String | `eaa0102codigo` |
+| Endereço | Endereço completo do cliente | String | `eaa0101endereco`, `eaa0101complem`, `aag0201nome`, `eaa0101bairro`, `aag02uf`, `eaa0101cep` |
+| Contato | Telefone/Email do cliente | String | `eaa0101ddd`, `eaa0101fone`, `eaa0101email` |
+| CP | Centro de Produção | String | `abd01descr` |
+| Item | Código do item | String | `abm01codigo` |
+| Nome Item | Nome do item | String | `abm01na` |
+| Descrição | Descrição do item | String | `abm01descr` |
+| Qtde Comercial | Quantidade comercial | BigDecimal | `eaa0103qtComl` |
+| Unidade | Unidade de medida | String | `aam06codigo` |
+| Unitário | Valor unitário | BigDecimal | `eaa0103unit` |
+| Total Itens | Total do pedido | BigDecimal | `eaa01totItens` |
+| Total Documento | Total do documento | BigDecimal | `eaa01totDoc` |
+| ICM (item) | Valor do ICM do item | BigDecimal | `eaa0103json ->> 'icm_icm'` |
+| ST (item) | Valor do ST do item | BigDecimal | `eaa0103json ->> 'st_icm'` |
+| IPI (item) | Valor do IPI do item | BigDecimal | `eaa0103json ->> 'ipi_ipi'` |
+| ICMS Aliq | Aliquota de ICMS | BigDecimal | `eaa0103json ->> 'icm_aliq'` |
+| IPI Aliq | Aliquota de IPI | BigDecimal | `eaa0103json ->> 'ipi_aliq'` |
+| Total Item | Total do item | BigDecimal | `eaa0103total` |
+| Total IPI | Total IPI do pedido | BigDecimal | `eaa01json ->> 'ipi_ipi'` |
+| Total ICMS | Total ICMS do pedido | BigDecimal | `eaa01json ->> 'icm_icm'` |
+| Total ST | Total ST do pedido | BigDecimal | `eaa01json ->> 'st_icm'` |
+| Frete Dest | Valor do frete (destinatário) | BigDecimal | `eaa01json ->> 'vlr_frete_dest'` |
+| Modelo Etiqueta | Modelo da etiqueta (traduzido) | String | `eaa01json ->> 'modelo'` com tradução |
+| CP (nome) | Nome do CP | String | `abe30nome` |
+| Despacho | Nome do despacho com CIF/FOB | String | `despachoAbe01nome` |
+| Observações Gerais | Observações do pedido | String | `eaa01obsGerais` |
+| Observações Internas | Observações internas | String | `eaa01obsUsoint` |
+| Representante | Nome do representante | String | `representante` (fallback NEUZA SANCHES) |
+| Email Representante | E-mail do representante | String | `emailRep` |
+| totalLiqItem | Total líquido do item (calculado) | BigDecimal | Calculado via `buscarViewItens()` |
+| eaa0101emailFinanc | Email financeiro | String | `buscarEnderecoFinanc(eaa0101id)` |
 
-3. **Busca de Dados**
-   - Executa consulta SQL com múltiplos joins
-   - Busca view de itens com cálculos de estoque
-   - Calcula totais líquidos por item
+---
 
-4. **Geração de Relatório**
-   - Seleciona template baseado no tipo de pedido
-   - Configura subrelatórios para detalhamento
-   - Gera PDF com estrutura complexa
+🔄 **Fluxo do Processo**
 
-5. **Envio de E-mail (Opcional)**
-   - Envia pedido automaticamente por e-mail
-   - Aplica formatação e assinatura
+### 1. Inicialização
+- Define valor padrão do filtro:
+   - `pedido = 2` (Pedido de Expedição)
 
-## ⚠️ Regras de Negócio
+### 2. Execução do Relatório
+- Coleta os filtros do usuário (número, tipo, cliente, representante, classe, datas, etc.).
+- Se representante não for informado, busca representantes vinculados ao usuário logado.
+- Monta caminhos das logos do relatório.
+- Busca dados da empresa ativa (`AAC10`) e IE (`AAC1002`).
+- Configura parâmetros do relatório (logo, endereço, contato, etc.).
+- Busca dados do pedido e view de itens (para cálculo de total líquido).
+- Para cada registro, preenche:
+   - `eaa0101emailFinanc`
+   - `totalLiqItem`
+   - `key` (para subrelatórios)
+- Define qual arquivo Jasper será usado (`SCV_PedidoVenda`, `SCV_PedidoExpedicao` ou `SCV_PedidoVendaExpedicao`).
+- Cria `TableMapDataSource` principal e subdatasources.
+- Se `enviaEmail = true`, envia e-mail com PDF anexo.
+- Marca status de impressão do pedido.
+- Gera PDF.
 
-### Tipos de Pedido
-- **1 - Venda**: Relatório padrão de pedido de venda
-- **2 - Expedição**: Relatório focado em expedição
-- **3 - Venda/Expedição**: Relatório combinado
+### 3. Busca de Dados
+- Monta filtros dinâmicos conforme parâmetros informados.
+- Executa SQL com múltiplos joins e leitura de JSON.
+- Aplica filtros padrões do sistema (`getSamWhere().getWherePadrao`).
+- Ordena por número do pedido, ID e código do item.
 
-### Filtros e Validações
-- Filtro padrão por operação diferente de 46045860
-- Apenas documentos de classificação 0 (venda)
-- Apenas movimentações de saída (esMov = 1)
-- Documentos não cancelados
-- Endereços principais apenas
+### 4. Envio de Email
+- Carrega relatório Jasper e processa PDF.
+- Busca emails do cliente (ABE0104 com código 9001).
+- Valida email do usuário logado.
+- Anexa PDF e envia com corpo padronizado.
+- Adiciona assinatura caso exista.
 
-### Cálculos de Estoque
-- **Total Saldo**: Quantidade em estoque
-- **Total Vendido**: Quantidade em pedidos de venda
-- **Total Compra**: Quantidade em pedidos de compra
-- **Total Produção**: Quantidade em produção
-- **Total Líquido**: Saldo - Vendido + Compra + Produção
+### 5. Atualização de Status
+- Marca `eaa01statusImpr = 2` para os pedidos processados.
 
-## 🎨 Estrutura do Relatório
+---
 
-**Cabeçalho:**
-- Logos da empresa
-- Dados cadastrais da empresa (endereço, CNPJ, IE)
-- Filtros aplicados
+⚠️ **Regras de Negócio**
 
-**Detalhes do Pedido:**
-- Número, data, cliente
-- Endereço de entrega completo
-- Condição de pagamento
-- Representante comercial
+### Validações
+- `pedido` é obrigatório (possui default 2).
+- `numIni` e `numFim` são aplicados apenas se preenchidos.
+- `tipo`, `entidade`, `representante`, `classeItens` são aplicados apenas se existirem itens na lista.
+- `dataEmissao` e `dataEntrega` são aplicados apenas se preenchidos.
+- Se `enviaEmail = true` e não houver dados, interrompe com erro.
+- Se o usuário não possuir e-mail cadastrado, interrompe com erro.
+- Se não houver e-mail do cliente, interrompe com erro.
 
-**Itens do Pedido:**
-- Código, descrição, quantidade, unidade, unitário, total
-- Tributos (ICMS, ST, IPI, alíquotas)
-- Informações de frete
+### Filtros
+- Filtros padrão do sistema aplicados via `getSamWhere().getWherePadrao("where", Eaa01.class)`
+- Exclui registros de usuário específico: `abb10id <> 46045860`
+- Apenas documentos de classe 0 e movimento 1, e endereço principal.
 
-**Subrelatórios:**
-- **S1**: Detalhes adicionais do pedido
-- **S2**: Informações complementares
+### Cálculos
+- `totalLiqItem` é calculado com base em uma view com saldo, vendas, compras e produção:
+   - totalSaldo
+   - totalVendido
+   - totalCompra
+   - totalProducao
+   - totalLiqItem = saldo - vendido + compra + produção
 
-## 🔧 Dependências
+### Tradução de Valores JSON
+- `modelo` traduzido:
+   - `nome_cliente` → **NOME DO CLIENTE**
+   - `lacre_strema` → **LACRE STREMA**
+   - `lacre_expower` → **LACRE EX-POWER**
+   - `seguir_observacao` → **SEGUIR OBSERVADOR**
+   - outros valores → mantêm o original
 
-**Bibliotecas:**
-- `multiorm` - Critérios e joins
-- `multitec.utils` - Utilitários e e-mail
-- `jasperreports` - Geração de relatórios
-- `javax.mail` - Envio de e-mail
+---
 
-**Serviços:**
-- `CAS1010Service` - Processamento de assinaturas de e-mail
+🎨 **Saídas Disponíveis**
 
-**Consultas:**
-- Busca de pedidos com múltiplos relacionamentos
-- View de itens com cálculos de estoque
-- E-mails de destino por classificação
-- Configuração de e-mail do usuário
+| Formato | Descrição | Método |
+|---|---|---|
+| PDF | Pedido de Venda/Expedição em formato de impressão | `gerarPDF(nomeRelatorio, dsPrincipal, "pedido", true)` |
 
-## 📝 Observações Técnicas
+---
 
-- **Recursos Visuais**: Logos carregadas dinamicamente do filesystem
-- **Formatação de Dados**: CEP formatado (XXXXX-XXX), endereços concatenados
-- **Subrelatórios**: Estrutura complexa com múltiplos níveis de detalhe
-- **Cálculos em Tempo Real**: Totais líquidos calculados dinamicamente
-- **Segurança**: Aplicação de where padrão em todas as consultas
+🔧 **Dependências**
 
-## 🔄 Métodos Principais
+### Bibliotecas
+- `br.com.multiorm.criteria` – Critérios e joins (DAO)
+- `br.com.multitec.utils` – Utilitários e e-mail
+- `sam.server.samdev.relatorio` – Infraestrutura de relatórios
+- `sam.server.samdev.utils` – Parâmetros
+- `sam.model.entities` – Entidades do sistema
+- `net.sf.jasperreports.engine` – JasperReports
+- `javax.mail.util.ByteArrayDataSource` – Anexo PDF
+- `java.text.Normalizer` – Normalização de texto
+- `java.time.LocalDate` – Datas
 
-### `executar()`
-Método principal que orquestra todo o processo do relatório.
+### Recursos
+- Logos do relatório:
+   - `Logo.png`
+   - `LogoEx-Power.png`  
+     (localizados em `samdev/resources/strema/relatorios/scv/`)
 
-### `buscarDados()`
-Executa consulta principal com todos os filtros aplicados.
+---
 
-### `buscarViewItens()`
-Cria view complexa com cálculos de estoque.
-
-### `buscarValorLiqTotal()`
-Calcula total líquido por item baseado na view.
-
-### `enviarEmail()`
-Processa envio automático do pedido por e-mail.
-
-### `buscarEmailDestino()`
-Obtém lista de e-mails de destino baseado na classificação.
-
-## 💡 View de Itens
-A view calcula:
-- **Saldo em estoque**
-- **Quantidade vendida** (pedidos de venda não atendidos)
-- **Quantidade comprada** (pedidos de compra não atendidos)
-- **Quantidade em produção** (ordens de produção pendentes)
-- **Saldo líquido** = Saldo - Vendido + Comprado + Produção
-
-## ⚠️ Validações de E-mail
-- Usuário deve ter e-mail cadastrado (AAB1008)
-- Entidade deve ter contato classificado como "9001"
-- Assinatura opcional do usuário
-- Tratamento de caracteres especiais no corpo
-- Validação de existência de destinatários
-
-## 💰 Template de E-mail
-**Assunto**: "PEDIDO N° [número] STREMA BATERIAS – APROVADO"
-
-**Corpo**:
+📝 **Observações Técnicas**
+- Usa critérios e SQL nativo para performance.
+- Usa JSON em colunas `eaa01json` e `eaa0103json`.
+- Usa subrelatórios com datasource por `key`.
+- Envio de e-mail com PDF anexado e assinatura (CAS1010).
+- Marca status de impressão no banco (campo `eaa01statusImpr`).
+- Inclui fallback de representante quando não informado.
