@@ -1,4 +1,4 @@
-# SCE_CalculoTributacao (Trecho de Código)
+# SCE_CalculoItem_Saida
 
 📖 Descrição  
 Trecho responsável pelo cálculo de tributos e ajustes fiscais em itens de documento de saída, incluindo ICMS, PIS, COFINS, IPI, Zona Franca/Amazônia Ocidental, FCI, Diferencial de Alíquota, e aplicação da reforma tributária (CBS/IBS). Realiza validações de CST, ajustes de base de cálculo e alíquotas, e atualiza valores finais do documento.
