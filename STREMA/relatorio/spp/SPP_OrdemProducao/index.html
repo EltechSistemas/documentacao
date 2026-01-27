@@ -12,7 +12,7 @@
         <link rel="prev" href="../../scv/SCV_PedidoVenda/">
       
       
-        <link rel="next" href="../../srf/SRF_Danfe/">
+        <link rel="next" href="../SPP_OrdensProducao/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>SPP_OrdemProducao - Relatório de Ordem de Produção - documentacao-eltech</title>
+        <title>SPP_OrdemProducao - documentacao-eltech</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#spp_ordemproducao-relatorio-de-ordem-de-producao" class="md-skip">
+        <a href="#spp_ordemproducao" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SPP_OrdemProducao - Relatório de Ordem de Produção
+              SPP_OrdemProducao
             
           </span>
         </div>
@@ -1040,6 +1040,34 @@
     
   
     SRF_CalculoItem_DevolucaoDeCompra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ELTECH/formulas/srf/SRF_CalculoItem_DevolucaoDeVenda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRF_CalculoItem_DevolucaoDeVenda
   
 
     
@@ -3178,6 +3206,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FOCO/fromulas/srf/SRF_CalculoItem_Saida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRF_CalculoItem_Saida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -6930,6 +6986,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../formulas/srf/SRF_CalculoItem_Saida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SCE_CalculoTributacao (Trecho de Código)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../formulas/srf/SRF_Documento/" class="md-nav__link">
         
   
@@ -7402,7 +7486,7 @@
   <span class="md-ellipsis">
     
   
-    SPP_OrdemProducao - Relatório de Ordem de Produção
+    SPP_OrdemProducao
   
 
     
@@ -7420,7 +7504,7 @@
   <span class="md-ellipsis">
     
   
-    SPP_OrdemProducao - Relatório de Ordem de Produção
+    SPP_OrdemProducao
   
 
     
@@ -7446,10 +7530,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descricao" class="md-nav__link">
+  <a href="#tabelas-principais" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 Descrição
+        Tabelas Principais
       
     </span>
   </a>
@@ -7457,10 +7541,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#finalidade" class="md-nav__link">
+  <a href="#entidades-envolvidas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Finalidade
+        Entidades Envolvidas
       
     </span>
   </a>
@@ -7468,10 +7552,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#publico-alvo" class="md-nav__link">
+  <a href="#1-inicializacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        👥 Público-Alvo
+        1. Inicialização
       
     </span>
   </a>
@@ -7479,10 +7563,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parametros-do-relatorio" class="md-nav__link">
+  <a href="#2-execucao-do-relatorio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ Parâmetros do Relatório
+        2. Execução do Relatório
       
     </span>
   </a>
@@ -7490,10 +7574,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#campos-do-relatorio" class="md-nav__link">
+  <a href="#3-busca-de-dados" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Campos do Relatório
+        3. Busca de Dados
       
     </span>
   </a>
@@ -7501,132 +7585,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxo-do-processo" class="md-nav__link">
+  <a href="#validacoes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔄 Fluxo do Processo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-validacao-de-parametros" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Validação de Parâmetros
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-configuracao-do-relatorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Configuração do Relatório
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-construcao-da-consulta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Construção da Consulta
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-busca-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Busca de Dados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-geracao-de-saida" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Geração de Saída
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regras-de-negocio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Regras de Negócio
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#filtros-de-busca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtros de Busca
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estrutura-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estrutura de Dados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ordenacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ordenação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#saidas-disponiveis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎨 Saídas Disponíveis
+        Validações
       
     </span>
   </a>
@@ -7634,10 +7596,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
+  <a href="#regras-de-filtro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Dependências
+        Regras de Filtro
       
     </span>
   </a>
@@ -7645,63 +7607,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#traducao-de-valores-json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Observações Técnicas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consulta-sql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consulta SQL
+        Tradução de Valores JSON
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#parametros-do-relatorio_1" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#bibliotecas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parâmetros do Relatório
+        Bibliotecas
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tratamento-de-dados" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tratamento de Dados
+        Recursos
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -7709,6 +7643,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SPP_OrdensProducao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SPP_OrdensProducao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -8178,6 +8140,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../VETRO/formulas/srf/SRF_CalculoItem_Saida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SRF_CalculoItem_Saida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../VETRO/formulas/srf/SRF_EnviarEmailsNFe/" class="md-nav__link">
         
   
@@ -8277,10 +8267,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descricao" class="md-nav__link">
+  <a href="#tabelas-principais" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 Descrição
+        Tabelas Principais
       
     </span>
   </a>
@@ -8288,10 +8278,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#finalidade" class="md-nav__link">
+  <a href="#entidades-envolvidas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Finalidade
+        Entidades Envolvidas
       
     </span>
   </a>
@@ -8299,10 +8289,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#publico-alvo" class="md-nav__link">
+  <a href="#1-inicializacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        👥 Público-Alvo
+        1. Inicialização
       
     </span>
   </a>
@@ -8310,10 +8300,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#parametros-do-relatorio" class="md-nav__link">
+  <a href="#2-execucao-do-relatorio" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ Parâmetros do Relatório
+        2. Execução do Relatório
       
     </span>
   </a>
@@ -8321,10 +8311,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#campos-do-relatorio" class="md-nav__link">
+  <a href="#3-busca-de-dados" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 Campos do Relatório
+        3. Busca de Dados
       
     </span>
   </a>
@@ -8332,132 +8322,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fluxo-do-processo" class="md-nav__link">
+  <a href="#validacoes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔄 Fluxo do Processo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔄 Fluxo do Processo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-validacao-de-parametros" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Validação de Parâmetros
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-configuracao-do-relatorio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Configuração do Relatório
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-construcao-da-consulta" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Construção da Consulta
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-busca-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Busca de Dados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-geracao-de-saida" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Geração de Saída
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#regras-de-negocio" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ⚠️ Regras de Negócio
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ Regras de Negócio">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#filtros-de-busca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filtros de Busca
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estrutura-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Estrutura de Dados
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ordenacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ordenação
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#saidas-disponiveis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎨 Saídas Disponíveis
+        Validações
       
     </span>
   </a>
@@ -8465,10 +8333,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dependencias" class="md-nav__link">
+  <a href="#regras-de-filtro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔧 Dependências
+        Regras de Filtro
       
     </span>
   </a>
@@ -8476,63 +8344,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#observacoes-tecnicas" class="md-nav__link">
+  <a href="#traducao-de-valores-json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📝 Observações Técnicas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📝 Observações Técnicas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consulta-sql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consulta SQL
+        Tradução de Valores JSON
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#parametros-do-relatorio_1" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#bibliotecas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Parâmetros do Relatório
+        Bibliotecas
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#tratamento-de-dados" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#recursos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tratamento de Dados
+        Recursos
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -8553,19 +8393,51 @@
 
 
 
-<h1 id="spp_ordemproducao-relatorio-de-ordem-de-producao">SPP_OrdemProducao - Relatório de Ordem de Produção<a class="headerlink" href="#spp_ordemproducao-relatorio-de-ordem-de-producao" title="Permanent link">&para;</a></h1>
-<h2 id="descricao">📖 Descrição<a class="headerlink" href="#descricao" title="Permanent link">&para;</a></h2>
-<p>Relatório de ordens de produção com filtros por status, número, tipo, entidade, itens, lotes e data de emissão, gerando PDF com informações completas do processo produtivo.</p>
-<h2 id="finalidade">🎯 Finalidade<a class="headerlink" href="#finalidade" title="Permanent link">&para;</a></h2>
-<p>Fornecer uma visão consolidada das ordens de produção, permitindo acompanhamento do status, componentes utilizados, quantidades planejadas e realizadas, além de informações específicas do processo.</p>
-<h2 id="publico-alvo">👥 Público-Alvo<a class="headerlink" href="#publico-alvo" title="Permanent link">&para;</a></h2>
+<h1 id="spp_ordemproducao">SPP_OrdemProducao<a class="headerlink" href="#spp_ordemproducao" title="Permanent link">&para;</a></h1>
+<p>📖 <strong>Descrição</strong><br />
+Relatório de Ordem de Produção que apresenta o detalhamento de ordens de produção (OP) com informações de produto, componentes, quantidade, tipo, cliente, lote, data e dados complementares de transporte/etiqueta/prioridade para impressão e acompanhamento do processo produtivo.</p>
+<hr />
+<p>🎯 <strong>Finalidade</strong><br />
+Permitir a geração da Ordem de Produção para controle e conferência do processo produtivo, possibilitando:
+- Listagem de OPs conforme filtros de status, número, tipo, entidade, itens, lote e período de emissão
+- Detalhamento de componentes por OP e produto principal
+- Visualização de informações logísticas e de prioridade definidas no JSON da OP
+- Emissão do documento em formato PDF para impressão ou registro interno</p>
+<hr />
+<p>👥 <strong>Público-Alvo</strong>
+- Produção
+- Planejamento
+- Logística
+- Comercial
+- Controle de Qualidade
+- Faturamento</p>
+<hr />
+<p>📊 <strong>Dados e Fontes</strong></p>
+<h3 id="tabelas-principais">Tabelas Principais<a class="headerlink" href="#tabelas-principais" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Departamento de Produção</li>
-<li>PCP (Planejamento e Controle de Produção)</li>
-<li>Gestores Industriais</li>
-<li>Supervisores de Produção</li>
+<li><strong>BAB01</strong> – Ordem de Produção</li>
+<li><strong>ABB01</strong> – Documento (central da OP)</li>
+<li><strong>AAB10</strong> – Usuário/Operador</li>
+<li><strong>AAH01</strong> – Tipo de documento</li>
+<li><strong>ABE01</strong> – Entidade (Cliente / Representante)</li>
+<li><strong>ABE02</strong> – Vínculo de Representante</li>
+<li><strong>ABP20</strong> – BOM (lista de materiais / componentes)</li>
+<li><strong>ABM01</strong> – Produto</li>
+<li><strong>BAB0101</strong> – Itens da OP (componentes)</li>
+<li><strong>AAM06</strong> – Unidade de Medida</li>
 </ul>
-<h2 id="parametros-do-relatorio">⚙️ Parâmetros do Relatório<a class="headerlink" href="#parametros-do-relatorio" title="Permanent link">&para;</a></h2>
+<h3 id="entidades-envolvidas">Entidades Envolvidas<a class="headerlink" href="#entidades-envolvidas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Bab01</strong> – Ordem de Produção</li>
+<li><strong>Abb01</strong> – Documento</li>
+<li><strong>Abe01</strong> – Entidade (Cliente / Representante)</li>
+<li><strong>Abm01</strong> – Produto</li>
+<li><strong>Aam06</strong> – Unidade de Medida</li>
+<li><strong>Abp20</strong> – BOM (BOM e revisão)</li>
+<li><strong>Aab10</strong> – Usuário</li>
+</ul>
+<hr />
+<p>⚙️ <strong>Parâmetros do Relatório</strong></p>
 <table>
 <thead>
 <tr>
@@ -8580,288 +8452,424 @@
 <tr>
 <td>status</td>
 <td>Integer</td>
-<td>Sim</td>
-<td>Status da ordem de produção</td>
-<td>0=Todos</td>
+<td>Sim (default 0)</td>
+<td>Status da OP</td>
+<td>0 (default), 1, etc.</td>
 </tr>
 <tr>
 <td>numIni</td>
 <td>Integer</td>
 <td>Não</td>
-<td>Número inicial</td>
-<td>0-999999</td>
+<td>Número inicial do documento</td>
+<td>Numérico</td>
 </tr>
 <tr>
 <td>numFim</td>
 <td>Integer</td>
 <td>Não</td>
-<td>Número final</td>
-<td>0-999999</td>
+<td>Número final do documento</td>
+<td>Numérico</td>
 </tr>
 <tr>
 <td>tipo</td>
-<td>List<Long></td>
+<td>Lista (Long)</td>
 <td>Não</td>
-<td>Tipos de documento</td>
-<td>IDs tipos documento</td>
+<td>Tipos de OP</td>
+<td>IDs de tipo (aah01id)</td>
 </tr>
 <tr>
 <td>entidade</td>
-<td>List<Long></td>
+<td>Lista (Long)</td>
 <td>Não</td>
-<td>Entidades específicas</td>
-<td>IDs entidades</td>
+<td>Entidades (clientes)</td>
+<td>IDs de entidade (abe01id)</td>
 </tr>
 <tr>
 <td>itens</td>
-<td>List<Long></td>
+<td>Lista (Long)</td>
 <td>Não</td>
-<td>Itens específicos</td>
-<td>IDs itens</td>
+<td>Itens/componentes</td>
+<td>IDs de produto (abm01id)</td>
 </tr>
 <tr>
 <td>lotes</td>
-<td>List<String></td>
+<td>Lista (String)</td>
 <td>Não</td>
-<td>Lotes específicos</td>
-<td>Códigos de lote</td>
+<td>Lotes separados por “;”</td>
+<td>Texto separado por “;”</td>
 </tr>
 <tr>
 <td>dataEmissao</td>
-<td>LocalDate[]</td>
+<td>Intervalo de Datas</td>
 <td>Não</td>
 <td>Período de emissão</td>
 <td>Data inicial e final</td>
 </tr>
 </tbody>
 </table>
-<h2 id="campos-do-relatorio">📋 Campos do Relatório<a class="headerlink" href="#campos-do-relatorio" title="Permanent link">&para;</a></h2>
+<p><strong>Observação:</strong>
+- <code>status</code> é definido como 0 por padrão no filtro inicial.
+- Os filtros <code>numIni</code>, <code>numFim</code> e <code>lotes</code> só são aplicados quando informados (não zero / não vazios).
+- <code>dataEmissao</code> é aplicada apenas se ambos os limites (inicial e final) estiverem preenchidos.</p>
+<hr />
+<p>📋 <strong>Campos do Relatório</strong></p>
 <table>
 <thead>
 <tr>
 <th>Campo</th>
 <th>Descrição</th>
 <th>Tipo</th>
+<th>Origem / Regra</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>abb01num</td>
+<td>OP</td>
 <td>Número do documento</td>
 <td>Integer</td>
+<td><code>abb01num</code></td>
 </tr>
 <tr>
-<td>abb01data</td>
-<td>Data do documento</td>
+<td>Data</td>
+<td>Data de emissão</td>
 <td>Date</td>
+<td><code>abb01data</code></td>
 </tr>
 <tr>
-<td>bab01dtE</td>
-<td>Data da ordem</td>
+<td>Data Entrega</td>
+<td>Data estimada/definida</td>
 <td>Date</td>
+<td><code>bab01dtE</code></td>
 </tr>
 <tr>
-<td>rep</td>
 <td>Representante</td>
+<td>Nome do representante</td>
 <td>String</td>
+<td><code>rep0.abe01na</code></td>
 </tr>
 <tr>
-<td>entCodigo</td>
+<td>Código Cliente</td>
 <td>Código da entidade</td>
 <td>String</td>
+<td><code>ent.abe01codigo</code></td>
 </tr>
 <tr>
-<td>entNome</td>
-<td>Nome da entidade</td>
+<td>Cliente</td>
+<td>Nome do cliente</td>
 <td>String</td>
+<td><code>ent.abe01nome</code></td>
 </tr>
 <tr>
-<td>bab01qt</td>
+<td>Qtde</td>
 <td>Quantidade</td>
 <td>BigDecimal</td>
+<td><code>bab01qt</code></td>
 </tr>
 <tr>
-<td>prodDesc</td>
-<td>Descrição do produto</td>
+<td>Produto</td>
+<td>Descrição do produto principal</td>
 <td>String</td>
+<td><code>prod.abm01descr</code></td>
 </tr>
 <tr>
-<td>prodCodigo</td>
-<td>Código do produto</td>
+<td>Código Produto</td>
+<td>Código do produto principal</td>
 <td>String</td>
+<td><code>prod.abm01codigo</code></td>
 </tr>
 <tr>
-<td>abp20bomNumRev</td>
-<td>Número revisão BOM</td>
+<td>BOM (Revisão)</td>
+<td>Número da BOM / Revisão</td>
 <td>String</td>
+<td><code>abp20bomNumRev</code>, <code>abp20bomDtRev</code></td>
 </tr>
 <tr>
-<td>abp20bomDtRev</td>
-<td>Data revisão BOM</td>
-<td>Date</td>
-</tr>
-<tr>
-<td>compCodigo</td>
-<td>Código componente</td>
+<td>Componente</td>
+<td>Código do componente</td>
 <td>String</td>
+<td><code>comp.abm01codigo</code></td>
 </tr>
 <tr>
-<td>compDesc</td>
-<td>Descrição componente</td>
+<td>Descrição Componente</td>
+<td>Descrição do componente</td>
 <td>String</td>
+<td><code>comp.abm01descr</code></td>
 </tr>
 <tr>
-<td>aam06codigo</td>
-<td>Unidade medida</td>
+<td>Unidade</td>
+<td>Unidade de medida</td>
 <td>String</td>
+<td><code>aam06codigo</code></td>
 </tr>
 <tr>
-<td>bab0101qtP</td>
-<td>Qtde planejada</td>
+<td>Qtde Prevista</td>
+<td>Quantidade prevista</td>
 <td>BigDecimal</td>
+<td><code>bab0101qtP</code></td>
 </tr>
 <tr>
-<td>bab0101qtA</td>
-<td>Qtde realizada</td>
+<td>Qtde Atual</td>
+<td>Quantidade atual</td>
 <td>BigDecimal</td>
+<td><code>bab0101qtA</code></td>
 </tr>
 <tr>
-<td>bab01obs</td>
-<td>Observações</td>
+<td>Observação</td>
+<td>Observação da OP</td>
 <td>String</td>
+<td><code>bab01obs</code></td>
 </tr>
 <tr>
-<td>bab01detProd</td>
-<td>Detalhes produção</td>
+<td>Detalhe Produto</td>
+<td>Detalhe do produto</td>
 <td>String</td>
+<td><code>bab01detProd</code></td>
 </tr>
 <tr>
-<td>carga</td>
-<td>Informações de carga</td>
+<td>Carga</td>
+<td>Tipo de carga (traduzido)</td>
 <td>String</td>
+<td>JSON <code>bab01json -&gt;&gt; 'carga'</code></td>
 </tr>
 <tr>
-<td>transporte</td>
-<td>Informações transporte</td>
+<td>Transporte</td>
+<td>Tipo de transporte (traduzido)</td>
 <td>String</td>
+<td>JSON <code>bab01json -&gt;&gt; 'transporte'</code></td>
 </tr>
 <tr>
-<td>etiqueta</td>
-<td>Informações etiqueta</td>
+<td>Etiqueta</td>
+<td>Tipo de etiqueta (traduzido)</td>
 <td>String</td>
+<td>JSON <code>bab01json -&gt;&gt; 'etiqueta'</code></td>
 </tr>
 <tr>
-<td>outros_itens</td>
-<td>Outros itens</td>
+<td>Outros Itens</td>
+<td>Indica se há outros itens</td>
 <td>String</td>
+<td>JSON <code>bab01json -&gt;&gt; 'outros_itens'</code></td>
 </tr>
 <tr>
-<td>prioridade</td>
 <td>Prioridade</td>
+<td>Prioridade da OP (traduzido)</td>
 <td>String</td>
+<td>JSON <code>bab01json -&gt;&gt; 'prioridade'</code></td>
+</tr>
+<tr>
+<td>Operador</td>
+<td>Usuário responsável</td>
+<td>String</td>
+<td><code>aab10user</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="fluxo-do-processo">🔄 Fluxo do Processo<a class="headerlink" href="#fluxo-do-processo" title="Permanent link">&para;</a></h2>
-<h3 id="1-validacao-de-parametros">1. <strong>Validação de Parâmetros</strong><a class="headerlink" href="#1-validacao-de-parametros" title="Permanent link">&para;</a></h3>
+<hr />
+<p>🔄 <strong>Fluxo do Processo</strong></p>
+<h3 id="1-inicializacao">1. Inicialização<a class="headerlink" href="#1-inicializacao" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Define valores padrão (status = 0)</li>
-<li>Processa intervalos numéricos</li>
-<li>Converte lista de lotes (separados por ";")</li>
+<li>Define valores padrão do filtro:<ul>
+<li><code>status = "0"</code></li>
 </ul>
-<h3 id="2-configuracao-do-relatorio">2. <strong>Configuração do Relatório</strong><a class="headerlink" href="#2-configuracao-do-relatorio" title="Permanent link">&para;</a></h3>
+</li>
+</ul>
+<h3 id="2-execucao-do-relatorio">2. Execução do Relatório<a class="headerlink" href="#2-execucao-do-relatorio" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Localiza arquivo de logo</li>
-<li>Obtém dados da empresa ativa</li>
-<li>Constrói endereço completo da empresa</li>
+<li>Coleta parâmetros do filtro (com validações de valores vazios/zero).</li>
+<li>Monta caminho da logo do relatório (arquivo <code>Logo.png</code> no diretório do pacote).</li>
+<li>Obtém dados da empresa ativa (<code>AAC10</code>) e monta o endereço completo para exibição no relatório.</li>
+<li>Adiciona parâmetros do relatório (LOGO e ENDERECO).</li>
+<li>Chama <code>buscarDados(...)</code> para coletar dados da base.</li>
+<li>Gera PDF com os dados retornados.</li>
 </ul>
-<h3 id="3-construcao-da-consulta">3. <strong>Construção da Consulta</strong><a class="headerlink" href="#3-construcao-da-consulta" title="Permanent link">&para;</a></h3>
+<h3 id="3-busca-de-dados">3. Busca de Dados<a class="headerlink" href="#3-busca-de-dados" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Monta SQL dinâmico com filtros aplicados</li>
-<li>Aplica cláusulas WHERE conforme parâmetros</li>
-<li>Define ordenação por número e descrição do componente</li>
+<li>Monta cláusulas <code>WHERE</code> dinamicamente conforme os parâmetros.</li>
+<li>Executa SQL com múltiplos joins, incluindo leitura de campos JSON.</li>
+<li>Traduz valores de JSON (carga, transporte, etiqueta, outros_itens, prioridade) para texto legível.</li>
+<li>Ordena por número do documento e sequência do item.</li>
 </ul>
-<h3 id="4-busca-de-dados">4. <strong>Busca de Dados</strong><a class="headerlink" href="#4-busca-de-dados" title="Permanent link">&para;</a></h3>
+<hr />
+<p>⚠️ <strong>Regras de Negócio</strong></p>
+<h3 id="validacoes">Validações<a class="headerlink" href="#validacoes" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Consulta ordens de produção no banco</li>
-<li>Inclui informações de produto, componentes e entidades</li>
-<li>Extrai campos JSON específicos</li>
+<li><code>status</code> é obrigatório (mas possui valor padrão).</li>
+<li><code>numIni</code>, <code>numFim</code>, <code>lotes</code> e <code>dataEmissao</code> são opcionais, porém aplicados somente quando preenchidos.</li>
+<li><code>tipo</code>, <code>entidade</code> e <code>itens</code> são aplicados somente se houver pelo menos um elemento na lista.</li>
 </ul>
-<h3 id="5-geracao-de-saida">5. <strong>Geração de Saída</strong><a class="headerlink" href="#5-geracao-de-saida" title="Permanent link">&para;</a></h3>
+<h3 id="regras-de-filtro">Regras de Filtro<a class="headerlink" href="#regras-de-filtro" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Passa parâmetros para template JasperReports</li>
-<li>Gera PDF com dados consultados</li>
-<li>Retorna arquivo para download</li>
+<li><code>whereStatus</code>: filtra OP por status (<code>bab01status</code>).</li>
+<li><code>whereNumIni</code> e <code>whereNumFim</code>: filtram intervalo de número do documento.</li>
+<li><code>whereTipo</code>: filtra por tipo de documento (<code>aah01id</code>).</li>
+<li><code>whereEntidade</code>: filtra por cliente (<code>ent.abe01id</code>).</li>
+<li><code>whereItens</code>: filtra por componente (<code>comp.abm01id</code>).</li>
+<li><code>whereLotes</code>: filtra por lote (<code>bab01lote</code>).</li>
+<li><code>whereEmissao</code>: filtra por data de emissão (<code>abb01data</code>).</li>
+<li>Sempre aplica filtros padrão do sistema via <code>obterWherePadrao("bab01", "where")</code>.</li>
 </ul>
-<h2 id="regras-de-negocio">⚠️ Regras de Negócio<a class="headerlink" href="#regras-de-negocio" title="Permanent link">&para;</a></h2>
-<h3 id="filtros-de-busca">Filtros de Busca<a class="headerlink" href="#filtros-de-busca" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Status</strong>: Filtro obrigatório, padrão = 0 (todos)</li>
-<li><strong>Números</strong>: Intervalo inclusivo (inicial ≤ número ≤ final)</li>
-<li><strong>Lotes</strong>: Separados por ponto e vírgula, espaços removidos</li>
-<li><strong>Datas</strong>: Período inclusivo (data inicial ≤ data ≤ data final)</li>
-</ul>
-<h3 id="estrutura-de-dados">Estrutura de Dados<a class="headerlink" href="#estrutura-de-dados" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Join com múltiplas tabelas (bab01, abb01, abe01, abp20, abm01)</li>
-<li>Componentes listados individualmente por ordem</li>
-<li>Campos JSON extraídos para informações específicas</li>
-</ul>
-<h3 id="ordenacao">Ordenação<a class="headerlink" href="#ordenacao" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Primária: Número do documento (abb01num)</li>
-<li>Secundária: Descrição do componente (comp.abm01descr)</li>
-</ul>
-<h2 id="saidas-disponiveis">🎨 Saídas Disponíveis<a class="headerlink" href="#saidas-disponiveis" title="Permanent link">&para;</a></h2>
+<h3 id="traducao-de-valores-json">Tradução de Valores JSON<a class="headerlink" href="#traducao-de-valores-json" title="Permanent link">&para;</a></h3>
+<p>Os campos do JSON <code>bab01json</code> são traduzidos conforme regras abaixo:</p>
+<table>
+<thead>
+<tr>
+<th>Campo JSON</th>
+<th>Valores</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>carga</td>
+<td>carga_lenta</td>
+<td>CARGA LENTA</td>
+</tr>
+<tr>
+<td></td>
+<td>carga_padrao</td>
+<td>CARGA PADRÃO</td>
+</tr>
+<tr>
+<td></td>
+<td>carga_rapida</td>
+<td>CARGA RÁPIDA</td>
+</tr>
+<tr>
+<td></td>
+<td>depassivacao</td>
+<td>DEPASSIVAÇÃO</td>
+</tr>
+<tr>
+<td></td>
+<td>meia_carga</td>
+<td>MEIA CARGA</td>
+</tr>
+<tr>
+<td></td>
+<td>seguir_observacao</td>
+<td>SEGUIR OBSERVAÇÃO</td>
+</tr>
+<tr>
+<td></td>
+<td>carga ultra rapida</td>
+<td>CARGA ULTRA RÁPIDA</td>
+</tr>
+<tr>
+<td></td>
+<td>outro valor</td>
+<td>mantém o valor original</td>
+</tr>
+<tr>
+<td>transporte</td>
+<td>correios</td>
+<td>CORREIOS</td>
+</tr>
+<tr>
+<td></td>
+<td>entrega</td>
+<td>ENTREGA</td>
+</tr>
+<tr>
+<td></td>
+<td>retira</td>
+<td>RETIRA</td>
+</tr>
+<tr>
+<td></td>
+<td>transportadora</td>
+<td>TRANSPORTADORA</td>
+</tr>
+<tr>
+<td>etiqueta</td>
+<td>personalizada</td>
+<td>PERSONALIZADA</td>
+</tr>
+<tr>
+<td></td>
+<td>padrao</td>
+<td>PADRÃO</td>
+</tr>
+<tr>
+<td></td>
+<td>nome_cliente</td>
+<td>NOME DO CLIENTE</td>
+</tr>
+<tr>
+<td></td>
+<td>lacre_strema</td>
+<td>LACRE STREMA</td>
+</tr>
+<tr>
+<td></td>
+<td>lacre_expower</td>
+<td>LACRE EX-POWER</td>
+</tr>
+<tr>
+<td>outros_itens</td>
+<td>sim</td>
+<td>SIM</td>
+</tr>
+<tr>
+<td></td>
+<td>nao</td>
+<td>NÃO</td>
+</tr>
+<tr>
+<td>prioridade</td>
+<td>padrao</td>
+<td>PADRÃO</td>
+</tr>
+<tr>
+<td></td>
+<td>baixa</td>
+<td>BAIXA</td>
+</tr>
+<tr>
+<td></td>
+<td>alta</td>
+<td>ALTA (URGENTE)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🎨 <strong>Saídas Disponíveis</strong></p>
 <table>
 <thead>
 <tr>
 <th>Formato</th>
 <th>Descrição</th>
-<th>Template</th>
 <th>Método</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>PDF</td>
-<td>Layout padrão</td>
-<td><code>SPP_OrdemProducao</code></td>
+<td>Ordem de Produção em formato de impressão</td>
 <td><code>gerarPDF()</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="dependencias">🔧 Dependências<a class="headerlink" href="#dependencias" title="Permanent link">&para;</a></h2>
-<p><strong>Bibliotecas:</strong>
-- <code>jasperreports</code> - Geração de relatórios PDF
-- <code>br.com.multitec.utils</code> - Utilitários e coleções</p>
-<p><strong>Recursos:</strong>
-- Arquivo de logo: <code>/resources/strema/relatorios/spp/Logo.png</code>
-- Template JasperReports</p>
-<h2 id="observacoes-tecnicas">📝 Observações Técnicas<a class="headerlink" href="#observacoes-tecnicas" title="Permanent link">&para;</a></h2>
-<h3 id="consulta-sql">Consulta SQL<a class="headerlink" href="#consulta-sql" title="Permanent link">&para;</a></h3>
+<hr />
+<p>🔧 <strong>Dependências</strong></p>
+<h3 id="bibliotecas">Bibliotecas<a class="headerlink" href="#bibliotecas" title="Permanent link">&para;</a></h3>
 <ul>
-<li>SQL dinâmico com múltiplos filtros opcionais</li>
-<li>Uso de JSON extraction para campos específicos</li>
-<li>Join complexo com aliases para entidades e itens</li>
+<li><code>multitec.utils</code> – Utilitários gerais</li>
+<li><code>sam.server.samdev.relatorio</code> – Infraestrutura de relatórios</li>
+<li><code>sam.server.samdev.utils</code> – Parâmetros</li>
+<li><code>sam.model.entities.aa</code> – Entidade <code>Aac10</code> (empresa)</li>
 </ul>
-<h3 id="parametros-do-relatorio_1">Parâmetros do Relatório<a class="headerlink" href="#parametros-do-relatorio_1" title="Permanent link">&para;</a></h3>
+<h3 id="recursos">Recursos<a class="headerlink" href="#recursos" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>LOGO</strong>: Caminho completo do arquivo de logo</li>
-<li><strong>ENDERECO</strong>: Endereço formatado da empresa</li>
+<li>Logo do relatório (<code>Logo.png</code>) localizado no diretório do pacote:<br />
+<code>samdev/resources/strema/relatorios/spp/Logo.png</code></li>
 </ul>
-<h3 id="tratamento-de-dados">Tratamento de Dados<a class="headerlink" href="#tratamento-de-dados" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Limpeza de espaços em lista de lotes</li>
-<li>Formatação de endereço multi-linha</li>
-<li>Valores padrão para parâmetros numéricos</li>
-</ul>
-<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Filtros aplicados no banco de dados</li>
-<li>Paginação tratada pelo JasperReports</li>
-<li>Consulta otimizada com índices apropriados</li>
-</ul>
+<hr />
+<p>📝 <strong>Observações Técnicas</strong>
+- O relatório utiliza SQL nativo com múltiplos joins para melhor performance.
+- Campos JSON são lidos diretamente no SQL e traduzidos para valores legíveis.
+- O endereço da empresa ativa é montado dinamicamente a partir da entidade <code>AAC10</code>.
+- O relatório é gerado exclusivamente em PDF.
+- O filtro padrão do sistema (<code>obterWherePadrao</code>) é aplicado na consulta.</p>
+<hr />
 
 
 
