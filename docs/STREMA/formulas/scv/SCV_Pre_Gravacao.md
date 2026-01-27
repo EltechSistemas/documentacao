@@ -1,127 +1,85 @@
-# SCV_Pre_Gravacao.md
+# SCV_Pre_Gravacao
 
-## 📖 Descrição
-Sistema de validação pré-gravação para documentos do SCV (Sistema de Controle de Vendas) da Linhasita, realizando verificações de crédito e consistência antes da persistência dos dados.
+📖 **Descrição**  
+Fórmula para realizar a validação e bloqueio de condições de pagamento para a gravação de dados, verificando inconsistências como títulos a vencer, limite de crédito excedido e restrições financeiras, antes de permitir a gravação de uma entidade no sistema.
 
-## 🎯 Finalidade
-Garantir a integridade e conformidade dos documentos de venda através de validações financeiras e comerciais antes da gravação definitiva no sistema.
+🎯 **Finalidade**  
+Garantir que apenas dados consistentes sejam gravados no sistema, bloqueando entidades com inconsistências financeiras como títulos vencidos ou limite de crédito excedido.
 
-## 👥 Público-Alvo
-- Departamento Comercial
-- Crédito e Cobrança
-- Faturamento
-- Controladoria
+👥 **Público-Alvo**
+- Departamento Financeiro
+- Controle de Crédito
+- Equipe de Suporte
 
-## ⚙️ Configuração
-**Recursos Necessários:**
-- Fórmula `SCV_Pre_Gravacao` - Validação pré-gravação
-
-**Localização:** `strema/formulas/scv/`
-
-## 📊 Dados e Fontes
+📊 **Dados e Fontes**  
 **Tabelas Principais:**
-- `EAA01` - Documentos fiscais
-- `ABE30` - Condições de pagamento
-- `ABE01` - Entidades/Clientes
-- `DAA01` - Títulos a receber
-- `EAA0107` - Mensagens de inconsistência
-
-**Entidades Envolvidas:**
-- `Eaa01` - Documentos fiscais
+- `Aac10` - Informações de entidades
+- `Aae20` - Configurações de pagamento
+- `Aag02` - Condições de pagamento
+- `Aag0201` - Detalhes de pagamento
+- `Abb01` - Cabeçalhos de documentos
+- `Abe01` - Entidades (clientes/fornecedores)
+- `Abe0101` - Relacionamentos de entidades
 - `Abe30` - Condições de pagamento
-- `Abe01` - Entidades
-- `Daa01` - Títulos
-- `Eaa0107` - Inconsistências
+- `Daa01` - Títulos a receber
+- `Eaa01` - Documentos de contas a pagar
 
-## ⚙️ Parâmetros do Processo
+⚙️ **Parâmetros da Fórmula**
 
-| Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|-------------|-----------|
-| eaa01 | Eaa01 | Sim | Documento a ser validado |
+| Parâmetro       | Tipo    | Obrigatório | Descrição                              |
+|-----------------|---------|-------------|----------------------------------------|
+| eaa01           | Objeto  | Sim         | Objeto representando o documento de contas a pagar |
+| validaInconsistencia | Boolean | Sim       | Flag que indica se há inconsistências a serem validadas |
+| gravar          | Inteiro | Sim         | Flag de controle para indicar se o documento pode ser gravado |
 
-## 📋 Saídas do Processo
+🔄 **Fluxo do Processo**
+1. **Verificação de Condições de Pagamento**  
+   O código começa verificando se a condição de pagamento está corretamente informada, e se não, interrompe o processo.
+2. **Validação de Inconsistências**  
+   Verifica as inconsistências financeiras, como títulos a vencer, limite de crédito excedido ou restrições financeiras. Se encontrado, o documento é bloqueado para gravação.
+3. **Execução das Validações**
+   - **Validação de Títulos Vencidos:** Verifica se existem títulos a vencer.
+   - **Limite de Crédito Excedido:** Verifica se o total financeiro excede o limite de crédito da entidade.
+   - **Restrição Financeira:** Verifica se a entidade possui restrições financeiras.
+4. **Resultado Final**  
+   Se todas as validações passarem, o documento é desbloqueado para gravação. Caso contrário, o bloqueio permanece ativo.
 
-| Campo | Descrição | Tipo |
-|-------|-----------|------|
-| gravar | Indicador de gravação (0-Não, 1-Sim) | Integer |
-| eaa01 | Documento com inconsistências registradas | Eaa01 |
+⚠️ **Regras de Negócio**
 
-## 🔄 Fluxo do Processo
+- **Validações:**
+   - Se `eaa01cp` (condição de pagamento) não estiver informado, o processo é interrompido.
+   - O bloqueio da entidade ocorre quando:
+      - Existem títulos vencidos a receber.
+      - O limite de crédito da entidade foi excedido.
+      - A entidade tem restrições financeiras.
 
-1. **Validação Inicial**
-   - Obtém documento fiscal (EAA01)
-   - Verifica existência de condição de pagamento
-   - Inicializa flags de controle
+- **Formatação de Dados:**
+   - As mensagens de bloqueio são armazenadas na lista `eaa0107s`, que contém os detalhes das inconsistências encontradas.
+   - O valor de bloqueio (`eaa01bloqueado`) é definido como `1` quando o bloqueio é necessário.
 
-2. **Processamento por Tipo de Operação**
-   - Aplica validações apenas para operação "201" (Venda)
-   - Executa verificações financeiras específicas
+🔧 **Métodos Principais**
+- `obterTipoFormula()`  
+  Retorna o tipo de fórmula `SCV_SRF_PRE_GRAVACAO`.
 
-3. **Validações de Inconsistência**
-   - Títulos a receber vencidos
-   - Limite de crédito excedido
-   - Restrições financeiras da entidade
+- `executar()`  
+  Método principal que executa as validações e controle de gravação do documento.
 
-4. **Definição de Bloqueio**
-   - Define se documento será bloqueado
-   - Registra mensagens de inconsistência
-   - Remove política de uso do documento
+- **Métodos de Validação (comentados no código):**
+   - `validarInconsistenciaTituloAreceberVencido()`
+   - `validarInconsistenciaLimiteCreditoExcedido()`
+   - `validarInconsistenciaRestricao()`
+   - Métodos auxiliares para verificar condições de títulos vencidos, limite de crédito e restrições financeiras.
 
-## ⚠️ Regras de Negócio
-
-### Validações Obrigatórias
-- Condição de pagamento é obrigatória
-- Apenas operação "201" (Venda) sofre validações financeiras
-- Documento deve ter classificação de documento ativa
-
-### Verificações Financeiras
-
-**Títulos Vencidos:**
-- Soma valores de títulos com vencimento anterior à data atual
-- Bloqueia documento se existirem títulos vencidos
-
-**Limite de Crédito:**
-- Calcula total financeiro em aberto
-- Soma títulos a receber não quitados
-- Considera valor do documento atual (se novo)
-- Bloqueia se exceder limite cadastrado
-
-**Restrições:**
-- Verifica flag de restrição financeira no cadastro da entidade
-- Bloqueia documento se entidade possui restrição
-
-### Comportamento do Sistema
-- Documento é bloqueado (`eaa01bloqueado = 1`) se houver inconsistências
-- Mensagens detalhadas são registradas em `EAA0107`
-- Política de uso é removida do documento
-- Processamento continua mesmo com inconsistências
-
-## 🎨 Inconsistências Registradas
-
-| Tipo | Mensagem | Identificador |
-|------|----------|---------------|
-| Títulos Vencidos | "Título a receber vencido: [valor]" | BLOQUEIO |
-| Limite Excedido | "Limite de crédito excedido..." | BLOQUEIO |
-| Sem Limite | "A entidade não possui limite de crédito" | BLOQUEIO |
-| Restrição | "A entidade possui restrição financeira" | BLOQUEIO |
-
-## 🔧 Dependências
-
+🔧 **Dependências**  
 **Bibliotecas:**
-- `multiorm` - Persistência e consultas
-- `multitec.utils` - Utilitários e coleções
+- `br.com.multiorm` - ORM para manipulação de dados no banco
+- `sam.model.entities.*` - Entidades do sistema para manipulação de dados financeiros
 
-**Consultas:**
-- Soma de títulos vencidos por entidade
-- Total financeiro de documentos em aberto
-- Total de títulos a receber não quitados
+**Entidades:**
+- `FormulaBase` - Classe base para fórmulas
+- `TableMap` - Mapeamento de tabelas e dados JSON
+- `Eaa01`, `Abe30`, `Abe01`, etc. - Entidades específicas do sistema de contas a pagar e crédito
 
-## 📝 Observações Técnicas
-
-- Validações aplicadas apenas para novos documentos/vendas
-- Sistema tolerante a falhas (continua processamento)
-- Mensagens de erro detalhadas e específicas
-- Integração com sistema de bloqueio de documentos
-- Remoção automática de política de uso
-- Consultas otimizadas com joins
-- Suporte a campos JSON para configurações flexíveis
+📝 **Observações Técnicas**
+- As validações de inconsistência são feitas por meio de consultas SQL otimizadas para identificar registros vencidos ou com valores financeiros inconsistentes.
+- As inconsistências são armazenadas no objeto `eaa0107s`, que contém a mensagem e o identificador do bloqueio.
