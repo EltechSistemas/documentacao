@@ -1,182 +1,162 @@
 # SRF_CalculoItem_Saida
 
-📖 **Descrição**  
-Fórmula responsável por calcular e atualizar valores fiscais de um item de saída (documento de saída). Inclui ajuste de CFOP, cálculo de impostos (IPI, ICMS, PIS, COFINS), aplicação de regras de reforma tributária (CBS/IBS), cálculo de descontos especiais (Zona Franca/Amazônia Ocidental) e geração de valores aproximados de impostos para venda ao consumidor final. Atualiza campos JSON do item.
+## 📖 Descrição
+Fórmula responsável pelo cálculo completo dos valores fiscais, comerciais e tributários de um **item de documento de saída (SCV)**. A fórmula realiza a apuração automática de preços, comissões, impostos (ICMS, IPI, PIS, COFINS, ICMS ST), ajustes de CFOP, aplicação de regras fiscais por UF, município, entidade e item, além de contemplar regras especiais como **Zona Franca de Manaus, Área de Livre Comércio, Amazônia Ocidental e Reforma Tributária (CBS/IBS)**.
 
-🎯 **Finalidade**
-- Ajustar CFOP conforme operação, estado e tipo de item.
-- Calcular totais do item (total, totDoc e totFinanc).
-- Calcular impostos: IPI, ICMS, PIS e COFINS.
-- Aplicar regras da reforma tributária (CBS/IBS) quando aplicável.
-- Aplicar regras especiais para Zona Franca / Área de Livre Comércio e Amazônia Ocidental.
-- Calcular diferencial de alíquota interestadual para não contribuintes e pessoa física.
-- Atualizar campos JSON do item e persistir alterações.
+## 🎯 Finalidade
+Garantir o cálculo correto e automatizado dos valores do item em documentos de saída, assegurando conformidade fiscal, consistência comercial e correta formação do total do documento, considerando legislações estaduais, federais e regras específicas do negócio.
 
-👥 **Público-Alvo**
-- Fiscal
-- Contabilidade
-- Auditoria
-- Desenvolvedores do sistema SRF
+## 👥 Público-Alvo
+- Departamento Fiscal
+- Departamento Contábil
+- Departamento Comercial
+- Departamento Financeiro
+- Equipe de Vendas
+- Suporte Operacional
+- TI / Sustentação de Sistemas
 
-⚙️ **Parâmetros/Configurações**  
+## 📊 Dados e Fontes
+
+### Tabelas Principais
+- Eaa01 – Documento SCV
+- Eaa0101 – Endereços do documento
+- Eaa0102 – Dados gerais do documento
+- Eaa0103 – Itens do documento
+- Abb01 – Central do documento
+- Abb10 – Operação comercial
+- Abd01 – PCD
+- Abe01 – Entidade
+- Abe0101 – Endereço da entidade
+- Abe30 – Condição de pagamento
+- Abe40 – Tabela de preços
+- Abe4001 – Preço por item
+- Abm01 – Cadastro de itens
+- Abm0101 – Configuração do item por empresa
+- Abm10 – Valores do item
+- Abm1001 – Valores do item por UF
+- Abm1002 – Valores do item por município
+- Abm1003 – Valores do item por entidade
+- Abm12 – Configuração fiscal do item
+- Abm13 – Configuração comercial do item
+- Abm1301 – Fator de conversão de unidades
+- Abg01 – NCM
+- Aag01 – País
+- Aag02 – UF
+- Aag0201 – Município
+- Aaj07 – Classificação tributária
+- Aaj09 – CST CBS/IBS
+- Aaj10 – CST ICMS
+- Aaj11 – CST IPI
+- Aaj12 – CST PIS
+- Aaj13 – CST COFINS
+- Aaj14 – CSOSN
+- Aaj15 – CFOP
+- Aac10 – Empresa
+
+### Entidades Envolvidas
+- Documento SCV e seus itens
+- Entidade (cliente/destinatário)
+- Empresa emissora
+- Item e suas configurações fiscais/comerciais
+- Estados, municípios e país
+- Tabelas de preço e condições de pagamento
+
+## ⚙️ Parâmetros da Fórmula
+
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|---|---|---|---|
-| eaa0103 | Eaa0103 | Sim | Item do documento a ser processado |
-| eaa01 | Eaa01 | Sim | Documento associado ao item |
-| aac10 | Aac10 | Sim | Empresa ativa |
-| abm01 | Abm01 | Sim | Item de cadastro |
-| abm0101 | Abm0101 | Sim | Configuração do item por empresa |
-| abm10 | Abm10 | Não | Valores do item (geral) |
-| abm1001 | Abm1001 | Não | Valores do item por estado |
-| abm1003 | Abm1003 | Não | Valores do item por entidade |
-| abm12 | Abm12 | Sim | Configuração fiscal do item |
-| abm13 | Abm13 | Não | Dados comerciais do item |
-| abm1301 | Abm1301 | Não | Fatores de conversão de unidade de compra para estoque |
-| abb01 | Abb01 | Sim | Central do documento |
-| abb10 | Abb10 | Não | Operação comercial |
-| abe01 | Abe01 | Sim | Entidade do documento |
-| abd01 | Abd01 | Sim | PCD (tipo de documento) |
-| aag01 | Aag01 | Não | País da entidade |
-| ufEnt / ufEmpr | Aag02 | Não | UF do destinatário e da empresa |
-| municipioEnt / municipioEmpr | Aag0201 | Não | Município do destinatário e da empresa |
-| jsonEaa0103 | TableMap | Sim | JSON do item (Eaa0103) |
-| jsonAbm0101 | TableMap | Não | JSON de configuração do item |
-| jsonAbm1001_UF_Item | TableMap | Não | JSON de estado do item |
-| jsonAbm1003_Ent_Item | TableMap | Não | JSON do item por entidade |
-| jsonAbe01 | TableMap | Não | JSON da entidade |
-| jsonAag02Ent / jsonAag02Empr | TableMap | Não | JSON de UF |
-| jsonAag0201Ent | TableMap | Não | JSON de município |
-| jsonAac10 | TableMap | Não | JSON da empresa |
-| jsonAaj07 | TableMap | Não | JSON de regras de reforma tributária |
+|----------|------|-------------|-----------|
+| eaa0103 | Objeto | Sim | Item do documento SCV a ser calculado |
+| jsonEaa0103 | TableMap | Sim | Campos livres do item utilizados nos cálculos |
+| abm01 | Objeto | Sim | Item do cadastro |
+| abm0101 | Objeto | Sim | Configuração do item por empresa |
+| abm10 | Objeto | Não | Valores do item |
+| abm1001 | Objeto | Não | Valores do item por UF |
+| abm1002 | Objeto | Não | Valores do item por município |
+| abm1003 | Objeto | Não | Valores do item por entidade |
+| abm12 | Objeto | Sim | Configuração fiscal do item |
+| abm13 | Objeto | Não | Configuração comercial do item |
+| abe01 | Objeto | Sim | Entidade do documento |
+| aac10 | Objeto | Sim | Empresa ativa |
 
-📊 **Estrutura de Processamento**
+## 🔄 Fluxo do Processo
 
-### Inicialização
-- Recupera o item (`eaa0103`) e o documento (`eaa01`).
-- Valida que o documento é de saída (PCD).
-- Recupera dados da entidade, endereço principal e localização (UF/município).
-- Carrega empresa ativa e configurações do item.
-- Valida existência da configuração fiscal do item (`abm12`).
-- Carrega CST/CFOP/NCM e outros dados fiscais.
-- Carrega JSONs do item, estado, entidade e configurações.
-- Executa `calcularItem()`.
+### 1. Preparação e Validações Iniciais
+- Recupera o item do documento (`Eaa0103`) e o documento principal (`Eaa01`).
+- Valida se o documento é de saída.
+- Valida dados obrigatórios da entidade e do endereço principal.
 
-### Cálculo do Item
-- Determina operação comercial e se é dentro ou fora do estado.
-- Ajusta CFOP conforme operação, tipo de item, estado e presença de IVA.
-- Calcula total do item (quantidade * unitário).
-- Ajusta quantidade de uso (conversão de unidade de venda para estoque).
-- Calcula volume e peso bruto/líquido conforme configurações do item.
-- Calcula desconto incondicional (se informado).
-- Aplica reforma tributária (CBS/IBS).
+### 2. Carregamento de Configurações
+- Busca dados da empresa, entidade, UF, município e país.
+- Carrega configurações fiscais e comerciais do item.
+- Carrega valores do item por UF, município e entidade.
 
-#### IPI
-- Calcula base (total + frete + seguro + outras despesas).
-- Busca alíquota do NCM.
-- Ajusta CST conforme alíquota informada.
-- Calcula valor do IPI para CST 50.
-- Ajusta campos para CST 51/53/54/55/99 e CST 52.
-- Valida CST.
+### 3. Formação de Preço e Comissão
+- Obtém o preço unitário a partir da tabela de preços.
+- Valida vencimento da tabela de preços.
+- Aplica taxas de comissão por nível (0 a 4).
 
-#### ICMS
-- Ajusta CST conforme IVA, redução, operação, regime especial e estado.
-- Define alíquota de ICMS considerando UF da entidade, UF da empresa, e configurações do item/entidade.
-- Calcula base de ICMS (valor do item + frete + seguro + outras despesas - desconto).
-- Adiciona IPI à base quando destinatário não é contribuinte.
-- Calcula ICMS conforme CST:
-    - CST 00: tributado integralmente
-    - CST 10: com ICMS ST
-    - CST 20: redução de base
-    - CST 30/40: isento/não tributado
-    - CST 41/50/51: outras operações
-    - CST 60: ICMS ST cobrado anteriormente (ajusta CFOP para 5405/6403 se aplicável)
-    - CST 70: redução de base + ICMS ST
-    - CST 90: outras (com ou sem redução)
-- Valida CST.
+### 4. Ajustes Fiscais e Comerciais
+- Ajusta CFOP conforme operação, UF, tipo de item e regime da entidade.
+- Define CSTs de ICMS, IPI, PIS, COFINS, CSOSN e CBS/IBS.
 
-#### PIS
-- Calcula base (valor do item + frete + seguro + outras - desconto - ICMS).
-- Busca alíquota no cadastro do item.
-- Calcula PIS para CST 01/02.
-- Valida e trata CST 03 (não suportado).
-- Zera valores para CST 04/05/06/07/08/09/49.
-- Valida CST.
+### 5. Cálculo de Valores
+- Calcula total do item.
+- Converte quantidades e unidades.
+- Calcula peso bruto, peso líquido e volume.
+- Aplica descontos condicionais e incondicionais.
 
-#### COFINS
-- Calcula base (valor do item + frete + seguro + outras - desconto - ICMS).
-- Busca alíquota no cadastro do item.
-- Calcula COFINS para CST 01/02.
-- Valida e trata CST 03 (não suportado).
-- Zera valores para CST 04/05/06/07/08/09/49.
-- Valida CST.
+### 6. Apuração de Tributos
+- ICMS (normal, redução, isenção, ST, desoneração).
+- IPI conforme CST e NCM.
+- PIS e COFINS conforme CST e regime tributário.
+- Aplicação de regras de Zona Franca, ALC e Amazônia Ocidental.
 
-### Zona Franca / Área de Livre Comércio e Amazônia Ocidental
-- Zera valores de ICMS ZF e demais campos antes do cálculo.
-- Se Amazônia Ocidental (alc=3):
-    - Define CST IPI 55
-    - Zera base e alíquota de IPI
-    - Calcula IPI isento (total + frete + seguro + outras despesas)
-- Se Zona Franca/Área Livre Comércio (alc=1 ou 2):
-    - Aplica alíquota de ICMS ZF conforme UF
-    - Calcula base e desconto de ICMS ZF
-    - Zera valores de ICMS normal e ajusta isento
-    - Ajusta CFOP (6110 para revenda, 6109 para produto acabado)
-    - Ajusta CST ICMS para 040
-    - Suspende IPI (IPI isento)
-    - Se regime tributário diferente de Lucro Real, aplica CST 06 para PIS/COFINS (alíquota zero)
+### 7. Totalização
+- Calcula total do documento por item.
+- Define valor financeiro do item.
 
-### Total do Documento
-- Calcula total do documento:  
-  `Total Item + IPI + Frete + Seguro + Outras Despesas + ICMS ST - Desconto`
-- Arredonda para 2 casas.
-- Define total financeiro (zero se item de retorno).
+## ⚠️ Regras de Negócio
+- Apenas documentos de **saída** são permitidos.
+- A tabela de preços não pode estar vencida.
+- O item deve possuir configuração fiscal válida.
+- CSTs devem ser compatíveis com alíquotas e regras fiscais.
+- Regras específicas são aplicadas para:
+  - Zona Franca de Manaus
+  - Área de Livre Comércio
+  - Amazônia Ocidental
+  - Regimes especiais
+  - Entidades não contribuintes
+- Reforma Tributária (CBS/IBS) é considerada quando configurada.
 
-### Outras Informações
-- Ajusta classificação de receita (PIS/COFINS) para determinados CFOPs.
-- Para itens retornados (CFOP 902), zera volume e peso.
+## 🔧 Métodos Principais
+- **obterTipoFormula()**  
+  Retorna o tipo de fórmula `SCV_SRF_ITEM_DO_DOCUMENTO`.
 
-### Impostos Aproximados para Consumidor Final
-- Se operação de venda (operacao=1) e consumidor final ou pessoa física, calcula valores aproximados:
-    - Imposto federal e estadual com base em alíquotas do NCM
-    - Soma para valor aproximado total de impostos
+- **executar()**  
+  Método principal que realiza todo o processamento do item, incluindo carregamento de dados, cálculos e gravação dos resultados.
 
-### Diferencial de Alíquota Interestadual (a partir de 01/01/2016)
-- Aplicável para venda a pessoa física ou não contribuinte, fora do estado e país Brasil (1058).
-- Define % de partilha conforme ano (2016-2019+).
-- Calcula ICMS devido ao estado destino e origem, e valor de FCP se aplicável.
+- **setarObterPrecoUnitarioTaxasComissaoItem()**  
+  Obtém preço unitário e taxas de comissão a partir da tabela de preços e configuração do item.
 
-⚠️ **Regras de Negócio**
-- Fórmula só pode ser usada em documentos de saída.
-- Se o documento for de entrada, gera exceção.
-- Se não existir endereço principal da entidade no documento, gera exceção.
-- Se não existir configuração fiscal do item, gera exceção.
-- Ajustes de CST (IPI/ICMS/PIS/COFINS) validam obrigatoriedade de alíquota e campos necessários.
-- CST inválido gera exceção.
-- Ajustes de CFOP conforme tipo de item, estado, operação e IVA.
-- Operações em Zona Franca/Amazônia Ocidental alteram CFOP, CST e impostos conforme regras.
-- Regime especial da entidade força CST de ICMS para “00”.
-- Para venda a consumidor final, gera valor aproximado de impostos com base no NCM.
+- **calcularItem()**  
+  Executa todos os cálculos fiscais, comerciais e tributários do item.
 
-🎨 **Saídas/Retornos**  
-| Tipo | Descrição | Formato |
-|---|---|---|
-| Item atualizado | Atualiza campos do item com valores calculados | Objeto `Eaa0103` com JSON atualizado |
+## 🔧 Dependências
 
-🔧 **Dependências**
-- Bibliotecas:
-    - `sam.server.samdev.formula.FormulaBase`
-    - `sam.dicdados.FormulaTipo`
-    - `br.com.multitec.utils.ValidacaoException`
-    - `br.com.multitec.utils.collections.TableMap`
-    - `br.com.multiorm.criteria.criterion.Criterions`
-- Entidades:
-    - `Eaa01`, `Eaa0101`, `Eaa0102`, `Eaa0103`
-    - `Aac10`, `Aag01`, `Aag02`, `Aag0201`, `Aaj07`, `Aaj10`, `Aaj11`, `Aaj12`, `Aaj13`, `Aaj14`, `Aaj15`, `Aam06`
-    - `Abb01`, `Abb10`, `Abd01`, `Abe01`, `Abg01`, `Abm01`, `Abm0101`, `Abm10`, `Abm1001`, `Abm1003`, `Abm12`, `Abm13`, `Abm1301`
+### Bibliotecas
+- br.com.multiorm.criteria.criterion.Criterions
+- br.com.multitec.utils.ValidacaoException
+- br.com.multitec.utils.collections.TableMap
+- sam.server.samdev.utils.Parametro
+- sam.core.variaveis.MDate
 
-📝 **Observações Técnicas**
-- Campos JSON acessados e atualizados via `TableMap`.
-- Aplicação de reforma tributária é dinâmica (executa métodos conforme flags do JSON `Aaj07`).
-- Base de cálculo e alíquotas podem ser substituídas por valores do cadastro do item, entidade ou estado.
-- Valores são arredondados conforme regras do sistema (ex.: 2 casas decimais para totais).
-- O cálculo do diferencial de alíquota usa o ano da emissão do documento e regras de partilha progressiva (2016-2019+).
+### Entidades
+- FormulaBase
+- Entidades fiscais, comerciais e tributárias do SAM
+
+## 📝 Observações Técnicas
+- A fórmula utiliza extensivamente campos livres (`TableMap`) para flexibilizar regras fiscais.
+- O cálculo é altamente dependente da correta configuração do item, entidade e UF.
+- Possui grande complexidade fiscal, refletindo legislações estaduais e federais brasileiras.
+- O processamento é sensível a CSTs e CFOPs, lançando exceções quando inconsistências são encontradas.
+- O código foi projetado para garantir consistência fiscal e evitar cálculos incorretos no momento da emissão do documento.
