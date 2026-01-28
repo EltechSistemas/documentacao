@@ -1,207 +1,91 @@
-# SRF - Cálculo de Item de Entrada por Importação
+# SRF_CalculoItem_Entrada_Importacao.md
 
 ## 📖 Descrição
-Fórmula para cálculo de impostos e valores em itens de documentos fiscais de entrada por importação, aplicando regras específicas de importação, tributação federal e estadual, conversões de unidades e tratamento de moedas estrangeiras.
+Sistema de fórmula para cálculo de itens em documentos de entrada de importação no ERP Strema. O script gerencia a tributação complexa de comércio exterior (II, IPI, PIS, COFINS, ICMS), conversões de unidades, cotações de moedas estrangeiras e regras automáticas de CFOP.
 
 ## 🎯 Finalidade
-Calcular automaticamente os valores fiscais e financeiros de itens em documentos de importação, incluindo impostos de importação (II), IPI, ICMS, PIS/COFINS, conversões monetárias e ajustes de base de cálculo.
+Automatizar o cálculo fiscal e financeiro de itens em notas fiscais de entrada de importação, garantindo que a base de cálculo do ICMS (que inclui impostos federais e despesas aduaneiras) seja composta corretamente conforme a legislação vigente e o tipo de operação (PCD).
 
 ## 👥 Público-Alvo
-- Departamento Fiscal
-- Importação/Exportação
-- Contabilidade
-- Faturamento
+* Departamento Fiscal
+* Departamento de Compras / Importação
+* Desenvolvedores e Suporte Técnico
+* Contabilidade
+
+## ⚙️ Configuração
+* **Recursos Necessários:** * Classe `SRF_CalculoItem_Entrada_Importacao`
+  * Pacote `strema.formulas.srf`
+* **Localização:** `sam.server.samdev.formula` (Tipo de Fórmula: `SCV_SRF_ITEM_DO_DOCUMENTO`)
 
 ## 📊 Dados e Fontes
+### Tabelas Principais:
+* **EAA01 / EAA0103** - Cabeçalho e Itens do Documento de Entrada
+* **AAC10** - Dados da Empresa Ativa
+* **ABE01** - Entidade (Fornecedor Estrangeiro)
+* **ABM01 / ABM0101** - Cadastro de Materiais e Definições por Empresa
+* **ABM12 / ABM13** - Configurações Fiscais e Comerciais do Item
+* **ABD01** - Tipo de Documento (PCD)
+* **AAG10 / AAG1001** - Moedas e Histórico de Cotações
+* **AAJ15** - Tabela de CFOP
 
-**Tabelas Principais:**
-- `Eaa0103` - Itens do documento fiscal
-- `Eaa01` - Documentos fiscais
-- `Eaa0102` - Dados gerais do documento
-- `Eaa0101` - Endereços do documento
-- `Abb01` - Central de documento
-- `Abb10` - Operações comerciais
-- `Abd01` - Parâmetros de cálculo de documentos (PCD)
-- `Abe01` - Entidades (clientes/fornecedores)
-- `Abm01` - Produtos
-- `Abm0101` - Configurações do produto por empresa
-- `Abm12` - Dados fiscais do item
-- `Abm13` - Dados comerciais do item
-- `Abm1301` - Fatores de conversão de unidade
-- `Abm10` - Valores do produto
-- `Abm1001` - Valores do produto por UF
-- `Aaj15` - CFOP (Código Fiscal de Operações)
-- `Abg01` - NCM (Nomenclatura Comum do Mercosul)
-- `Aaj10` - CST ICMS
-- `Aaj11` - CST IPI
-- `Aaj12` - CST PIS
-- `Aaj13` - CST COFINS
-- `Aac10` - Empresas
-- `Aag02` - Estados (UF)
-- `Aag0201` - Municípios
-
-## ⚙️ Parâmetros da Fórmula
-
+## ⚙️ Parâmetros do Processo
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|-------------|-----------|
-| eaa0103 | Eaa0103 | Sim | Item do documento fiscal a ser calculado |
+| :--- | :--- | :--- | :--- |
+| eaa0103 | Object | Sim | Objeto do item do documento em processamento. |
+| data_cotacao | Date | Não | Data específica no JSON para busca de cotação de moeda. |
+| abd01codigo | String | Sim | Código do PCD (ex: "114", "314") que define a lógica de cálculo. |
+
+## 📋 Saídas do Processo
+| Campo | Descrição | Tipo |
+| :--- | :--- | :--- |
+| eaa0103total | Valor total líquido do item (FOB/CIF convertido). | BigDecimal |
+| eaa0103totDoc | Valor total do item com todos os impostos integrados. | BigDecimal |
+| eaa0103cfop | CFOP recalculado automaticamente. | Entity (AAJ15) |
+| jsonEaa0103 | Campos livres com memória de cálculo (bases e alíquotas). | TableMap |
 
 ## 🔄 Fluxo do Processo
-
-### 1. **Configuração Inicial**
-- Validação do item do documento (Eaa0103)
-- Carregamento do documento fiscal (Eaa01)
-- Validação de pessoa física como contribuinte de ICMS
-- Carregamento da operação comercial (Abb10) e PCD (Abd01)
-- Obtenção de dados da entidade (Abe01) e empresa (Aac10)
-
-### 2. **Carregamento de Dados Geográficos**
-- Identificação do endereço principal da entidade
-- Obtenção de município e UF da entidade
-- Obtenção de município e UF da empresa
-- Determinação se operação é intraestadual ou interestadual
-
-### 3. **Carregamento de Dados do Produto**
-- Configurações fiscais (Abm12) e comerciais (Abm13) do item
-- Fatores de conversão de unidades (Abm1301)
-- NCM (Abg01) e CFOP (Aaj15)
-- Valores do produto por UF (Abm1001)
-- Códigos de situação tributária (CSTs)
-
-### 4. **Cálculo de CFOP**
-- Determinação automática de CFOP baseado em:
-  - Tipo de operação comercial
-  - Localização geográfica (dentro/fora do estado)
-  - Tipo de inscrição da entidade (CNPJ/CPF)
-  - Presença de IVA no item
-  - Tipo de produto (revenda/produção)
-
-### 5. **Cálculo de Valores do Item**
-- **PCD 114**: Cálculo simples (quantidade × valor unitário)
-- **PCD 314**: Cálculo complexo de importação:
-  - Conversão monetária (FOB para Real)
-  - Soma de fretes, seguros e acréscimos
-  - Cálculo de CIF (Custo, Seguro e Frete)
-
-### 6. **Cálculo de Impostos**
-- **II (Imposto de Importação)**: Base CIF × Alíquota
-- **IPI**: Base (CIF + II) × Alíquota NCM
-- **PIS/COFINS**: Base valor total × Alíquotas
-- **ICMS**: Cálculo complexo com base em fórmula específica
-- Tratamento de isenções e alíquotas zero
-
-### 7. **Ajustes Finais**
-- Conversão de quantidades para unidades de estoque
-- Cálculo de pesos brutos e líquidos
-- Aplicação de descontos incondicionais
-- Cálculo de valor total do documento
-- Definição de custo de aquisição
+1.  **Inicialização e Validação:**
+  * Recupera o item (`eaa0103`) e valida se a entidade não é Pessoa Física contribuinte de ICMS.
+2.  **Recuperação de Cadastros:**
+  * Busca dados da empresa ativa, fornecedor e configurações fiscais/comerciais do material.
+3.  **Gestão de Moeda e Cotação:**
+  * Para operações específicas (PCD 314), busca a cotação da moeda estrangeira baseada na data do documento ou data informada.
+4.  **Processamento Fiscal Sequencial:**
+  * **II:** Calcula Imposto de Importação sobre o CIF.
+  * **IPI:** Define base (CIF + II) e busca alíquota do cadastro de NCM.
+  * **PIS/COFINS:** Calcula alíquotas baseadas no cadastro do item ou exceções de UF ("EX").
+  * **ICMS:** Realiza o cálculo "por dentro", onde a base é a soma de todos os impostos federais e despesas, dividida pelo complemento da alíquota interna.
+5.  **Finalização:**
+  * Calcula o custo de aquisição, ajusta o valor total do documento e popula os campos JSON de retorno.
 
 ## ⚠️ Regras de Negócio
+### Filtros e Validações
+* **Impedimento PF:** Gera erro se tentar importar via Pessoa Física caracterizada como contribuinte.
+* **Configuração Fiscal:** Exige que o item possua configuração de impostos (`ABM12`) ativa.
+* **Endereço:** É obrigatório haver um endereço marcado como "Principal" no documento para definir a UF de entrada.
 
-### Validações Críticas
-- Pessoa física não pode ser contribuinte de ICMS
-- Item deve ter configuração fiscal cadastrada
-- CFOP deve existir no cadastro após determinação automática
-- Cotação monetária obrigatória para importação em moeda estrangeira
+### Regras de CFOP
+* **Prefixo Fixo:** Sempre inicia com o dígito "3" por se tratar de operação externa.
+* **Dinâmica:** O sufixo é alterado conforme o tipo de material (venda/revenda), status de contribuinte do fornecedor e presença de IVA.
 
-### Cálculo de CFOP
-- Dígito inicial fixo em "3" para importação
-- CFOPs específicos para operações com IVA (401)
-- Diferencição entre venda (102/108) e revenda (101/107)
-- CFOP 109 para operações específicas
-
-### Cálculo de Importação (PCD 314)
-- Conversão obrigatória de moeda estrangeira
-- CIF = FOB + Frete + Seguro + Acréscimos
-- Base de cálculo do ICMS inclui todos os impostos
-- Valor total do documento igual à base de cálculo do ICMS
-
-### Tratamento de Impostos
-- **II**: Zerado quando alíquota for zero
-- **IPI**: Base inclui CIF + II, isenção move valor para campo específico
-- **PIS/COFINS**: Alíquotas diferenciadas para operações com exterior
-- **ICMS**: Cálculo por fórmula ((CIF+impostos)/(1-aliq))×aliq
-- **CST 51**: Zera ICMS e alíquota automaticamente
-
-### Conversões e Ajustes
-- Conversão de quantidade comercial para quantidade de uso
-- Cálculo de volume baseado em fator do produto
-- Desconto incondicional aplicado sobre valor total
-- Arredondamentos em 2 casas decimais para valores monetários
-
-## 🔧 Métodos Principais
-
-### `executar()`
-Método principal que orquestra todo o cálculo do item de importação.
-
-### `calcularItem()**
-Executa todos os cálculos fiscais e financeiros do item, incluindo:
-- Determinação de CFOP
-- Cálculo de valores totais
-- Cálculo de todos os impostos
-- Conversões de unidades e moedas
-- Ajustes finais do item
-
-## 📊 Estrutura de Cálculo
-
-**Dados de Entrada:**
-- Item do documento (Eaa0103) com quantidade e valor unitário
-- Documento fiscal (Eaa01) com PCD e dados de importação
-- Dados geográficos de entidade e empresa
-- Configurações do produto e NCM
-
-**Cálculos Intermediários:**
-- Determinação de CFOP
-- Conversão monetária (para importação)
-- Cálculo de CIF
-- Bases de cálculo de cada imposto
-
-**Resultados:**
-- Valores calculados de cada imposto (II, IPI, ICMS, PIS, COFINS)
-- Valores totais do item (comercial, documento, financeiro)
-- Bases de cálculo ajustadas
-- Campos JSON com detalhes do cálculo
+### Particularidades do ICMS
+* **Cálculo por Dentro:** A base de cálculo do ICMS é recalculada para incluir o próprio imposto na sua base.
+* **Diferimento:** Caso o CST de ICMS termine em "51", os valores de imposto e alíquota são zerados no item.
 
 ## 🔧 Dependências
-
-**Bibliotecas:**
-- `multiorm` - Criteria e consultas ao banco
-- `multitec.utils` - Utilitários e exceções
-- `sam.dicdados` - Tipos de fórmula
-- `sam.model` - Entidades do sistema
-- `java.math` - Operações com BigDecimal
-
-**Módulo:** SRF (Sistema de Faturamento)
+* **Bibliotecas:** `br.com.multiorm`, `br.com.multitec.utils`, `sam.server.samdev`.
+* **Serviços:** Acesso ao banco de dados para consulta de cotações (`AAG1001`) e joins de tabelas fiscais.
 
 ## 📝 Observações Técnicas
+* **Precisão Decimal:** Cálculos financeiros utilizam `round(2)`, enquanto fatores de conversão e pesos utilizam precisão estendida.
+* **Flexibilidade:** Utiliza intensamente o objeto `TableMap` (JSON) para persistir campos que não possuem colunas fixas no banco de dados.
 
-### Estrutura de JSON
-- `jsonEaa0103`: Campos calculados do item (impostos, bases, valores)
-- `jsonAbm0101`: Configurações do produto por empresa
-- `jsonAbm1001_UF_Item`: Valores do produto por UF
-- `jsonAag02Ent`: Configurações da UF da entidade
-- `jsonAbe01`: Dados adicionais da entidade
+## 🔄 Métodos Principais
+### executar()
+Orquestrador principal que carrega as dependências do documento e dispara o fluxo de cálculo.
 
-### Tratamento de Moedas
-- Cotação obtida por data específica ou mais recente
-- Validação de cotação existente
-- Conversão de valores FOB para Real
-- Cálculo de valores em moeda nacional
+### calcularItem()
+Realiza o cálculo aritmético dos impostos, conversões de unidade de medida e aplicação das regras de CFOP.
 
-### Validações de Negócio
-- Interrupção por exceção em erros críticos
-- Validações preventivas em dados obrigatórios
-- Mensagens claras para correção pelo usuário
-
-### Performance
-- Carregamento otimizado de entidades relacionadas
-- Uso de Criteria para consultas eficientes
-- Minimização de consultas ao banco de dados
-
----
-
-**Última Alteração:** 27/11/2025 às 15:00  
-**Autor:** Bruno  
-**Tipo:** Fórmula de Cálculo de Item de Importação  
-**Versão:** 1.0
+### obterTipoFormula()
+Identifica a fórmula como do tipo `SCV_SRF_ITEM_DO_DOCUMENTO`.

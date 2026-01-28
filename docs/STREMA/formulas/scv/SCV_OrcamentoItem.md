@@ -1,172 +1,83 @@
-# SCV_OrcamentoItem - Cálculo de Itens de Orçamento
+# SCV_OrcamentoItem.md
 
 ## 📖 Descrição
-Classe responsável pelo cálculo de valores, impostos e totais para itens de orçamento, considerando configurações específicas por empresa, entidade, estado e município.
+Sistema de fórmula para o processamento de itens em orçamentos de venda no ERP Strema. O script automatiza a busca de preços de custo (via tabela de preço ou composição de produto), calcula pesos, volumes e toda a tributação incidente (ICMS, IPI, PIS, COFINS), consolidando o valor total do documento.
 
 ## 🎯 Finalidade
-Realizar cálculos completos de preços, impostos e totais para itens de orçamento, incluindo ICMS, IPI, PIS, COFINS, descontos e valores comerciais, com base nas configurações fiscais e comerciais do sistema.
+Garantir a precisão financeira e fiscal na fase de orçamento, permitindo que o vendedor tenha o custo real e os impostos calculados automaticamente com base na localização do cliente e nas configurações do material.
 
 ## 👥 Público-Alvo
-- Departamento Comercial
-- Vendedores
-- Departamento Fiscal
-- Gestores de Orçamentos
+* Equipe de Vendas / Comercial
+* Departamento Fiscal
+* Controladoria
+* Desenvolvedores / Suporte Técnico
+
+## ⚙️ Configuração
+* **Recursos Necessários:** * Classe `SCV_OrcamentoItem`
+    * Pacote `strema.formulas.scv`
+* **Localização:** `sam.server.samdev.formula`
+* **Tipo de Fórmula:** `SCV_ITEM_ORCAMENTO` (ID correspondente ao tipo de fórmula de item de orçamento).
+
+## 📊 Dados e Fontes
+### Tabelas Principais:
+* **CBE10 / CBE1001** - Cabeçalho e Itens do Orçamento de Venda.
+* **ABE40 / ABE4001** - Tabelas de Preço e seus Itens.
+* **ABP20 / ABP2001 / ABP20011** - Estrutura de Composição de Produtos (Ficha Técnica).
+* **ABE01 / ABE0101** - Entidade (Cliente) e Endereços.
+* **ABM01 / ABM0101** - Cadastro de Materiais e Definições por Empresa.
+* **ABM10 / 1001 / 1002 / 1003** - Matriz de Valores e Impostos por UF, Município e Entidade.
+* **AAG02 / AAG0201** - Estados (UF) e Municípios.
 
 ## ⚙️ Parâmetros do Processo
-
 | Parâmetro | Tipo | Obrigatório | Descrição |
-|-----------|------|-------------|-----------|
-| cbe1001 | Cbe1001 | Sim | Item do orçamento a ser calculado |
-| procInvoc | String | Não | Processo de invocação (CAS0240, CAS0242) |
+| :--- | :--- | :--- | :--- |
+| cbe1001 | Object | Sim | Objeto do item do orçamento atual em processamento. |
+| procInvoc | String | Não | Identificador do processo invocador (bloqueia execução se for "CAS0240" ou "CAS0242"). |
 
-## 📋 Estrutura de Dados Principais
-
-### Entidades Envolvidas:
-- **Cbe1001** - Item do orçamento
-- **Cbe10** - Cabeçalho do orçamento
-- **Abe40** - Tabela de preço
-- **Abe4001** - Item da tabela de preço
-- **Abb01** - Central de documento
-- **Abe01** - Entidade (cliente)
-- **Abe0101** - Endereço da entidade
-- **Abm01** - Item cadastral
-- **Abm0101** - Configuração do item por empresa
-- **Abm10** - Valores do item
-- **Abm12** - Dados fiscais do item
-- **Abm13** - Dados comerciais do item
-
-### Campos Calculados:
-- Preço de custo
-- Totais do item
-- Peso bruto e líquido
-- Descontos
-- Base de cálculo e valores de impostos (ICMS, IPI, PIS, COFINS)
-- Total do documento
+## 📋 Saídas do Processo
+| Campo | Descrição | Tipo |
+| :--- | :--- | :--- |
+| cbe1001total | Valor total líquido do item (Quantidade x Unitário). | BigDecimal |
+| cbe1001totDoc | Valor total do item com impostos, frete, seguro e despesas. | BigDecimal |
+| cbe1001totFinanc| Valor final que será integrado ao módulo financeiro. | BigDecimal |
+| jsonCbe1001 | Memória de cálculo (Bases e alíquotas de IPI, ICMS, PIS, COFINS). | TableMap |
 
 ## 🔄 Fluxo do Processo
-
-### 1. **Inicialização e Validação**
-- Carrega dados do item do orçamento
-- Verifica processo de invocação
-- Valida existência do item
-
-### 2. **Carregamento de Dados Relacionados**
-- Orçamento (Cbe10)
-- Tabela de preço (Abe40)
-- Entidade e endereço (Abe01, Abe0101)
-- Configurações do item (Abm0101, Abm12, Abm13)
-- Dados geográficos (município, UF)
-
-### 3. **Cálculo do Preço de Custo**
-- Busca preço na tabela de preço
-- Para itens compostos, calcula valor da composição
-- Considera mão de obra e itens componentes
-
-### 4. **Cálculos Comerciais**
-- Total do item (quantidade × unitário)
-- Conversão para volume
-- Cálculo de pesos
-- Aplicação de descontos
-
-### 5. **Cálculos Fiscais**
-- **IPI**: Base de cálculo e valor
-- **ICMS**: Base, alíquota e valor
-- **PIS**: Base, alíquota e valor
-- **COFINS**: Base, alíquota e valor
-
-### 6. **Consolidação de Totais**
-- Total do documento
-- Total financeiro
-- Atualização do JSON do item
+1.  **Carga de Contexto:** O script recupera os dados do orçamento, cliente (incluindo UF de destino), empresa logada (UF de origem) e as configurações fiscais do material.
+2.  **Definição do Preço de Custo:**
+    * Busca primeiramente na **Tabela de Preço** associada (`ABE4001`).
+    * Caso não exista, executa uma consulta SQL na **Composição do Produto** (`ABP20`), somando os insumos e aplicando percentual de mão de obra sobre o item principal.
+3.  **Cálculo de Logística:** Calcula automaticamente o Peso Líquido, Peso Bruto e o Volume (Vlme) utilizando os fatores de conversão do cadastro do item.
+4.  **Cálculo de IPI:** A base é composta pelo (Total + Frete + Seguro + Outras Despesas). A alíquota é extraída do NCM (`ABG01`).
+5.  **Cálculo de ICMS:**
+    * Determina a alíquota seguindo a hierarquia de prioridade: Entidade > Município > UF do Item > Cadastro do Item > Regra de UF Origem/Destino.
+    * Aplica a alíquota de 4% para produtos de origem estrangeira (CSTs 100, 300, 800) em operações interestaduais.
+    * Realiza a inclusão do IPI na base de ICMS caso o cenário seja de **Consumo Final** ou cliente **Não Contribuinte**.
+6.  **Cálculo de PIS/COFINS:** Calcula os valores aplicando as alíquotas cadastradas no item, deduzindo o valor do ICMS da base de cálculo (Exclusão do ICMS da base do PIS/COFINS).
+7.  **Totalização:** Consolida o `cbe1001totDoc` somando impostos e despesas e subtraindo os descontos incondicionais.
 
 ## ⚠️ Regras de Negócio
+### Formação de Preço por Composição
+> Quando o custo é derivado da composição, o sistema identifica o item de sequência 1 como o componente principal. Itens do tipo "Serviço" (tipo 3) são tratados como percentual de mão de obra sobre o valor do principal, enquanto os demais insumos são somados ao custo nominalmente.
 
-### Hierarquia de Alíquotas ICMS:
-1. **Entidade específica** (Abm1003)
-2. **Município** (Abm1002)
-3. **Estado** (Abm1001)
-4. **Valores padrão do item** (Abm10)
-5. **Configuração do item** (Abm0101)
-6. **Regras por UF** (interior × interestadual)
-
-### Cálculo de Preço para Itens Compostos:
-- Item principal (seq = 1) tem valor base
-- Itens do tipo serviço representam % de mão de obra
-- Demais itens somam ao custo
-- Total = custo + item principal + (item principal × % mão de obra)
-
-### Base de Cálculo de Impostos:
-- **IPI**: Total + frete + seguro + outras despesas
-- **ICMS**: Total + frete + seguro + outras despesas - desconto
-- **PIS/COFINS**: Total + frete + seguro + outras despesas - ICMS
-
-### Regras Específicas por CST:
-- CST 100, 300, 800: Alíquota interestadual de 4%
-- Demais CSTs: Alíquota de saída do estado
-
-### Validações Críticas:
-- Município da entidade obrigatório
-- Configuração fiscal do item obrigatória
-- Tipo fiscal do item obrigatório
-- Composição de produto única por item
-
-## 🎨 Saídas Geradas
-
-| Campo | Tipo | Descrição |
-|-------|------|-----------|
-| preco_custo | BigDecimal | Preço de custo do item |
-| vlr_vlme | BigDecimal | Valor do volume |
-| vlr_pl | BigDecimal | Valor do peso líquido |
-| vlr_pb | BigDecimal | Valor do peso bruto |
-| ipi_bc | BigDecimal | Base de cálculo do IPI |
-| ipi_aliq | BigDecimal | Alíquota do IPI |
-| ipi_ipi | BigDecimal | Valor do IPI |
-| icm_bc | BigDecimal | Base de cálculo do ICMS |
-| icm_aliq | BigDecimal | Alíquota do ICMS |
-| icm_icm | BigDecimal | Valor do ICMS |
-| pis_bc | BigDecimal | Base de cálculo do PIS |
-| pis_aliq | BigDecimal | Alíquota do PIS |
-| pis_pis | BigDecimal | Valor do PIS |
-| cofins_bc | BigDecimal | Base de cálculo do COFINS |
-| cofins_aliq | BigDecimal | Alíquota do COFINS |
-| cofins_cofins | BigDecimal | Valor do COFINS |
+### Hierarquia de Alíquotas de ICMS
+O sistema busca a alíquota mais específica para o cenário, nesta ordem:
+1.  Exceção por **Cliente/Entidade** (`ABM1003`).
+2.  Exceção por **Município** (`ABM1002`).
+3.  Exceção por **Estado/UF** do item (`ABM1001`).
+4.  Configuração genérica no **Cadastro do Item por Empresa** (`ABM0101`).
+5.  Alíquotas internas/interestaduais padrão das tabelas de **UF** (`AAG02`).
 
 ## 🔧 Dependências
+* **Consultas SQL:** Utiliza o método `buscarItemComposicao` para realizar joins complexos entre a estrutura de produto e tabelas de preço.
+* **Validações:** O processo é interrompido caso o município do cliente não esteja cadastrado ou se o item não possuir uma configuração fiscal ativa (`ABM12`).
 
-### Bibliotecas:
-- `br.com.multiorm` - Acesso a dados
-- `br.com.multitec.utils` - Utilitários e validações
+## 🔄 Métodos Principais
+### executar()
+Ponto de entrada que carrega todas as entidades relacionadas e prepara os campos JSON para o cálculo.
 
-### Entidades Principais:
-- Cbe1001 (Item do orçamento)
-- Abm01 (Item cadastral)
-- Abe40 (Tabela de preço)
-- Abe01 (Entidade)
+### calcularItem()
+Realiza a lógica aritmética dos impostos e totalizadores do documento.
 
-### Configurações:
-- Campos livres (JSON) das entidades
-- Parâmetros de cálculo fiscal
-- Hierarquia de valores por localidade
-
-## 📝 Observações Técnicas
-
-### Tratamento de Dados:
-- Uso extensivo de TableMap para campos JSON
-- Arredondamento para 2-4 casas decimais conforme necessidade
-- Validações com MultiValidationException
-
-### Performance:
-- Carregamento lazy de entidades relacionadas
-- Consultas otimizadas para composição de produtos
-- Cache de configurações por item/empresa
-
-### Hierarquia de Configurações:
-- Implementa fallback para valores não encontrados
-- Considera especificidade (entidade > município > estado > padrão)
-- Suporte a regras interestaduais
-
-### Casos de Exceção:
-- Processos CAS0240 e CAS0242 são ignorados
-- Itens sem configuração fiscal geram erro
-- Município obrigatório para entidade
-- Composição duplicada não permitida
+### buscarItemComposicao()
+Executa a query SQL para decompor a ficha técnica do produto e retornar os valores de custo de cada insumo.
